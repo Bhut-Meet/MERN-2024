@@ -11,7 +11,7 @@ const errorMiddleware = require("./middlewares/error-middleware");
 
 
 const corsOptions={
-    origin: "web-development-services-inky.vercel.app",
+    origin: "https://web-development-services-inky.vercel.app/",
     methods: ["GET", "HEAD","PUT","PATCH","POST","DELETE"],
     Credential:true,
 }
