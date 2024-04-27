@@ -11,7 +11,8 @@ const errorMiddleware = require("./middlewares/error-middleware");
 
 
 const corsOptions={
-    origin: "https://web-development-services-inky.vercel.app",
+    // origin: "http://localhost:5173",
+    origin: "http://localhost:5173",
     methods: ["GET", "HEAD","PUT","PATCH","POST","DELETE"],
     Credential:true,
 }
