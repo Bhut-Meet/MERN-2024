@@ -1,0 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.box{
+  box-shadow: 5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff;;
+}

@@ -1,0 +1,22 @@
+.custom-file-input {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .custom-file-input input[type="file"] {
+    position: absolute;
+    left: -9999px;
+  }
+
+  .custom-file-input label {
+    background-color: #007bff;
+    color: #fff;
+    padding: 6px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .custom-file-input label:hover {
+    background-color: #0056b3;
+}

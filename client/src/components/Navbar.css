@@ -1,0 +1,108 @@
+/* Navbar.css */
+
+/* body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+  } */
+  
+  /* .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px; 
+  } */
+  
+  .logo-brand a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem; /* Decreased font size */
+    font-weight: bold;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-right: 15px; /* Decreased margin */
+  }
+  
+  nav ul li:last-child {
+    margin-right: 0;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1rem; /* Decreased font size */
+    font-weight: 500;
+    padding: 8px 12px; /* Decreased padding */
+    border-radius: 5px;
+  }
+  
+  nav ul li a:hover {
+    /* background-color: #ffa600db; */
+    background-color: #334075;
+    /* background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);    color: #333; */
+  }
+  /* a.nav-link:hover{
+    color: black;
+  } */
+  
+
+  /* Navbar Brand */
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+/* Navbar Toggler Icon */
+.navbar-toggler-icon {
+  color: white;
+}
+
+/* Navbar Links */
+.navbar-nav .nav-link {
+  font-size: 1.1rem;
+}
+
+/* Responsive Navbar Collapse */
+@media (max-width: 991.98px) {
+  /* Navbar Toggler */
+  .navbar-toggler {
+    padding: 0.25rem 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  /* Navbar Collapse */
+  .navbar-collapse {
+    position: absolute;
+    top: 56px; /* Height of navbar */
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #343a40; /* Navbar background color */
+    padding: 0.5rem;
+    border-radius: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Navbar Links in Collapse */
+  .navbar-nav .nav-link {
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+}
