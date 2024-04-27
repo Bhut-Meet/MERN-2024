@@ -1,6 +1,5 @@
 import { useAuth } from "../store/auth";
 export const Home = () => {
-  const {API} = useAuth();
   return (
     <div className="container mt-5">
       <div className="row">
@@ -11,7 +10,7 @@ export const Home = () => {
           <div className="mt-4">
             <a href="/about" className="btn btn-primary me-2">About Me</a>
             <a href="/portfolio" className="btn btn-secondary">Portfolio</a>
-            <p>{API}</p>
+            {/* <p>{API}</p> */}
           </div>
         </div>
       </div>
