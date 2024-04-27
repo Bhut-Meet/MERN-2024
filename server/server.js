@@ -12,7 +12,7 @@ const errorMiddleware = require("./middlewares/error-middleware");
 
 const corsOptions={
     // origin: "http://localhost:5173",
-    origin: "http://localhost:5173",
+    origin: "https://websitedevelopmentservices.vercel.app/",
     methods: ["GET", "HEAD","PUT","PATCH","POST","DELETE"],
     Credential:true,
 }
