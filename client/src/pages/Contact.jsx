@@ -12,51 +12,94 @@ export const Contact = () => {
   const [contact, setContact] = useState(defaultContactFormData);
   const [userData, setUserData] = useState(true);
   const { user, API } = useAuth();
-  if (userData && user) {
-    setContact({
-      username: user.username,
-      email: user.email,
-      phone: user.phone,
-      message: '',
-    });
-    setUserData(false);
-  }
 
-  const handleInput = (e) => {
-    const { name, value } = e.target;
+  // if (userData && user) {
+  //   setContact({
+  //     username: user.username,
+  //     email: user.email,
+  //     phone: user.phone,
+  //     message: '',
+  //   });
+  //   setUserData(false);
+  // }
 
-    //   setContact({
-    //     ...contact,
-    //     [name]: value,
-    //   });
-    // };
+  // const handleInput = (e) => {
+  //   const { name, value } = e.target;
 
-    setContact((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  //     setContact({
+  //       ...contact,
+  //       [name]: value,
+  //     });
+  //   };
 
-  const handleSubmit = async () => {
-    // e.preventDefault();
-    try {
-      const response = await fetch(`${API}/api/form/contact`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(contact),
+  //   setContact((prev) => ({
+  //     ...prev,
+  //     [name]: value,
+  //   }));
+  // };
+
+  // const handleSubmit = async () => {
+  //   try {
+  //     const response = await fetch(`${API}/api/form/contact`, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify(contact),
+  //     });
+  //     if (response.ok) {
+  //       setContact(defaultContactFormData);
+  //       const data = await response.json();
+  //       console.log(data);
+  //       alert('Message Sent!');
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+
+    // Populate contact data from user if available
+    if (userData && user) {
+      setContact({
+        username: user.username,
+        email: user.email,
+        phone: user.phone,
+        message: '',
       });
-      if (response.ok) {
-        setContact(defaultContactFormData);
-        // const data = await response.json();
-        // console.log(data);
-        alert('Message Sent!');
-      }
-    } catch (error) {
-      console.log(error);
+      setUserData(false);
     }
-  };
+  
+    const handleInput = (e) => {
+      const { name, value } = e.target;
+  
+      setContact({
+        ...contact,
+        [name]: value,
+      });
+    };
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+  
+      try {
+        const response = await fetch(`${API}/api/form/contact`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(contact),
+        });
+  
+        if (response.ok) {
+          setContact(defaultContactFormData);
+          alert('Message Sent!');
+          window.location.reload();
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
   return (
     <section className='py-5'>
