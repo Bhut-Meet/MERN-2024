@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
   // const authorizationToken = ('meet', token);
 
   // const API = import.meta.env.VITE_BASE_URL;
-  const API = "http://localhost:5000"
+  const API = 'https://mernapi-nine.vercel.app';
 
   const storeTokenInLocalStorage = (serverToken) => {
     setToken(serverToken);
