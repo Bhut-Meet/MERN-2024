@@ -9,6 +9,15 @@ const adminRoute = require('./router/admin-router')
 const connectDb = require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
 
+
+
+function corsMiddleware(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'https://your-vercel-domain.com'); // Replace with your Vercel domain
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Common HTTP methods
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Common allowed headers
+    next();
+  }
+
 const corsOptions={
     // origin: ["http://localhost:5173", "https://websitedevelopmentservices.vercel.app"],
     // origin: "https://websitedevelopmentservices.vercel.app",
@@ -22,12 +31,12 @@ app.use(cors(corsOptions));
 
 
 app.use(express.json()) // middleware for parsing JSON bodies
-app.use("/api/auth", authRoutes);
-app.use("/api/form", contactRoute);
-app.use("/api/data", serviceRoute);
+app.use("/api/auth",corsMiddleware, authRoutes);
+app.use("/api/form",corsMiddleware, contactRoute);
+app.use("/api/data",corsMiddleware, serviceRoute);
 
 //lets define admin routes
-app.use("/api/admin", adminRoute);
+app.use("/api/admin", corsMiddleware, adminRoute);
 
 app.use(errorMiddleware)
 
