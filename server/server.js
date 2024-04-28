@@ -8,7 +8,7 @@ const serviceRoute = require('./router/service-router')
 const adminRoute = require('./router/admin-router')
 const connectDb = require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
-
+const header = new Headers({ "Access-Control-Allow-Origin": "*" });
 
 const corsOptions={
     mode: 'no-cors',
