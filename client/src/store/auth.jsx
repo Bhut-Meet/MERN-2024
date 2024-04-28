@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
   // const authorizationToken = ('meet', token);
 
   // const API = import.meta.env.VITE_BASE_URL;
-  const API = 'https://mernapi-vza3.onrender.com';
+  const API = 'https://mernbackend-2cyi.onrender.com';
 
   const storeTokenInLocalStorage = (serverToken) => {
     setToken(serverToken);
