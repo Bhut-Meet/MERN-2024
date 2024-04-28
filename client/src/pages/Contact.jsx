@@ -58,48 +58,47 @@ export const Contact = () => {
   //   }
   // };
 
+  // Populate contact data from user if available
+  if (userData && user) {
+    setContact({
+      username: user.username,
+      email: user.email,
+      phone: user.phone,
+      message: '',
+    });
+    setUserData(false);
+  }
 
-    // Populate contact data from user if available
-    if (userData && user) {
-      setContact({
-        username: user.username,
-        email: user.email,
-        phone: user.phone,
-        message: '',
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+
+    setContact({
+      ...contact,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(`${API}/api/form/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(contact),
       });
-      setUserData(false);
-    }
-  
-    const handleInput = (e) => {
-      const { name, value } = e.target;
-  
-      setContact({
-        ...contact,
-        [name]: value,
-      });
-    };
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-  
-      try {
-        const response = await fetch(`${API}/api/form/contact`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(contact),
-        });
-  
-        if (response.ok) {
-          setContact(defaultContactFormData);
-          alert('Message Sent!');
-          window.location.reload();
-        }
-      } catch (error) {
-        console.error(error);
+
+      if (response.ok) {
+        setContact(defaultContactFormData);
+        alert('Message Sent!');
+        window.location.reload();
       }
-    };
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <section className='py-5'>
@@ -107,7 +106,7 @@ export const Contact = () => {
         <div className='row'>
           <div className='col-md-6'>
             <img
-              src='../../src/assets/support.png'
+              src='https://websitedevelopmentservices.vercel.app/src/assets/support.png'
               alt='Login Image'
               className='img-fluid'
               style={{ maxWidth: '80%', height: 'auto' }}
