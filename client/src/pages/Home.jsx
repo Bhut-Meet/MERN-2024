@@ -1,4 +1,4 @@
-import { useAuth } from "../store/auth";
+import { Link } from "react-router-dom";
 export const Home = () => {
   return (
     <div className="container mt-5">
@@ -8,8 +8,8 @@ export const Home = () => {
           <h1>Welcome to My Portfolio</h1>
           <p className="lead">Crafting beautiful and functional web solutions for your business needs</p>
           <div className="mt-4">
-            <a href="/about" className="btn btn-primary me-2">About Me</a>
-            <a href="/portfolio" className="btn btn-secondary">Portfolio</a>
+            <Link to="/about" className="btn btn-primary me-2">About Me</Link>
+            <Link to="/portfolio" className="btn btn-secondary">Portfolio</Link>
             {/* <p>{API}</p> */}
           </div>
         </div>
