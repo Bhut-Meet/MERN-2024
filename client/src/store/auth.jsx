@@ -12,9 +12,9 @@ export const AuthProvider = ({ children }) => {
   const authorizationToken = `meet ${token}`;
   // const authorizationToken = ('meet', token);
 
-  const API = import.meta.env.VITE_BASE_URL;
+  // const API = import.meta.env.VITE_BASE_URL;
+  const API = "http://localhost:5000"
 
-  // const API = "http://localhost:5000"
   const storeTokenInLocalStorage = (serverToken) => {
     setToken(serverToken);
     return localStorage.setItem('token', serverToken);
