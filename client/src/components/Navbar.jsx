@@ -12,6 +12,21 @@ export const Navbar = () => {
 
 
 
+  // start which navbar show admin navbar or user navbar
+  const [showNavbar, setShowNavbar] = useState(true);
+  const location = useLocation(); // Get the current location
+
+  useEffect(() => {
+    // Check if the current path is '/admin/users'
+    if (location.pathname.includes('/admin')){
+      setShowNavbar(false); // Hide the navbar
+    } else {
+      setShowNavbar(true); // Show the navbar for other paths
+    }
+  }, [location.pathname]); // Re-run effect when the path changes
+
+// end which navbar show admin navbar or user navbar
+
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
@@ -24,8 +39,7 @@ export const Navbar = () => {
 
 
   return (
-    // <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ display: showNavbar ? 'block' : 'none' }}>
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ display: showNavbar ? 'block' : 'none' }}>
       <div className="container">
         <NavLink className="navbar-brand" to='/' onClick={closeNav}>Meet Patel</NavLink>
         <button onClick={toggleNav} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
