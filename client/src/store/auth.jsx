@@ -13,7 +13,9 @@ export const AuthProvider = ({ children }) => {
   // const authorizationToken = ('meet', token);
 
   // const API = import.meta.env.VITE_BASE_URL;
-  const API = 'https://mernbackend-2cyi.onrender.com';
+
+  // const API = 'https://mernbackend-2cyi.onrender.com';
+  const API = 'https://mern-api-rouge.vercel.app';
 
   const storeTokenInLocalStorage = (serverToken) => {
     setToken(serverToken);
