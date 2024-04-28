@@ -11,7 +11,7 @@ export const Home = () => {
             <Link to="/about" className="btn btn-primary me-2">About Me</Link>
             <Link to="/portfolio" className="btn btn-secondary">Portfolio</Link>
             {/* <p>{API}</p> */}
-            <Link to="/admin">admin</Link>
+            {/* <Link to="/admin">admin</Link> */}
           </div>
         </div>
       </div>
