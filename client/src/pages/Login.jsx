@@ -65,6 +65,7 @@ export const Login = () => {
           <div className='col-md-6'>
             <img
               src='https://websitedevelopmentservices.vercel.app/src/assets/login.png'
+              
               alt='Login Image'
               className='img-fluid'
               style={{ maxWidth: '80%', height: 'auto' }}
