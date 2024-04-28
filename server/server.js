@@ -12,8 +12,8 @@ const errorMiddleware = require("./middlewares/error-middleware");
 
 
 function corsMiddleware(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'https://your-vercel-domain.com'); // Replace with your Vercel domain
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Common HTTP methods
+    res.setHeader('Access-Control-Allow-Origin', 'https://websitedevelopmentservices.vercel.app'); // Replace with your Vercel domain
+    res.setHeader('Access-Control-Allow-Methods', "GET", "HEAD","PUT","PATCH","POST","DELETE"); // Common HTTP methods
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Common allowed headers
     next();
   }
