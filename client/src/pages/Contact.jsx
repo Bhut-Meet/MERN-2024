@@ -25,17 +25,17 @@ export const Contact = () => {
   const handleInput = (e) => {
     const { name, value } = e.target;
 
-    setContact({
-      ...contact,
-      [name]: value,
-    });
-  };
+    //   setContact({
+    //     ...contact,
+    //     [name]: value,
+    //   });
+    // };
 
-  //   setContact((prev)=>({
-  //     ...prev,
-  //     [name]: value,
-  //   }));
-  // };
+    setContact((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = async () => {
     // e.preventDefault();
