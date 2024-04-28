@@ -106,7 +106,7 @@ export const Contact = () => {
         <div className='row'>
           <div className='col-md-6'>
             <img
-              src='/images/login.png'
+              src='https://websitedevelopmentservices.vercel.app/images/login.png'
               alt='Login Image'
               className='img-fluid'
               style={{ maxWidth: '80%', height: 'auto' }}
