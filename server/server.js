@@ -21,7 +21,7 @@ function corsMiddleware(req, res, next) {
 const corsOptions={
     // origin: ["http://localhost:5173", "https://websitedevelopmentservices.vercel.app"],
     // origin: "https://websitedevelopmentservices.vercel.app",
-    origin: process.env.ALLOWED_ORIGINS || "https://websitedevelopmentservices.vercel.app", // Replace with allowed origins from environment variable or default to Vercel domain
+    origin:"https://websitedevelopmentservices.vercel.app", // Replace with allowed origins from environment variable or default to Vercel domain
     methods: ["GET", "HEAD","PUT","PATCH","POST","DELETE"],
     Credential:true,
 }
