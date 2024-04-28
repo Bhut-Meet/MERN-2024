@@ -11,9 +11,9 @@ const errorMiddleware = require("./middlewares/error-middleware");
 const header = new Headers({ "Access-Control-Allow-Origin": "*" });
 
 const corsOptions={
-    mode: 'no-cors',
-    origin: ["http://localhost:5173", "https://websitedevelopmentservices.vercel.app"],
+    // origin: ["http://localhost:5173", "https://websitedevelopmentservices.vercel.app"],
     // origin: "https://websitedevelopmentservices.vercel.app",
+    origin: process.env.ALLOWED_ORIGINS || "https://websitedevelopmentservices.vercel.app", // Replace with allowed origins from environment variable or default to Vercel domain
     methods: ["GET", "HEAD","PUT","PATCH","POST","DELETE"],
     Credential:true,
 }
