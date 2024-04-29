@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../store/auth';
 import { toast } from 'react-toastify';
+import login from '../assets/login.png'
 
 // const LOGINURL=`${API}/api/auth/login`;
 
@@ -62,11 +63,11 @@ export const Login = () => {
     <section className='py-5'>
       <div className='container'>
         <div className='row'>
-          <div className='col-md-6'>
+          <div className='col-md-6 d-flex justify-content-center align-items-center'>
             <img
-              src={'../../src/assets/login.png'}
+              src={login}
               alt='Login Image'
-              className='img-fluid'
+              className='img-fluid mb-3'
               style={{ maxWidth: '80%', height: 'auto' }}
             />
           </div>

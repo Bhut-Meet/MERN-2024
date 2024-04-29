@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../store/auth';
 import {  toast } from "react-toastify";
+import register from '../assets/register.png'
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -62,12 +63,12 @@ export const Register = () => {
     <section className='py-5'>
       <div className='container'>
         <div className='row'>
-          <div className='col-md-6'>
+        <div className='col-md-6 d-flex justify-content-center align-items-center'>
             <img
               // src="/images/register.png"
-              src='../../src/assets/register.png'
+              src={register}
               alt='Registration Image'
-              className='img-fluid'
+              className='img-fluid mb-3'
               style={{ maxWidth: '80%', height: 'auto' }} // Fix image size
             />
           </div>
