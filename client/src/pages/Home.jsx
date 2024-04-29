@@ -9,7 +9,7 @@ export const Home = () => {
           <p className='lead'>
             We build beautiful, modern websites that meet the goals of our clients and the needs of their customers.
           </p>
-          <Link to="#" className='btn' style={{ background: "#9333EA",color:"white" }}>
+          <Link to="/contact" className='btn' style={{ background: "#9333EA",color:"white" }}>
             Get Started
           </Link>
         </div>
@@ -46,6 +46,21 @@ export const Home = () => {
           </div>
         </div>
       </div>
+      <div className='container pb-5 mt-5 mb-5'>
+        <h2 className='text-center mb-5'>About Us</h2>
+        <div className='row align-items-center'>
+          <div className='col-md-6'>
+            <img src="https://t4.ftcdn.net/jpg/02/83/46/33/360_F_283463385_mfnrx6RPU3BqObhVuVjYZjeZ5pegE7xq.jpg" alt="" className='img-fluid rounded shadow' />
+          </div>
+          <div className='col-md-6'>
+            <div className=''>
+              <p>We are a team of passionate web developers and designers who love to create exceptional websites. With over a decade of experience, we have the skills and knowledge to bring your vision to life.</p>
+              <Link to="/contact" className='btn' style={{ background: "#9333EA",color:"white" }}>Meet the Team</Link>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <div className='text-center mt-5 bg-dark' ><p style={{color:"white"}}>© 2023 WebDev. All rights reserved.</p></div> */}
     </div>
   );
 };
