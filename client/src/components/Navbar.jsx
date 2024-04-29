@@ -4,7 +4,7 @@ import { useAuth } from '../store/auth';
 import "../components/Navbar.css";
 import { FaUser  } from "react-icons/fa";
 import { useLocation } from 'react-router-dom'; // Import useLocation hook
-
+import logo from '../assets/mainlogo.png'
 
 
 export const Navbar = () => {
@@ -41,7 +41,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ display: showNavbar ? 'block' : 'none' }}>
       <div className="container">
-        <NavLink className="navbar-brand" to='/' onClick={closeNav}>Meet Patel</NavLink>
+        <NavLink className="navbar-brand" to='/' onClick={closeNav}><img src={logo} alt="" style={{width:"30%", height:"20%"}}/></NavLink>
         <button onClick={toggleNav} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -66,7 +66,7 @@ export const Navbar = () => {
             { isLoggedIn ? (
               <>
             <li className="nav-item">
-              <NavLink className="nav-link" to='/logout'>Logout</NavLink>
+              <NavLink className="nav-link" to='/logout' onClick={closeNav}>Logout</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to='Profile' onClick={closeNav}><FaUser className='m-2'></FaUser></NavLink>
