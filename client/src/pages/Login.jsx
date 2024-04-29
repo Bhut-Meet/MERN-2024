@@ -2,10 +2,9 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../store/auth';
 import { toast } from 'react-toastify';
-import login from '../assets/login.png'
+import login from '../assets/login.png';
 
 // const LOGINURL=`${API}/api/auth/login`;
-
 
 export const Login = () => {
   const [user, setUser] = useState({
@@ -26,6 +25,9 @@ export const Login = () => {
   };
 
   const handleSubmit = async (e) => {
+    const toastPromise = toast.promise('Logging you in...', {
+      pending: 'Please wait...', // Display a "pending" message initially
+    });
     e.preventDefault();
     try {
       const response = await fetch(`${API}/api/auth/login`, {
@@ -46,7 +48,7 @@ export const Login = () => {
           email: '',
           password: '',
         });
-        toast.success('Login successful');
+        toastPromise.updateSuccess('Login successful');
 
         navigate('/');
         // window.location.reload();
