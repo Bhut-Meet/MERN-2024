@@ -107,7 +107,7 @@ export const Contact = () => {
           <div className='col-md-6'>
             <img
               // src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIBAFR6-dn5mIqIzM3ti2HUhmH6E0ad_PTd2x_BgrYAw&s'
-              src={"./images/login.png"}
+              src={"../../src/assets/login.png"}
               alt='Login Image'
               className='img-fluid'
               style={{ maxWidth: '80%', height: 'auto' }}
