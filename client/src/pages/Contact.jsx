@@ -108,6 +108,7 @@ export const Contact = () => {
           <div className='col-md-6'>
             <img
               src={'../../src/images/login.png'}
+              //there is a image
               // src='https://t4.ftcdn.net/jpg/04/60/71/01/360_F_460710131_YkD6NsivdyYsHupNvO3Y8MPEwxTAhORh.jpg'
               alt='Login Image'
               className='img-fluid'
