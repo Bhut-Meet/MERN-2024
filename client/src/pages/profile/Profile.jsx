@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom";
 export const Profile = () => {
     const { user } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
+    const {userAuthentication} = useAuth();
 
     const togglePasswordVisibility = () => {
         setShowPassword(prevState => !prevState);
@@ -91,6 +92,13 @@ export const Profile = () => {
                             <button type='submit' className='btn btn-primary mt-2 px-4'>
                                 Edit Profile
                             </button>
+                            {
+                                userAuthentication ? (<>
+                                <NavLink to="/admin" style={{textDecoration:"none"}} className='btn btn-primary mt-2 ms-2 px-4'>admin</NavLink>
+                                </>):(<>
+                                <p>Your are not admin</p>
+                                </>)
+                            }
                             <NavLink to="/logout" style={{textDecoration:"none"}} className='btn btn-primary mt-2 ms-2 px-4'>Logout</NavLink>
                         </form>
                     </div>
