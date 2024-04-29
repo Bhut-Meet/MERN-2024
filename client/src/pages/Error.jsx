@@ -10,8 +10,12 @@ export const Error = () => {
                     Oops! It seems like the page you`re trying to access doesn`t exist. If you believe there`s an issue, feel free to report it, and we`ll look into it.
                 </p>
                 <div className="d-flex justify-content-center gap-5 col-md-6 mx-auto">
-                    <NavLink to="/" className="btn btn-primary rounded-5 px-5 ">Return Home</NavLink>
-                    <NavLink to="/contact" className="btn btn-secondary  rounded-5 px-5">Report Problem</NavLink>
+                    <NavLink to="/" className="btn btn-primary rounded-5 px-3 py-2">
+                        Return Home
+                    </NavLink>
+                    <NavLink to="/contact" className="btn btn-secondary rounded-5 px-3 py-2">
+                        Report Problem
+                    </NavLink>
                 </div>
             </div>
         </section>
