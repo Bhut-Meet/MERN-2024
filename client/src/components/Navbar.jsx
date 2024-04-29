@@ -45,11 +45,11 @@ export const Navbar = () => {
         <button onClick={toggleNav} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className={`collapse navbar-collapse mt-3 ${
+        <div className={`collapse navbar-collapse mt-3 mt-sm-0  ${
                   isNavOpen ? 'show' : ''
                 }`}
                 id='navbarSupportedContent'>
-          <ul className="navbar-nav ms-auto align-items-center">
+          <ul className="navbar-nav ms-auto align-items-center justify-content-center">
             <li className="nav-item">
               <NavLink className="nav-link" to='/' onClick={closeNav}>Home</NavLink>
             </li>

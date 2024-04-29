@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Contact } from './Contact';
 
 export const Home = () => {
   return (
@@ -50,7 +51,7 @@ export const Home = () => {
         <h2 className='text-center mb-5'>About Us</h2>
         <div className='row align-items-center'>
           <div className='col-md-6'>
-            <img src="https://t4.ftcdn.net/jpg/02/83/46/33/360_F_283463385_mfnrx6RPU3BqObhVuVjYZjeZ5pegE7xq.jpg" alt="" className='img-fluid rounded shadow' />
+            <img src="https://t4.ftcdn.net/jpg/02/83/46/33/360_F_283463385_mfnrx6RPU3BqObhVuVjYZjeZ5pegE7xq.jpg" alt="" className='img-fluid rounded shadow mb-3 mb-md-0' />
           </div>
           <div className='col-md-6'>
             <div className=''>
@@ -60,7 +61,9 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      {/* <div className='text-center mt-5 bg-dark' ><p style={{color:"white"}}>© 2023 WebDev. All rights reserved.</p></div> */}
+      <div className='shadow-lg'>
+      <Contact  />
+      </div>
     </div>
   );
 };

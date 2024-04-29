@@ -102,7 +102,7 @@ export const Contact = () => {
   };
 
   return (
-    <section className='py-5'>
+    <section className='pt-5'>
       <div className='container'>
         <div className='row'>
         <div className='col-md-6 d-flex justify-content-center align-items-center'>
@@ -202,13 +202,13 @@ export const Contact = () => {
           overflow: 'hidden',
         }}
       >
-        <iframe
-          src='https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1719.818283857928!2d70.78692423866337!3d22.24368495097004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1712481581750!5m2!1sen!2sin'
-          width='100%'
-          height='500'
-          allowFullScreen=''
-          loading='lazy'
-        ></iframe>
+          {/* <iframe
+            src='https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1719.818283857928!2d70.78692423866337!3d22.24368495097004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1712481581750!5m2!1sen!2sin'
+            width='100%'
+            height='500'
+            allowFullScreen=''
+            loading='lazy'
+          ></iframe> */}
       </div>
     </section>
   );
