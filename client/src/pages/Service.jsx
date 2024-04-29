@@ -1,4 +1,5 @@
 import { useAuth } from "../store/auth";
+import {Link} from "react-router-dom";
 // import "../../src/index.css"
 export const Service = () => {
   const { services } = useAuth();
@@ -15,6 +16,7 @@ export const Service = () => {
               const {image, service, price, provider, description } = curElem;
               return (
                 <div className="col" key={index}>
+                  <Link to="/home">
                   <div className="card h-100 box" >
                     <img src={image} alt="" style={{ height: "200px", width: "100%", objectFit: "cover",borderRadius:"5px"}}/>
                     <div className="card-body">
@@ -32,6 +34,7 @@ export const Service = () => {
                       </div>
                     </div>
                   </div>
+                  </Link>
                 </div>
               );
             })
