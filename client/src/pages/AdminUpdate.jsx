@@ -123,6 +123,20 @@ return (
                         placeholder='Enter phone'
                       />
                     </div>
+                    <div className='mb-3'>
+                      <label htmlFor='number' className='form-label'>
+                        isAdmin
+                      </label>
+                      <input
+                        type='phone'
+                        className='form-control fw-bold'
+                        id='isAdmin'
+                        name='isAdmin'
+                        value={data.isAdmin}
+                        onChange={handleInput}
+                        // placeholder='En'
+                      />
+                    </div>
 
                     <button type='submit' className='btn btn-primary w-100'>
                      Update
