@@ -1,2 +1,2 @@
 npm i node-modules cors mongoose express bcrypt express-validator jsonwebtoken stripe uuid
-node server.js
+node server.js 
