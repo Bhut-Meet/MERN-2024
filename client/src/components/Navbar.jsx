@@ -41,7 +41,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ display: showNavbar ? 'block' : 'none' }}>
       <div className="container">
-        <NavLink className="navbar-brand" to='/' onClick={closeNav}><img src={logo} alt="" style={{width:"30%", height:"20%"}}/></NavLink>
+        <NavLink className="navbar-brand" to='/' onClick={closeNav}><img src={logo} alt="" style={{width:"30%", height:"10%"}}/></NavLink>
         <button onClick={toggleNav} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>

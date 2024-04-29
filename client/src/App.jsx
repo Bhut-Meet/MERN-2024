@@ -15,6 +15,7 @@ import { AdminContacts } from './pages/Admin-Contacts';
 import { AdminUpdate } from './pages/AdminUpdate';
 import { AdminAddService } from './pages/Admin-AddService';
 import { AdminServices } from './pages/Admin-Services';
+import { UserProfile } from './pages/profile/UserProfile';
 const App = () => {
   return (
     <>
@@ -29,6 +30,7 @@ const App = () => {
           <Route path='/register' element={<Register />} />
           <Route path='/logout' element={<Logout />} />
           <Route path='/Profile' element={<Profile />} />
+          <Route path='/userprofile' element={<UserProfile/>} />
           <Route path='/login' element={<Login />} />
           <Route path='/admin/' element={<AdminLayout></AdminLayout>}>
             <Route path='users' element={<AdminUsers />} />
