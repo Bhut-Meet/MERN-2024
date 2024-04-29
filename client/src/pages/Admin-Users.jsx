@@ -72,7 +72,7 @@
                                         <td>{curUser.username}</td>
                                         <td>{curUser.email}</td>
                                         <td>{curUser.phone}</td>
-                                        <td>{curUser.isAdmin}</td>
+                                        <td>{curUser.isAdmin ? "Yes" : "No"}</td>
                                         <td className="d-flex justify-content-evenly">
                                             <button className="btn btn-success btn-sm mr-2 px-3 rounded-5"><Link style={{color:"white",textDecoration:"none"}} to={`/admin/users/${curUser._id}/edit`}>Edit</Link> </button>
                                             <button onClick={() => deleteUser(curUser._id)} className="btn btn-danger btn-sm px-4 rounded-3">Delete</button>
