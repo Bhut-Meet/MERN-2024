@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 export const Profile = () => {
     const { user } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
-    const {userAuthentication} = useAuth();
+    const {userAuthentication} = useAuth(true);
 
     const togglePasswordVisibility = () => {
         setShowPassword(prevState => !prevState);
