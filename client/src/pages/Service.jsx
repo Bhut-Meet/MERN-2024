@@ -16,7 +16,7 @@ export const Service = () => {
               const {image, service, price, provider, description } = curElem;
               return (
                 <div className="col" key={index}>
-                  <Link to="/home">
+                  <Link to="/" style={{color:"white",textDecoration:"none"}}>
                   <div className="card h-100 box" >
                     <img src={image} alt="" style={{ height: "200px", width: "100%", objectFit: "cover",borderRadius:"5px"}}/>
                     <div className="card-body">
