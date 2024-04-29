@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../store/auth';
+import contacimag from '../assets/login.png'
 
 const defaultContactFormData = {
   username: '',
@@ -107,7 +108,7 @@ export const Contact = () => {
           <div className='col-md-6'>
             <img
               // src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIBAFR6-dn5mIqIzM3ti2HUhmH6E0ad_PTd2x_BgrYAw&s'
-              src={"../../src/assets/login.png"}
+              src={contacimag}
               alt='Login Image'
               className='img-fluid'
               style={{ maxWidth: '80%', height: 'auto' }}
