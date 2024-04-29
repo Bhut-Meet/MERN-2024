@@ -1,7 +1,7 @@
 import "../profile/Profile.css";
 import { useAuth } from "../../store/auth";
 import { useState } from 'react';
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 export const Profile = () => {
@@ -92,9 +92,9 @@ export const Profile = () => {
                                 Edit Profile
                             </button>
                             {user.isAdmin ? (
-                                <button className='btn btn-primary mt-2 ms-2 px-4'>
+                                <Link to="/admin" className='btn btn-primary mt-2 ms-2 px-4'>
                                     Admin
-                                </button>
+                                </Link>
                             ):(null)}
                             <NavLink to="/logout" style={{textDecoration:"none"}} className='btn btn-primary mt-2 ms-2 px-4'>Logout</NavLink>
                         </form>
