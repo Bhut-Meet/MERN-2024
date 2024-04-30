@@ -86,7 +86,7 @@ export const AuthProvider = ({ children }) => {
         services,
         isLoading,
         API,
-        userAuthentication
+        userAuthentication,
       }}
     >
       {children}

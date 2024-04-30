@@ -17,6 +17,7 @@ import { AdminAddService } from './pages/Admin-AddService';
 import { AdminServices } from './pages/Admin-Services';
 import { UserProfile } from './pages/profile/UserProfile';
 import { Footer } from './components/Footer';
+import { AdminServiceUpdate } from './pages/AdminServiceUpdate';
 const App = () => {
   return (
     <>
@@ -39,6 +40,7 @@ const App = () => {
             <Route path='users/:id/edit' element={<AdminUpdate />} />
             <Route path='AdminServices' element={<AdminServices />} />
             <Route path='AddServices' element={<AdminAddService />} />
+            <Route path='AdminServices/:id/edit' element={<AdminServiceUpdate/>} />
           </Route>
         </Routes>
         <Footer />

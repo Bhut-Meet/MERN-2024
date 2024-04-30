@@ -11,6 +11,8 @@ router.route("/users/delete/:id").delete( authMiddleware, adminMiddleware, admin
 router.route('/contacts').get( authMiddleware, adminMiddleware, adminController.getAllContacts);
 router.route('/AdminServices').get( authMiddleware, adminMiddleware, adminController.getAllServices);
 router.route('/AddServices').post( authMiddleware, adminMiddleware, adminController.AddServices);
+router.route("/AdminServices/:id").get(authMiddleware, adminMiddleware, adminController.getServiceById);
+router.route('/AdminServices/update/:id').patch(authMiddleware, adminMiddleware,adminController.UpdateServiceById);
 router.route("/AdminServices/delete/:id").delete( authMiddleware, adminMiddleware, adminController.deleteServiceById);
 router.route("/contacts/delete/:id").delete( authMiddleware, adminMiddleware, adminController.deleteContactById);
 

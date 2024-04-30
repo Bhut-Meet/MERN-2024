@@ -1,6 +1,7 @@
 const User = require('../models/user-model');
 const Contact = require('../models/contact-model')
 const Service = require('../models/service-model');
+const services = require('./service-controller');
 
 // * --------------------------------
 // * get all Users logic
@@ -67,7 +68,7 @@ const getAllServices =async (req,res) =>{
 
 
 // * --------------------------------
-// *  contact delete logic
+// *  single service delete logic
 // * --------------------------------
 const deleteServiceById =async(req,res)=>{
     try {
@@ -79,6 +80,48 @@ const deleteServiceById =async(req,res)=>{
     }
 }
 
+// * --------------------------------
+// *  Single service get logic
+// * --------------------------------
+const getServiceById = async (req, res, next) => {
+    try {
+        // Extract the ID from the request parameters
+        const id = req.params.id;
+
+        // Find the service by ID in the database
+        const data = await Service.findOne({ _id: id });
+
+        // If service is found, send it as JSON response with status 200
+        if (data) {
+            console.log(data);
+            return res.status(200).json(data);
+        } else {
+            // If service is not found, return 404 error
+            return res.status(404).json({ message: "Service not found" });
+        }
+    } catch (error) {
+        // If there's an error, pass it to the error handling middleware
+        next(error);
+    }
+}
+
+// * --------------------------------
+// *  service edit logic
+// * --------------------------------
+const UpdateServiceById =async(req,res)=>{
+    try {
+        const id = req.params.id;
+        const UpdateUserData = req.body;
+
+        const UpdatedData = await Service.updateOne({_id:id},{
+            $set:UpdateUserData,
+        }
+    );
+        return res.status(200).json(UpdatedData);
+    } catch (error) {
+        next(error);
+    }
+}
 
 // * --------------------------------
 // *  single User edit logic
@@ -94,7 +137,7 @@ const getUsersById =async(req,res)=>{
 }
 
 // * --------------------------------
-// *  single User edit logic
+// *  update User edit logic
 // * --------------------------------
 const UpdateUserById =async(req,res)=>{
     try {
@@ -137,4 +180,4 @@ const deleteUserById =async(req,res)=>{
     }
 }
 
-module.exports = {getAllUsers,getAllContacts,deleteUserById,getUsersById,UpdateUserById,deleteContactById,AddServices,getAllServices,deleteServiceById};
+module.exports = {getAllUsers,getAllContacts,deleteUserById,getUsersById,UpdateUserById,deleteContactById,AddServices,getAllServices,deleteServiceById,getServiceById,UpdateServiceById};
