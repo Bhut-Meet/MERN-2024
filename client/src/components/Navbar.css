@@ -54,7 +54,7 @@
   
   nav ul li a:hover {
     /* background-color: #ffa600db; */
-    background-color: #334075;
+    background-color: #9333EA;
     /* background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);    color: #333; */
   }
   /* a.nav-link:hover{
@@ -105,4 +105,24 @@
     text-align: center;
     padding: 0.5rem 0;
   }
+}
+
+
+
+
+/* Navbar.css */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s ease-in-out forwards;
 }

@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Contact } from './Contact';
+import "../components/Navbar.css"
 
 export const Home = () => {
   return (
-    <div className='container mt-5'>
+    <div className='container mt-5 fadeIn'>
       <div className='row'>
         <div className='col-md-8 offset-md-2 text-center'>
           <h1>Professional Web Development Services</h1>

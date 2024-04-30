@@ -109,7 +109,7 @@ export const Login = () => {
                       // required
                     />
                   </div>
-                  <button type='submit' className='btn btn-primary w-100'>
+                  <button type='submit' className='btn w-100' style={{backgroundColor:"#9333EA", color:"white"}}>
                     Login Now
                   </button>
                 </form>

@@ -81,7 +81,6 @@ export const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await fetch(`${API}/api/form/contact`, {
         method: 'POST',
@@ -183,7 +182,7 @@ export const Contact = () => {
                       required
                     ></textarea>
                   </div>
-                  <button type='submit' className='btn btn-primary w-100'>
+                  <button type='submit' className='btn w-100' style={{backgroundColor:"#9333EA", color:"white"}}>
                     Send Message
                   </button>
                 </form>

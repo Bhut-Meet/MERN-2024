@@ -15,6 +15,7 @@ export const Navbar = () => {
   // start which navbar show admin navbar or user navbar
   const [showNavbar, setShowNavbar] = useState(true);
   const location = useLocation(); // Get the current location
+  const [isMobile, setIsMobile] = useState(false); // State to detect mobile view
 
   useEffect(() => {
     // Check if the current path is '/admin/users'
@@ -23,9 +24,20 @@ export const Navbar = () => {
     } else {
       setShowNavbar(true); // Show the navbar for other paths
     }
-  }, [location.pathname]); // Re-run effect when the path changes
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust breakpoint for mobile as needed
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize(); // Call on initial render to check device width
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, [location.pathname],); // Re-run effect when the path changes
 
 // end which navbar show admin navbar or user navbar
+
 
 
   const toggleNav = () => {
@@ -39,17 +51,14 @@ export const Navbar = () => {
 
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ display: showNavbar ? 'block' : 'none' }}>
+    <nav className={`navbar navbar-expand-lg navbar-dark bg-dark fixed-top ${isMobile ? 'navbar-fixed-bottom' : ''}`} style={{ display: showNavbar ? 'block' : 'none' }}>
       <div className="container">
         <NavLink className="navbar-brand" to='/' onClick={closeNav}><img src={logo} alt="" style={{width:"31%", height:"10%"}}/></NavLink>
         <button onClick={toggleNav} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className={`collapse navbar-collapse mt-3 mt-sm-0  ${
-                  isNavOpen ? 'show' : ''
-                }`}
-                id='navbarSupportedContent'>
-          <ul className="navbar-nav ms-auto align-items-center justify-content-center">
+        <div className={`collapse navbar-collapse mt-3 mt-sm-0 ${isNavOpen ? 'show' : ''}`} id='navbarSupportedContent'>
+        <ul className={`navbar-nav ms-auto align-items-center justify-content-center ${isMobile ? 'd-flex flex-wrap' : ''}`}>
             <li className="nav-item">
               <NavLink className="nav-link" to='/' onClick={closeNav}>Home</NavLink>
             </li>
