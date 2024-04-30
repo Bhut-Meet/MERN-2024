@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useAuth } from '../store/auth';
 import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
 export const AdminAddService = () => {
+  const navigate = useNavigate();
   const { authorizationToken, API } = useAuth();
   // const [service, setService] = useState('');
   // const [description, setDescription] = useState('');
@@ -58,6 +60,7 @@ export const AdminAddService = () => {
           image: '',
           provider: '',
         });
+        navigate("/admin/AdminServices");
       } else {
         toast.error('Failed to add service');
       }
