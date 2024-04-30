@@ -14,15 +14,20 @@ export const AdminAddUser = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     // Check if any of the input fields are empty
-    if (!userData.username || !userData.email || !userData.password || !userData.role) {
+    if (
+      !userData.username ||
+      !userData.email ||
+      !userData.password ||
+      !userData.role
+    ) {
       toast.error('Please fill in all fields');
       return;
     }
 
     try {
-      const response = await fetch(`${API}/api/admin/AdminAddUser`, {
+      const response = await fetch(`${API}/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -61,7 +66,9 @@ export const AdminAddUser = () => {
             className='form-control'
             id='username'
             value={userData.username}
-            onChange={(e) => setUserData({ ...userData, username: e.target.value })}
+            onChange={(e) =>
+              setUserData({ ...userData, username: e.target.value })
+            }
           />
         </div>
         <div className='form-group'>
@@ -71,7 +78,9 @@ export const AdminAddUser = () => {
             className='form-control'
             id='email'
             value={userData.email}
-            onChange={(e) => setUserData({ ...userData, email: e.target.value })}
+            onChange={(e) =>
+              setUserData({ ...userData, email: e.target.value })
+            }
           />
         </div>
         <div className='form-group'>
@@ -81,7 +90,9 @@ export const AdminAddUser = () => {
             className='form-control'
             id='password'
             value={userData.password}
-            onChange={(e) => setUserData({ ...userData, password: e.target.value })}
+            onChange={(e) =>
+              setUserData({ ...userData, password: e.target.value })
+            }
           />
         </div>
         <div className='form-group'>
