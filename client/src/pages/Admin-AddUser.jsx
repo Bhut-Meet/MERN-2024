@@ -3,14 +3,17 @@ import { useAuth } from '../store/auth';
 import { toast } from 'react-toastify';
 
 export const AdminAddUser = () => {
-  const { authorizationToken, API } = useAuth();
+  const { authorizationToken, API ,currentUser } = useAuth();
+
+    // Define currentUserIsAdmin based on the isAdmin status of the current user
+    const currentUserIsAdmin = currentUser && currentUser.isAdmin;
 
   const [userData, setUserData] = useState({
     username: '',
     email: '',
     phone: '',
     password: '',
-    isAdmin: '', // Assuming you have roles like admin, user, etc.
+    isAdmin: currentUserIsAdmin ? 'admin' : 'user', // Assuming you have roles like admin, user, etc.
   });
 
   const handleSubmit = async (e) => {
@@ -112,17 +115,23 @@ export const AdminAddUser = () => {
         <div className='form-group'>
           <label htmlFor='role'>Role:</label>
           <select
-            className='form-control'
-            id='role'
-            value={userData.isAdmin}
-            onChange={(e) =>
-              setUserData({ ...userData, isAdmin: e.target.value })
-            }
-          >
-            <option value=''>Select Role</option>
-            <option value='admin'>Admin</option>
-            <option value='user'>User</option>
-          </select>
+  className='form-control'
+  id='role'
+  value={userData.isAdmin ? 'admin' : 'user'} // Set the default role based on user's isAdmin status
+  onChange={(e) => setUserData({ ...userData, isAdmin: e.target.value === 'admin' })}
+  disabled={!currentUserIsAdmin} // Disable role selection if the current user is not an admin
+>
+  {!currentUserIsAdmin && (
+    <option value='user'>User</option>
+  )}
+  {currentUserIsAdmin && (
+    <>
+      <option value='admin'>Admin</option>
+      <option value='user'>User</option>
+    </>
+  )}
+</select>
+
         </div>
         <button type='submit' className='btn btn-primary'>
           Add User
