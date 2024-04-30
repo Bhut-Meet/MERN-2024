@@ -3,17 +3,17 @@ import { useAuth } from '../store/auth';
 import { toast } from 'react-toastify';
 
 export const AdminAddUser = () => {
-  const { currentUser } = useAuth();
+  const { authorizationToken, API ,currentUser } = useAuth();
 
-  // Define currentUserIsAdmin based on the isAdmin status of the current user
-  const currentUserIsAdmin = currentUser && currentUser.isAdmin;
+    // Define currentUserIsAdmin based on the isAdmin status of the current user
+    const currentUserIsAdmin = currentUser && currentUser.isAdmin;
 
   const [userData, setUserData] = useState({
     username: '',
     email: '',
     phone: '',
     password: '',
-    isAdmin: currentUserIsAdmin ? 'admin' : 'user', // Set default role based on user's isAdmin status
+    isAdmin: currentUserIsAdmin ? 'user' : '', // Assuming you have roles like admin, user, etc.
   });
 
   const handleSubmit = async (e) => {
@@ -24,29 +24,39 @@ export const AdminAddUser = () => {
       !userData.username ||
       !userData.email ||
       !userData.phone ||
-      !userData.password ||
-      !userData.isAdmin
+      !userData.password
+    //   !userData.isAdmin
     ) {
       toast.error('Please fill in all fields');
       return;
     }
 
-    // Handle form submission, e.g., send data to backend
     try {
-      // Your form submission logic here
-      console.log('Form submitted:', userData);
-      // Reset form fields after successful submission
-      setUserData({
-        username: '',
-        email: '',
-        phone: '',
-        password: '',
-        isAdmin: currentUserIsAdmin ? 'admin' : 'user', // Reset role based on user's isAdmin status
+      const response = await fetch(`${API}/api/auth/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: authorizationToken,
+        },
+        body: JSON.stringify(userData),
       });
-      toast.success('User added successfully');
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log(responseData);
+        toast.success('User added successfully');
+        // Clear input fields after successful submission
+        setUserData({
+          username: '',
+          email: '',
+          password: '',
+          isAdmin: currentUserIsAdmin ? 'user' : '',
+        });
+      } else {
+        toast.error('Failed to add user');
+      }
     } catch (error) {
-      console.error('Error adding user:', error);
-      toast.error('Failed to add user');
+      console.log(error);
+      toast.error('Failed too add user');
     }
   };
 
@@ -61,7 +71,9 @@ export const AdminAddUser = () => {
             className='form-control'
             id='username'
             value={userData.username}
-            onChange={(e) => setUserData({ ...userData, username: e.target.value })}
+            onChange={(e) =>
+              setUserData({ ...userData, username: e.target.value })
+            }
           />
         </div>
         <div className='form-group'>
@@ -71,17 +83,21 @@ export const AdminAddUser = () => {
             className='form-control'
             id='email'
             value={userData.email}
-            onChange={(e) => setUserData({ ...userData, email: e.target.value })}
+            onChange={(e) =>
+              setUserData({ ...userData, email: e.target.value })
+            }
           />
         </div>
         <div className='form-group'>
-          <label htmlFor='phone'>Phone:</label>
+          <label htmlFor='email'>Phone:</label>
           <input
             type='tel'
             className='form-control'
             id='phone'
             value={userData.phone}
-            onChange={(e) => setUserData({ ...userData, phone: e.target.value })}
+            onChange={(e) =>
+              setUserData({ ...userData, phone: e.target.value })
+            }
           />
         </div>
         <div className='form-group'>
@@ -91,28 +107,30 @@ export const AdminAddUser = () => {
             className='form-control'
             id='password'
             value={userData.password}
-            onChange={(e) => setUserData({ ...userData, password: e.target.value })}
+            onChange={(e) =>
+              setUserData({ ...userData, password: e.target.value })
+            }
           />
         </div>
         <div className='form-group'>
           <label htmlFor='role'>Role:</label>
           <select
-            className='form-control'
-            id='role'
-            value={userData.isAdmin}
-            onChange={(e) => setUserData({ ...userData, isAdmin: e.target.value })}
-            disabled={!currentUserIsAdmin} // Disable role selection if not an admin
-          >
-            {!currentUserIsAdmin && (
-              <option value='user'>User</option>
-            )}
-            {currentUserIsAdmin && (
-              <>
-                <option value='admin'>Admin</option>
-                <option value='user'>User</option>
-              </>
-            )}
-          </select>
+  className='form-control'
+  id='role'
+  value={userData.isAdmin} // Set the default role based on user's isAdmin status
+  onChange={(e) => setUserData({ ...userData, isAdmin: e.target.value})}
+>
+  {!currentUserIsAdmin && (
+    <option value='user'>User</option>
+  )}
+  {currentUserIsAdmin && (
+    <>
+      <option value='admin'>Admin</option>
+      <option value='user'>User</option>
+    </>
+  )}
+</select>
+
         </div>
         <button type='submit' className='btn btn-primary'>
           Add User
