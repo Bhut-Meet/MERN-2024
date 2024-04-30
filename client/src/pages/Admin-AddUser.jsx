@@ -13,8 +13,12 @@ export const AdminAddUser = () => {
     email: '',
     phone: '',
     password: '',
-    isAdmin: currentUserIsAdmin ? 'user' : 'admin', // Assuming you have roles like admin, user, etc.
   });
+
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setUserData({ ...userData, [name]: value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,8 +28,7 @@ export const AdminAddUser = () => {
       !userData.username ||
       !userData.email ||
       !userData.phone ||
-      !userData.password ||
-      !userData.isAdmin
+      !userData.password 
     ) {
       toast.error('Please fill in all fields');
       return;
@@ -70,10 +73,9 @@ export const AdminAddUser = () => {
             type='text'
             className='form-control'
             id='username'
+            name='username'
             value={userData.username}
-            onChange={(e) =>
-              setUserData({ ...userData, username: e.target.value })
-            }
+            onChange={handleInput}
           />
         </div>
         <div className='form-group'>
@@ -82,10 +84,9 @@ export const AdminAddUser = () => {
             type='email'
             className='form-control'
             id='email'
+            name='email'
             value={userData.email}
-            onChange={(e) =>
-              setUserData({ ...userData, email: e.target.value })
-            }
+            onChange={handleInput}
           />
         </div>
         <div className='form-group'>
@@ -94,10 +95,9 @@ export const AdminAddUser = () => {
             type='tel'
             className='form-control'
             id='phone'
+            name='phone'
             value={userData.phone}
-            onChange={(e) =>
-              setUserData({ ...userData, phone: e.target.value })
-            }
+            onChange={handleInput}
           />
         </div>
         <div className='form-group'>
@@ -106,34 +106,10 @@ export const AdminAddUser = () => {
             type='password'
             className='form-control'
             id='password'
+            name='password'
             value={userData.password}
-            onChange={(e) =>
-              setUserData({ ...userData, password: e.target.value })
-            }
+            onChange={handleInput}
           />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='role'>Role:</label>
-          <select
-                className='form-control'
-                id='role'
-                value={userData.isAdmin} // Set the default role based on user's isAdmin status
-                onChange={(e) => setUserData({ ...userData, isAdmin: e.target.value})}
-                >
-                {!currentUserIsAdmin && (
-                    <>
-                    <option value='user'>User</option>
-                    <option value='admin'>Admin</option>
-                    </>
-                )}
-                {currentUserIsAdmin && (
-                    <>
-                    <option value='admin'>Admin</option>
-                    <option value='user'>User</option>
-                    </>
-                )}
-            </select>
-
         </div>
         <button type='submit' className='btn btn-primary'>
           Add User
