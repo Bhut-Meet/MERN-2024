@@ -13,7 +13,7 @@ export const AdminAddUser = () => {
     email: '',
     phone: '',
     password: '',
-    isAdmin: currentUserIsAdmin ? 'user' : '', // Assuming you have roles like admin, user, etc.
+    isAdmin: currentUserIsAdmin ? 'user' : 'admin', // Assuming you have roles like admin, user, etc.
   });
 
   const handleSubmit = async (e) => {
@@ -24,8 +24,8 @@ export const AdminAddUser = () => {
       !userData.username ||
       !userData.email ||
       !userData.phone ||
-      !userData.password
-    //   !userData.isAdmin
+      !userData.password ||
+      !userData.isAdmin
     ) {
       toast.error('Please fill in all fields');
       return;
@@ -115,21 +115,21 @@ export const AdminAddUser = () => {
         <div className='form-group'>
           <label htmlFor='role'>Role:</label>
           <select
-  className='form-control'
-  id='role'
-  value={userData.isAdmin} // Set the default role based on user's isAdmin status
-  onChange={(e) => setUserData({ ...userData, isAdmin: e.target.value})}
->
-  {!currentUserIsAdmin && (
-    <option value='user'>User</option>
-  )}
-  {currentUserIsAdmin && (
-    <>
-      <option value='admin'>Admin</option>
-      <option value='user'>User</option>
-    </>
-  )}
-</select>
+                className='form-control'
+                id='role'
+                value={userData.isAdmin} // Set the default role based on user's isAdmin status
+                onChange={(e) => setUserData({ ...userData, isAdmin: e.target.value})}
+                >
+                {!currentUserIsAdmin && (
+                    <option value='user'>User</option>
+                )}
+                {currentUserIsAdmin && (
+                    <>
+                    <option value='admin'>Admin</option>
+                    <option value='user'>User</option>
+                    </>
+                )}
+            </select>
 
         </div>
         <button type='submit' className='btn btn-primary'>
