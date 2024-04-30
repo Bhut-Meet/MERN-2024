@@ -8,6 +8,7 @@ export const AdminAddUser = () => {
   const [userData, setUserData] = useState({
     username: '',
     email: '',
+    phone: '',
     password: '',
     role: '', // Assuming you have roles like admin, user, etc.
   });
@@ -19,6 +20,7 @@ export const AdminAddUser = () => {
     if (
       !userData.username ||
       !userData.email ||
+      !userData.phone ||
       !userData.password ||
       !userData.role
     ) {
@@ -80,6 +82,18 @@ export const AdminAddUser = () => {
             value={userData.email}
             onChange={(e) =>
               setUserData({ ...userData, email: e.target.value })
+            }
+          />
+        </div>
+        <div className='form-group'>
+          <label htmlFor='email'>Phone:</label>
+          <input
+            type='tel'
+            className='form-control'
+            id='phone'
+            value={userData.phone}
+            onChange={(e) =>
+              setUserData({ ...userData, phone: e.target.value })
             }
           />
         </div>
