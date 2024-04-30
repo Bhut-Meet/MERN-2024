@@ -22,7 +22,7 @@ export const AdminAddService = () => {
     e.preventDefault();
     // Check if any of the input fields are empty
     // if (!service || !description || !price || !image || !provider) {
-    if (data) {
+    if (!data) {
       toast.error('Please fill in all fields');
       return;
     }
