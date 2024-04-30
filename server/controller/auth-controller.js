@@ -31,7 +31,7 @@ const home =async (req,res) => {
 
 const register =async (req,res) => {
     try{
-        const {username,email,phone,password} =req.body
+        const {username,email,phone,password,isAdmin} =req.body
         
         const useExist = await User.findOne({email})
         if(useExist){
@@ -44,7 +44,7 @@ const register =async (req,res) => {
         // const hash_password = await bcrypt.hash(password,saltRound)
         // const userCreated = await User.create({username,email,phone,password:hash_password})
 
-        const userCreated = await User.create({username,email,phone,password})
+        const userCreated = await User.create({username,email,phone,password,isAdmin})
 
 
 
