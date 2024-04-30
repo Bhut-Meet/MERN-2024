@@ -121,7 +121,10 @@ export const AdminAddUser = () => {
                 onChange={(e) => setUserData({ ...userData, isAdmin: e.target.value})}
                 >
                 {!currentUserIsAdmin && (
+                    <>
                     <option value='user'>User</option>
+                    <option value='admin'>Admin</option>
+                    </>
                 )}
                 {currentUserIsAdmin && (
                     <>
