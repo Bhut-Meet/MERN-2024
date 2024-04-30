@@ -39,7 +39,7 @@ export const AdminAddService = () => {
           Authorization: authorizationToken,
         },
         // body: JSON.stringify({ service, description, price, image, provider }),
-        body: JSON.stringify({ data }),
+        body: JSON.stringify(data),
       });
       if (response.ok) {
         const data = await response.json();
@@ -76,6 +76,7 @@ export const AdminAddService = () => {
             type='text'
             className='form-control'
             id='service'
+            name='service'
             value={data.service}
             onChange={handleInput}
           />
@@ -85,6 +86,7 @@ export const AdminAddService = () => {
           <textarea
             className='form-control'
             id='description'
+            name='description'
             rows='3'
             value={data.description}
             onChange={handleInput}
@@ -96,6 +98,7 @@ export const AdminAddService = () => {
             type='number'
             className='form-control'
             id='price'
+            name='price'
             value={data.price}
             onChange={handleInput}
           />
@@ -106,6 +109,7 @@ export const AdminAddService = () => {
             type='text'
             className='form-control'
             id='image'
+            name='image'
             placeholder='Enter Image url'
             value={data.image}
             onChange={handleInput}
@@ -121,6 +125,7 @@ export const AdminAddService = () => {
             type='text'
             className='form-control'
             id='provider'
+            name='provider'
             value={data.provider}
             onChange={handleInput}
           />
