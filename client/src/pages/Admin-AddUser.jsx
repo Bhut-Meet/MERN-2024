@@ -22,7 +22,7 @@ export const AdminAddUser = () => {
     }
 
     try {
-      const response = await fetch(`${API}/api/admin/AddUser`, {
+      const response = await fetch(`${API}/api/admin/AdminAddUser`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
