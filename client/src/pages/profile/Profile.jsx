@@ -14,7 +14,7 @@ export const Profile = () => {
 
     return (
         <>
-            <div className='container  mt-5 mb-5'>
+            <div className='container  mt-5'>
                 <h2>User Profile</h2>
                 <div className='row'>
                     <div className='col-md-4 text-center mb-4 mb-md-0'>
