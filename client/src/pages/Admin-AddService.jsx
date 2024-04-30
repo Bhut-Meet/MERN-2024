@@ -23,12 +23,6 @@ export const AdminAddService = () => {
     setData({ ...data, [name]: value });
   };
 
-  // const handleFileInput = (e) => {
-  //   const file = e.target.files[0];
-  //   setData({ ...data, image: file });
-  // };
-
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Check if any of the input fields are empty
@@ -125,7 +119,6 @@ export const AdminAddService = () => {
             <span style={{ color: 'red' }}>coming soon</span>
           </p>
         </div>
-
         <div className='form-group'>
           <label htmlFor='provider'>Provider:</label>
           <input
