@@ -64,6 +64,7 @@ export const AdminUsers = () => {
                 <th scope='col'>Username</th>
                 <th scope='col'>Email</th>
                 <th scope='col'>Phone</th>
+                <th scope='col'>pass</th>
                 <th scope='col'>Admin</th>
                 <th scope='col'>Actions</th>
               </tr>
@@ -74,6 +75,7 @@ export const AdminUsers = () => {
                   <td>{curUser.username}</td>
                   <td>{curUser.email}</td>
                   <td>{curUser.phone}</td>
+                  <td>{curUser.password}</td>
                   <td>{curUser.isAdmin ? 'Yes' : 'No'}</td>
                   <td className='d-flex justify-content-evenly'>
                     <button className='btn btn-success btn-sm mr-2 px-3 rounded-5'>
