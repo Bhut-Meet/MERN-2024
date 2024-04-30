@@ -75,7 +75,7 @@ export const AdminServices = () => {
                                 <button className="btn btn-danger btn-sm" onClick={() => deleteService(_id)}>
                                     Delete
                                 </button>
-                                <button className="btn btn-danger"><Link to={`/admin/AdminServices/${curServiceData._id}/edit`}>Edit</Link></button>
+                                <button className="btn btn-danger"><Link style={{color:"white",textDecoration:"none"}} to={`/admin/AdminServices/${curServiceData._id}/edit`}>Edit</Link></button>
                             </div>
                         </div>
                     </div>
