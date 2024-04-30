@@ -19,7 +19,9 @@
     margin: 0 auto;
     padding: 10px 20px; 
   } */
-  
+  body{
+    padding-top: 56px;
+  }
   .logo-brand a {
     text-decoration: none;
     color: #fff;

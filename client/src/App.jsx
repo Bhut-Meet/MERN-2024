@@ -1,4 +1,3 @@
-import "./App.css"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
@@ -32,17 +31,17 @@ const App = () => {
           <Route path='/register' element={<Register />} />
           <Route path='/logout' element={<Logout />} />
           <Route path='/Profile' element={<Profile />} />
-          <Route path='/userprofile' element={<UserProfile/>} />
+          <Route path='/userprofile' element={<UserProfile />} />
           <Route path='/login' element={<Login />} />
           <Route path='/admin/' element={<AdminLayout></AdminLayout>}>
             <Route path='users' element={<AdminUsers />} />
             <Route path='contacts' element={<AdminContacts />} />
             <Route path='users/:id/edit' element={<AdminUpdate />} />
-            <Route path='AdminServices' element={<AdminServices/>} />
-            <Route path='AddServices' element={<AdminAddService/>} />
+            <Route path='AdminServices' element={<AdminServices />} />
+            <Route path='AddServices' element={<AdminAddService />} />
           </Route>
         </Routes>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </>
   );
