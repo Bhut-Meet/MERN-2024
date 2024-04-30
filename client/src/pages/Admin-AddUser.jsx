@@ -3,7 +3,7 @@ import { useAuth } from '../store/auth';
 import { toast } from 'react-toastify';
 
 export const AdminAddUser = () => {
-  const { authorizationToken, API } = useAuth();
+  const {  API } = useAuth();
 
   const [userData, setUserData] = useState({
     username: '',
@@ -33,7 +33,7 @@ export const AdminAddUser = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: authorizationToken,
+        //   Authorization: authorizationToken,
         },
         body: JSON.stringify(userData),
       });
