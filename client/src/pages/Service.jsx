@@ -5,9 +5,9 @@ export const Service = () => {
   const { services } = useAuth();
 
   return (
-    <section className="section-services my-2" >
+    <section className="section-services my-4" >
       <div className="container">
-        <h1 className="main-heading">Services</h1>
+        <h2 className="main-heading">Services</h2>
       </div>
       <div className="container">
         <div className="row row-cols-1 row-cols-md-3  g-4">
