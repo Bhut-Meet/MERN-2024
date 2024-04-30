@@ -10,7 +10,7 @@ export const AdminAddUser = () => {
     email: '',
     phone: '',
     password: '',
-    role: '', // Assuming you have roles like admin, user, etc.
+    isAdmin: '', // Assuming you have roles like admin, user, etc.
   });
 
   const handleSubmit = async (e) => {
@@ -22,7 +22,7 @@ export const AdminAddUser = () => {
       !userData.email ||
       !userData.phone ||
       !userData.password ||
-      !userData.role
+      !userData.isAdmin
     ) {
       toast.error('Please fill in all fields');
       return;
@@ -114,8 +114,10 @@ export const AdminAddUser = () => {
           <select
             className='form-control'
             id='role'
-            value={userData.role}
-            onChange={(e) => setUserData({ ...userData, role: e.target.value })}
+            value={userData.isAdmin}
+            onChange={(e) =>
+              setUserData({ ...userData, isAdmin: e.target.value })
+            }
           >
             <option value=''>Select Role</option>
             <option value='admin'>Admin</option>
