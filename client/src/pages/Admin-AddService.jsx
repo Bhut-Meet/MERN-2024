@@ -51,7 +51,13 @@ export const AdminAddService = () => {
         // setPrice('');
         // setImage('');
         // setProvider('');
-        setData('');
+        setData({
+          service: '',
+          description: '',
+          price: '',
+          image: '',
+          provider: '',
+        });
       } else {
         toast.error('Failed to add service');
       }
