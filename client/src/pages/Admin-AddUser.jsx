@@ -51,7 +51,7 @@ export const AdminAddUser = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error('Failed to add user');
+      toast.error('Failed too add user');
     }
   };
 
