@@ -9,15 +9,12 @@ import { useState } from 'react';
 
 export const AdminLayout = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const [isTopPadding, setIsTopPadding] = useState(true); // State to track padding-top
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
-    setIsTopPadding(!isTopPadding); // Toggle padding-top
   };
   const closeNav = () => {
     setIsNavOpen(false);
-    setIsTopPadding(true); // Ensure padding-top is set back to true when navbar is closed
   };
 
   const { user, isLoading } = useAuth();
@@ -33,7 +30,7 @@ export const AdminLayout = () => {
   return (
     <>
       <header>
-        <nav className={`navbar navbar-expand-lg navbar-dark bg-dark ${!isTopPadding ? 'pt-0' : ''}`}>
+        <nav className='navbar navbar-expand-lg navbar-dark bg-dark fixed-top'>
           <div className='container'>
             <NavLink className='navbar-brand' to='/admin' onClick={closeNav}>
               Admin Dashboard
