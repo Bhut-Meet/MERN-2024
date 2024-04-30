@@ -18,6 +18,7 @@ import { AdminServices } from './pages/Admin-Services';
 import { UserProfile } from './pages/profile/UserProfile';
 import { Footer } from './components/Footer';
 import { AdminServiceUpdate } from './pages/AdminServiceUpdate';
+import { AdminAddUser } from './pages/Admin-AddUser';
 const App = () => {
   return (
     <>
@@ -36,6 +37,7 @@ const App = () => {
           <Route path='/login' element={<Login />} />
           <Route path='/admin/' element={<AdminLayout></AdminLayout>}>
             <Route path='users' element={<AdminUsers />} />
+            <Route path='AdminAddUser' element={<AdminAddUser/>} />
             <Route path='contacts' element={<AdminContacts />} />
             <Route path='users/:id/edit' element={<AdminUpdate />} />
             <Route path='AdminServices' element={<AdminServices />} />

@@ -53,7 +53,7 @@
         return (
             <div className="container">
                 <h2 className="my-4">Admin User Data</h2>
-                <Link className="btn btn-primary shadow-sm mb-4" to="#">Add User</Link>
+                <Link className="btn btn-primary shadow-sm mb-4" to="/admin/AdminAddUser">Add User</Link>
                 <div className="table-responsive">
                     {users ? (
                         <table className="table table-striped table-bordered">
