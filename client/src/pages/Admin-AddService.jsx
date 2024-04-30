@@ -34,7 +34,7 @@ export const AdminAddService = () => {
           Authorization: authorizationToken,
         },
         // body: JSON.stringify({ service, description, price, image, provider }),
-        body: JSON.stringify(data),
+        body: JSON.stringify({data}),
       });
       if (response.ok) {
         const data = await response.json();
