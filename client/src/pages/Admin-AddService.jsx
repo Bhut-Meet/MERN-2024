@@ -18,6 +18,11 @@ export const AdminAddService = () => {
     provider: '',
   });
 
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Check if any of the input fields are empty
@@ -34,7 +39,7 @@ export const AdminAddService = () => {
           Authorization: authorizationToken,
         },
         // body: JSON.stringify({ service, description, price, image, provider }),
-        body: JSON.stringify({data}),
+        body: JSON.stringify({ data }),
       });
       if (response.ok) {
         const data = await response.json();
@@ -66,7 +71,7 @@ export const AdminAddService = () => {
             className='form-control'
             id='service'
             value={data.service}
-            onChange={(e) => setData(e.target.value)}
+            onChange={handleInput}
           />
         </div>
         <div className='form-group'>
@@ -76,7 +81,7 @@ export const AdminAddService = () => {
             id='description'
             rows='3'
             value={data.description}
-            onChange={(e) => setData(e.target.value)}
+            onChange={handleInput}
           ></textarea>
         </div>
         <div className='form-group'>
@@ -86,7 +91,7 @@ export const AdminAddService = () => {
             className='form-control'
             id='price'
             value={data.price}
-            onChange={(e) => setData(e.target.value)}
+            onChange={handleInput}
           />
         </div>
         <div className='form-group'>
@@ -97,7 +102,7 @@ export const AdminAddService = () => {
             id='image'
             placeholder='Enter Image url'
             value={data.image}
-            onChange={(e) => setData(e.target.value)}
+            onChange={handleInput}
           />
           <p>
             Choose file option is{' '}
@@ -111,7 +116,7 @@ export const AdminAddService = () => {
             className='form-control'
             id='provider'
             value={data.provider}
-            onChange={(e) => setData(e.target.value)}
+            onChange={handleInput}
           />
         </div>
         <button type='submit' className='btn btn-primary'>
