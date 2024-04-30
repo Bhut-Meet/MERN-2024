@@ -57,32 +57,31 @@ export const AdminServices = () => {
             {servicesData.map((curServiceData, index) => {
               const { _id, service,image, description, price,provider } = curServiceData;
               return (
-<div key={index} className="col-6 col-md-3 mb-4">
-    <div className="card h-100 shadow">
-        <div className="card-body">
-            <img src={image} alt="" className="img-fluid" style={{ height: "200px", width: "100%", objectFit: "cover", borderRadius: "10px", marginBottom: "10px" }} />
-            <h5 className="card-title ">{service}</h5>
-            <p className="card-text">
-                <strong>Description:</strong> {description}
-            </p>
-            <p className="card-text">
-                <strong>Price:</strong> {price}
-            </p>
-            <p className="card-text">
-                <strong>Provider:</strong> {provider}
-            </p>
-            <div className='d-flex bg-dark p-2 rounded-3 justify-content-between'>
-                <button className="btn btn-danger btn-sm" onClick={() => deleteService(_id)}>
-                    Delete
-                </button>
-                <button className="btn btn-danger" to={`/admin/users/${curServiceData._id}/edit`}>
-                    Edit
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
+                <div key={index} className="col-6 col-md-3 mb-4">
+                    <div className="card h-100 shadow">
+                        <div className="card-body">
+                            <img src={image} alt="" className="img-fluid" style={{ height: "200px", width: "100%", objectFit: "cover", borderRadius: "10px", marginBottom: "10px" }} />
+                            <h5 className="card-title ">{service}</h5>
+                            <p className="card-text">
+                                <strong>Description:</strong> {description}
+                            </p>
+                            <p className="card-text">
+                                <strong>Price:</strong> {price}
+                            </p>
+                            <p className="card-text">
+                                <strong>Provider:</strong> {provider}
+                            </p>
+                            <div className='d-flex bg-dark p-2 rounded-3 justify-content-between'>
+                                <button className="btn btn-danger btn-sm" onClick={() => deleteService(_id)}>
+                                    Delete
+                                </button>
+                                <button className="btn btn-danger" to={`/admin/AdminServices/${curServiceData._id}/edit`}>
+                                    Edit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
               );
             })}
           </div>
