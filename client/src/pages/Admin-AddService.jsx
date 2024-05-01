@@ -133,7 +133,7 @@ export const AdminAddService = () => {
             onChange={handleInput}
           />
         </div>
-        <button type='submit' className='btn btn-primary'>
+        <button type='submit' className='btn btn-primary my-4'>
           Add Service
         </button>
       </form>

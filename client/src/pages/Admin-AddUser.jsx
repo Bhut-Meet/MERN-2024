@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { useAuth } from '../store/auth';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 export const AdminAddUser = () => {
+
+  const navigate = useNavigate();
+
   const { authorizationToken, API ,currentUser } = useAuth();
 
     // Define currentUserIsAdmin based on the isAdmin status of the current user
@@ -54,6 +58,7 @@ export const AdminAddUser = () => {
           password: '',
           isAdmin: currentUserIsAdmin ? 'user' : '',
         });
+        navigate('/admin/AdminServices');
       } else {
         toast.error('Failed to add user');
       }
@@ -64,7 +69,7 @@ export const AdminAddUser = () => {
   };
 
   return (
-    <div className='container'>
+    <div className='container my-4'>
       <h2>Add New User</h2>
       <form onSubmit={handleSubmit}>
         <div className='form-group'>
@@ -111,7 +116,7 @@ export const AdminAddUser = () => {
             onChange={handleInput}
           />
         </div>
-        <button type='submit' className='btn btn-primary'>
+        <button type='submit' className='btn btn-primary my-4'>
           Add User
         </button>
       </form>
