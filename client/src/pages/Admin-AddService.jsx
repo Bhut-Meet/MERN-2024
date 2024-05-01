@@ -60,7 +60,7 @@ export const AdminAddService = () => {
           image: '',
           provider: '',
         });
-        navigate('/api/admin/AdminServices');
+        navigate('/admin/AdminServices');
       } else {
         toast.error('Failed to add service');
       }
