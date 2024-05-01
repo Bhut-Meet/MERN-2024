@@ -33,25 +33,17 @@ export const UserProfileEdit = () => {
               // onChange={handleInput}
             />
           </div>
-          {/* <div className='form-group'>
+          <div className='form-group'>
           <label htmlFor='password'>Password</label>
           <div className='input-group'>
             <input
-              type={showPassword ? 'text' : 'password'}
               className='form-control'
               id='password'
               placeholder='Enter password'
-              value={user.password}
+            //   value={user.password}
             />
-            <button
-              className='btn btn-outline-secondary'
-              type='button'
-              onClick={togglePasswordVisibility}
-            >
-              {showPassword ? 'Hide Password' : 'Show Password'}
-            </button>
           </div>
-        </div> */}
+        </div>
           <button className='btn btn-success mt-2 px-4'>Save Changes</button>
         </form>
       </div>
