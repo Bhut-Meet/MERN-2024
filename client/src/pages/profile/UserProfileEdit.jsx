@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../store/auth';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 export const UserProfileEdit = () => {
-  const navigate = useNavigate();
+//   const navigate = useNavigate();
   const { API } = useAuth();
   const [data, setData] = useState({
     username: '',
@@ -51,7 +51,7 @@ export const UserProfileEdit = () => {
       });
       if (response.ok) {
         toast.success('Update successful');
-        navigate('/api/auth/Profile');
+        // navigate('/api/auth/Profile');
       } else {
         toast.error('Update failed');
       }
@@ -89,7 +89,7 @@ export const UserProfileEdit = () => {
           <div className='form-group'>
             <label htmlFor='phone'>Phone Number</label>
             <input
-              type='text'
+              type='tel'
               className='form-control'
               id='phone'
               name='phone'

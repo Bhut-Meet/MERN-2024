@@ -26,8 +26,8 @@ router.route("/register").post( validate(signupSchema), authcontrollers.register
 router.route("/login").post( validate(loginSchema), authcontrollers.login);
 
 router.route("/user").get(authMiddleware ,authcontrollers.user);
-router.route("/user/:id").get(authMiddleware ,authcontrollers.getUsersById);
-router.route("/user/update/:id").patch(authMiddleware ,authcontrollers.UpdateUserById);
+router.route("/user/:id").get(authcontrollers.getUsersById);
+router.route("/user/update/:id").patch(authcontrollers.UpdateUserById);
 
 
 module.exports = router;
