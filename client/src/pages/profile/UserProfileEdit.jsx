@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "../store/auth";
+// import { useAuth } from "../store/auth";
+import { useAuth } from "../../store/auth";
 import { useParams } from "react-router-dom";
 
 export const UserProfileEdit = () => {
