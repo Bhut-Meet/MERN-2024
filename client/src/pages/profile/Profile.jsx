@@ -88,7 +88,7 @@ export const Profile = () => {
                                     </button>
                                 </div>
                             </div>
-                            <button className='btn btn-success mt-3 px-4'>
+                            <button className='btn btn-success mt-2 px-4'>
                                 <Link style={{textDecoration:"none", color:"white"}} to={`/Profile/user/${user._id}/edit`}>Edit Profile</Link>
                             </button>
                             {user.isAdmin ? (
