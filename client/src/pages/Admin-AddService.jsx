@@ -70,7 +70,7 @@ export const AdminAddService = () => {
   };
 
   return (
-    <div className='container'>
+    <div className='container my-4'>
       <h2>Add New Service</h2>
       <form onSubmit={handleSubmit}>
         <div className='form-group'>
