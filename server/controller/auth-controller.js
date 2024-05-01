@@ -106,7 +106,8 @@ const getUsersById =async(req,res)=>{
         const data = await User.findOne({_id:id});
         return res.status(200).json(data);
     } catch (error) {
-        next();
+        // next();
+        console.log(error);
     }
 }
 
@@ -124,7 +125,8 @@ const UpdateUserById =async(req,res)=>{
     );
         return res.status(200).json(UpdatedData);
     } catch (error) {
-        next(error);
+        // next(error);
+        console.log(error);
     }
 }
 

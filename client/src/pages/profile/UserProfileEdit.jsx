@@ -20,7 +20,6 @@ export const UserProfileEdit = () => {
       const response = await fetch(`${API}/api/auth/user/${params.id}`, {
         method: "GET",
       });
-
       const userData = await response.json();
       console.log("User single data", userData);
       setData(userData);
