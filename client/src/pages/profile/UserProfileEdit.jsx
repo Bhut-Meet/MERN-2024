@@ -1,6 +1,7 @@
 export const UserProfileEdit = () => {
   return (
     <>
+    <div className="container">
       <form>
         <div className='form-group'>
           <label htmlFor='username'>Username</label>
@@ -55,6 +56,7 @@ export const UserProfileEdit = () => {
             Save Changes
         </button>
       </form>
+      </div>
     </>
   );
 };
