@@ -15,7 +15,7 @@ export const UserProfileEdit = () => {
   const params = useParams();
 
   // Get single user data
-  const getSingleUserData = async () => {
+  const getSingleProfileUserData = async () => {
     try {
       const response = await fetch(`${API}/api/auth/user/${params.id}`, {
         method: 'GET',
@@ -30,7 +30,7 @@ export const UserProfileEdit = () => {
   };
 
   useEffect(() => {
-    getSingleUserData();
+    getSingleProfileUserData();
   }, []);
 
   const handleInput = (e) => {
