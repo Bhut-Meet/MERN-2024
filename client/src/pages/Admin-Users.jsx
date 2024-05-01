@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../store/auth';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export const AdminUsers = () => {
   const [users, setUsers] = useState([]);
@@ -35,13 +36,16 @@ export const AdminUsers = () => {
         },
       });
       if (response.ok) {
+        toast.success('User deleted successful');
         console.log('User deleted successfully');
         // Optionally, update the user list to reflect the deletion
         getAllUsersData();
       } else {
+        toast.error('Failed to delete user');
         console.log('Failed to delete user');
       }
     } catch (error) {
+      toast.error('Failed to delete user');
       console.log('Error deleting user:', error);
     }
   };

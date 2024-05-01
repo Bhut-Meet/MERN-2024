@@ -12,7 +12,7 @@ export const Login = () => {
     email: '',
     password: '',
   });
-  const { storeTokenInLocalStorage, API, isLoading } = useAuth();
+  const { storeTokenInLocalStorage, API } = useAuth();
   const navigate = useNavigate();
 
   const handleInput = (e) => {
@@ -50,13 +50,11 @@ export const Login = () => {
         });
         toast.success('Login successful');
         navigate('/');
-        isLoading(false);
         // window.location.reload();
       } else {
         toast.error(
           res_data.extraDetails ? res_data.extraDetails : res_data.message
         );
-        isLoading(false)
       }
     } catch (error) {
       console.log(error);
