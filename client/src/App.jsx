@@ -19,6 +19,7 @@ import { UserProfile } from './pages/profile/UserProfile';
 import { Footer } from './components/Footer';
 import { AdminServiceUpdate } from './pages/AdminServiceUpdate';
 import { AdminAddUser } from './pages/Admin-AddUser';
+import { UserProfileEdit } from './pages/profile/UserProfileEdit';
 const App = () => {
   return (
     <>
@@ -33,6 +34,7 @@ const App = () => {
           <Route path='/register' element={<Register />} />
           <Route path='/logout' element={<Logout />} />
           <Route path='/Profile' element={<Profile />} />
+          <Route path='/Profile/user/:id/edit' element={<UserProfileEdit />} />
           <Route path='/userprofile' element={<UserProfile />} />
           <Route path='/login' element={<Login />} />
           <Route path='/admin/' element={<AdminLayout></AdminLayout>}>
