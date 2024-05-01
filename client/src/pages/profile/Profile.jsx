@@ -88,7 +88,9 @@ export const Profile = () => {
                                     </button>
                                 </div>
                             </div>
-                                <Link  to={`/Profile/user/${user._id}/edit`} className="btn btn-dark">Edit Profile</Link>
+                            <button className='btn btn-success mt-2 px-4'>
+                                <Link style={{textDecoration:"none", color:"white"}} to={`/Profile/user/${user._id}/edit`}>Edit Profile</Link>
+                            </button>
                             {user.isAdmin ? (
                                 <Link to="/admin" className='btn btn-primary mt-2 ms-2 px-4'>
                                     Admin
