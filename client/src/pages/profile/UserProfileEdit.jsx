@@ -71,7 +71,7 @@ export const UserProfileEdit = () => {
           <div className='input-group'>
             <input
               className='form-control'
-              value={data.phone}
+              value={data.password}
               id='password'
               name='password'
               placeholder='Enter password'
