@@ -63,7 +63,7 @@ export const Login = () => {
 
   return (
     <section className='py-5'>
-      <div className='container'>
+      <div className='container mb-3'>
         <div className='row'>
           <div className='col-md-6 d-flex justify-content-center align-items-center'>
             <img
