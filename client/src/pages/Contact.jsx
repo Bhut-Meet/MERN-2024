@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../store/auth';
-import support from '../assets/support.png'
+import support from '../assets/usupport.png'
 
 const defaultContactFormData = {
   username: '',

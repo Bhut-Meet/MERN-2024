@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../store/auth';
 import {  toast } from "react-toastify";
-import register from '../assets/register.png'
+import register from '../assets/uregister.png'
 
 export const Register = () => {
   const navigate = useNavigate();
