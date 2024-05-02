@@ -20,7 +20,8 @@ export const Profile = () => {
                     <div className='col-md-4 text-center mb-4 mb-md-0'>
                         <div className='mb-3'>
                             <img
-                                src='https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png'
+                                // src='https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png'
+                                src={user.image}
                                 alt='User Image'
                                 className='img-fluid rounded-circle'
                                 style={{ width: '150px', height: '150px' }} // Adjust image size as needed
@@ -28,7 +29,7 @@ export const Profile = () => {
                         </div>
                         <div className="d-flex justify-content-center ">
                             <div className='mb-3 custom-file-input'>
-                                <input type='file' className='form-control' id='imageUpload' accept='image/*' />
+                                <input  type='file' className='form-control' id='imageUpload' accept='image/*' />
                                 <label htmlFor="imageUpload" className="mt-1 btn-sm">Choose Image</label>
                             </div>
                             <div className='mb-3 ms-3 '>
