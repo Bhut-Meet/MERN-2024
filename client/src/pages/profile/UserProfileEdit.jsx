@@ -42,7 +42,7 @@ export const UserProfileEdit = () => {
       e.preventDefault();
       try {
         const response = await fetch(
-          `${API}/api/admin/users/update/${params.id}`,
+          `${API}/api/admin/user/update/${params.id}`,
           {
             method: "PATCH",
             headers: {
