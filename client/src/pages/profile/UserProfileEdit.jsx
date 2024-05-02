@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-// import { useAuth } from "../store/auth";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../store/auth";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export const UserProfileEdit = () => {
+  const navigate = useNavigate();
     const [data, setData] = useState({
         username: "",
         email: "",
@@ -53,7 +54,7 @@ export const UserProfileEdit = () => {
         );
         if (response.ok) {
           toast.success("Update successful");
-          // navigate("/admin/users");
+          navigate("/api/auth/Profile");
         } else {
           toast.error("Update failed");
         }
