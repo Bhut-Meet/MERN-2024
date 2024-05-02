@@ -10,7 +10,7 @@ export const UserProfileEdit = () => {
     username: "",
     email: "",
     phone: "",
-    image: "" // New property for user image
+    image: null // New property for user image
   });
 
   const params = useParams();
