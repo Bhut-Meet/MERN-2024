@@ -49,7 +49,7 @@ export const UserProfileEdit = () => {
     e.preventDefault();
     try {
       const formData = new FormData();
-      formData.append("image", data.image); // Append image data to FormData
+      formData.append("image", data.image);
       formData.append("username", data.username);
       formData.append("email", data.email);
       formData.append("phone", data.phone);
@@ -58,7 +58,7 @@ export const UserProfileEdit = () => {
         `${API}/api/auth/user/update/${params.id}`,
         {
           method: "PATCH",
-          body: formData, // Send FormData instead of JSON
+          body: formData,
         }
       );
       if (response.ok) {
