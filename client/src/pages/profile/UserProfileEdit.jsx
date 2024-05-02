@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 // import { useAuth } from "../store/auth";
 import { useAuth } from "../../store/auth";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const UserProfileEdit = () => {
     const [data, setData] = useState({
@@ -30,18 +31,51 @@ export const UserProfileEdit = () => {
   useEffect(() => {
     getSingleUserData();
   }, []);
+
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  };
+
+    // Update user data
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        const response = await fetch(
+          `${API}/api/admin/users/update/${params.id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          }
+        );
+        if (response.ok) {
+          toast.success("Update successful");
+          // navigate("/admin/users");
+        } else {
+          toast.error("Update failed");
+        }
+      } catch (error) {
+        console.log("Error updating user:", error);
+      }
+    };
+
+
   return (
     <>
       <div className='container' style={{ paddingTop: '56px' }}>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className='form-group'>
             <label htmlFor='username'>Username</label>
             <input
               type='text'
               className='form-control'
               id='username'
+              name='username'
               value={data.username}
-              // onChange={handleInput}
+              onChange={handleInput}
             />
           </div>
           <div className='form-group'>
@@ -50,18 +84,20 @@ export const UserProfileEdit = () => {
               type='email'
               className='form-control'
               id='email'
+              name='email'
               value={data.email}
-              // onChange={handleInput}
+              onChange={handleInput}
             />
           </div>
           <div className='form-group'>
             <label htmlFor='phone'>Phone Number</label>
             <input
-              type='text'
+              type='tel'
               className='form-control'
               id='phone'
+              name='phone'
               value={data.phone}
-              // onChange={handleInput}
+              onChange={handleInput}
               />
           </div>
           {/* <div className='form-group'>
