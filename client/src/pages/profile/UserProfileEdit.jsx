@@ -54,7 +54,7 @@ export const UserProfileEdit = () => {
         );
         if (response.ok) {
           toast.success("Update successful");
-          navigate("/api/auth/Profile");
+          navigate("/Profile");
         } else {
           toast.error("Update failed");
         }
