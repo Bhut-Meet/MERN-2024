@@ -7,8 +7,7 @@ export const UserProfileEdit = () => {
     const [data, setData] = useState({
         username: "",
         email: "",
-        phone: "",
-        password:""
+        phone: ""
       });
 
     const params = useParams();
@@ -65,7 +64,7 @@ export const UserProfileEdit = () => {
               // onChange={handleInput}
               />
           </div>
-          <div className='form-group'>
+          {/* <div className='form-group'>
           <label htmlFor='password'>Password</label>
           <div className='input-group'>
             <input
@@ -74,10 +73,10 @@ export const UserProfileEdit = () => {
               id='password'
               name='password'
               placeholder='Enter password'
-            //   value={user.password}
+              value={user.password}
             />
           </div>
-        </div>
+        </div> */}
           <button className='btn btn-success mt-2 px-4 mb-4'>Save Changes</button>
         </form>
       </div>

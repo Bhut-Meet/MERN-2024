@@ -103,7 +103,7 @@ const user = async (req, res) => {
 const getUsersById =async(req,res)=>{
     try {
         const id = req.params.id;
-        const data = await User.findOne({_id:id});
+        const data = await User.findOne({_id:id},{password:0,isAdmin:0});
         return res.status(200).json(data);
     } catch (error) {
         // next();
