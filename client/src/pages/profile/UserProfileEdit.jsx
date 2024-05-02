@@ -48,17 +48,14 @@ export const UserProfileEdit = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const formData = new FormData();
-      formData.append("image", data.image);
-      formData.append("username", data.username);
-      formData.append("email", data.email);
-      formData.append("phone", data.phone);
-
       const response = await fetch(
         `${API}/api/auth/user/update/${params.id}`,
         {
           method: "PATCH",
-          body: formData,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
         }
       );
       if (response.ok) {
