@@ -8,6 +8,8 @@ import login from '../assets/ulogin.png'
 
 
 export const Login = () => {
+  const [isLoading, setIsLoading] = useState(false); // State variable to track loading state
+
   const [user, setUser] = useState({
     email: '',
     password: '',
@@ -29,6 +31,7 @@ export const Login = () => {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true); // Set loading state to true when form is submitted
     try {
       const response = await fetch(`${API}/api/auth/login`, {
         method: 'POST',
@@ -59,6 +62,7 @@ export const Login = () => {
     } catch (error) {
       console.log(error);
     }
+    setIsLoading(false); // Set loading state to false after login process is completed
   };
 
   return (
@@ -109,7 +113,7 @@ export const Login = () => {
                     />
                   </div>
                   <button type='submit' className='btn w-100' style={{backgroundColor:"#9333EA", color:"white"}}>
-                    Login Now
+                    {isLoading ? 'Loading...' : 'Login Now'} {/* Change button text based on loading state */}
                   </button>
                 </form>
               </div>
