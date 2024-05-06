@@ -2,16 +2,10 @@
 // controller
 //* ----------------------------------------------------------------
 
-
-
 const User = require("../models/user-model")
 const bcrypt= require("bcryptjs")
 
 //? In an Express.js application, a "controller" refers to a part of your code that is responsible for handling the application's logic. Controllers are typically used to process incoming requests, interact with models (data sources), and send responses back to clients. They help organize your application by separating concerns and following the MVC (Model-View-Controller) design pattern.
-
-
-
-
 
 
 //* ----------------------------------------------------------------
@@ -122,37 +116,21 @@ const getUsersById =async(req,res)=>{
 // * --------------------------------
 // *  update User edit logic
 // * --------------------------------
-const UpdateUserById = async (req, res) => {
+const UpdateUserById =async(req,res)=>{
     try {
         const id = req.params.id;
-        let updatedData = req.body;
+        const UpdateUserData = req.body;
 
-        // Check if there's an uploaded image
-        if (req.file) {
-            // Get the uploaded image path
-            const imagePath = req.file.path;
-            
-            // Add the image path to the updated data
-            updatedData = {
-                ...updatedData,
-                image: imagePath
-            };
+        const UpdatedData = await User.updateOne({_id:id},{
+            $set:UpdateUserData,
         }
-
-        // Update the user data
-        const result = await User.updateOne({ _id: id }, { $set: updatedData });
-
-        // Check if the update was successful
-        if (result.nModified > 0) {
-            return res.status(200).json({ message: "User updated successfully" });
-        } else {
-            return res.status(404).json({ message: "User not found" });
-        }
+    );
+        return res.status(200).json(UpdatedData);
     } catch (error) {
+        // next(error);
         console.log(error);
-        return res.status(500).json({ message: "Internal server error" });
     }
-};
+}
 
 
 
