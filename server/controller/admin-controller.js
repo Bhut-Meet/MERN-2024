@@ -44,9 +44,9 @@ const AddServices = async (req, res) =>{
     try {
         const response = req.body;
         await Service.create(response);
-        return res.status(200).json({message:"service send successfully"});
+        return res.status(200).json({message:"service Added successfully"});
     } catch (error) {
-        return res.status(500).json({message:"service not delivered"});
+        return res.status(500).json({message:"service not Added"});
     }
 }
 

@@ -16,4 +16,4 @@ router.route('/AdminServices/update/:id').patch(authMiddleware, adminMiddleware,
 router.route("/AdminServices/delete/:id").delete( authMiddleware, adminMiddleware, adminController.deleteServiceById);
 router.route("/contacts/delete/:id").delete( authMiddleware, adminMiddleware, adminController.deleteContactById);
 
-module.exports = router;
+module.exports = router; 
