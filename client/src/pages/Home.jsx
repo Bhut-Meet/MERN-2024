@@ -24,7 +24,7 @@ export const Home = () => {
               <div className="card-body">
                 <h3 className="card-title">Web Design</h3>
                 <p className="card-text">Stunning, responsive designs that adapt to any device.</p>
-                <Link to="#" className='btn' style={{ background: "#9333EA",color:"white" }}>Learn More</Link>
+                <Link to="/Webdesign" className='btn' style={{ background: "#9333EA",color:"white" }}>Learn More</Link>
               </div>
             </div>
           </div>
@@ -33,7 +33,7 @@ export const Home = () => {
               <div className="card-body">
                 <h3 className="card-title">Web Development</h3>
                 <p className="card-text">Custom development tailored to your specific business needs.</p>
-                <Link to="#" className='btn' style={{ background: "#9333EA",color:"white" }}>Learn More</Link>
+                <Link to="/Webdevelopment" className='btn' style={{ background: "#9333EA",color:"white" }}>Learn More</Link>
               </div>
             </div>
           </div>
@@ -42,7 +42,7 @@ export const Home = () => {
               <div className="card-body">
                 <h3 className="card-title">SEO Optimization</h3>
                 <p className="card-text">Improve your websites visibility and ranking in search engines.</p>
-                <Link to="#" className='btn' style={{ background: "#9333EA",color:"white" }}>Learn More</Link>
+                <Link to="/seo" className='btn' style={{ background: "#9333EA",color:"white" }}>Learn More</Link>
               </div>
             </div>
           </div>

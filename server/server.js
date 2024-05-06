@@ -30,6 +30,8 @@ app.use(cors(corsOptions));
 
 
 
+
+
 app.use(express.json()) // middleware for parsing JSON bodies
 app.use("/api/auth",corsMiddleware, authRoutes);
 app.use("/api/form",corsMiddleware, contactRoute);
@@ -37,6 +39,19 @@ app.use("/api/data",corsMiddleware, serviceRoute);
 
 //lets define admin routes
 app.use("/api/admin", corsMiddleware, adminRoute);
+
+
+
+
+// start only for a localhost
+// app.use("/api/auth" ,authRoutes);
+// app.use("/api/form", contactRoute);
+// app.use("/api/data", serviceRoute);
+// app.use("/api/admin", adminRoute);
+//end only for a localhost
+
+
+
 
 app.use(errorMiddleware)
 

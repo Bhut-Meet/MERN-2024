@@ -27,6 +27,13 @@ export const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!user.email.includes('@gmail.com')) {
+      // If the entered email doesn't contain '@gmail.com', show an error message or prevent further action
+      // For example, you can show an error message using toastify
+      toast.error('Please enter a valid Gmail address');
+      // You can also prevent further action by returning from the function
+      return;
+    }
     try {
       const response = await fetch(`${API}/api/auth/register`, {
         method: 'POST',

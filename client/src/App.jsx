@@ -20,6 +20,9 @@ import { Footer } from './components/Footer';
 import { AdminServiceUpdate } from './pages/AdminServiceUpdate';
 import { AdminAddUser } from './pages/Admin-AddUser';
 import { UserProfileEdit } from './pages/profile/UserProfileEdit';
+import { WebDesign } from './pages/WebDesign';
+import { WebDevelopment } from './pages/WebDevelopment';
+import { SEOOptimization } from './pages/Seo';
 const App = () => {
   return (
     <>
@@ -31,6 +34,9 @@ const App = () => {
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact></Contact>} />
           <Route path='/service' element={<Service />} />
+          <Route path='/Webdesign' element={<WebDesign/>} />
+          <Route path='/Webdevelopment' element={<WebDevelopment/>} />
+          <Route path='/seo' element={<SEOOptimization/>} />
           <Route path='/register' element={<Register />} />
           <Route path='/logout' element={<Logout />} />
           <Route path='/Profile' element={<Profile />} />

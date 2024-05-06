@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '../store/auth';
-import support from '../assets/usupport.png'
+import support from '../assets/usupport.png';
+import {  toast } from "react-toastify";
 
 const defaultContactFormData = {
   username: '',
@@ -91,9 +92,12 @@ export const Contact = () => {
       });
 
       if (response.ok) {
-        setContact(defaultContactFormData);
-        alert('Message Sent!');
-        window.location.reload();
+        setContact(prevContact => ({
+          ...prevContact,
+          message: '', // Clear only the message field
+        }));
+        toast.success('Message Sent!');
+        // window.location.reload();
       }
     } catch (error) {
       console.error(error);
@@ -104,7 +108,7 @@ export const Contact = () => {
     <section className='pt-5'>
       <div className='container'>
         <div className='row'>
-        <div className='col-md-6 d-flex justify-content-center align-items-center'>
+          <div className='col-md-6 d-flex justify-content-center align-items-center'>
             <img
               // src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIBAFR6-dn5mIqIzM3ti2HUhmH6E0ad_PTd2x_BgrYAw&s'
               src={support}
@@ -182,7 +186,11 @@ export const Contact = () => {
                       required
                     ></textarea>
                   </div>
-                  <button type='submit' className='btn w-100' style={{backgroundColor:"#9333EA", color:"white"}}>
+                  <button
+                    type='submit'
+                    className='btn w-100'
+                    style={{ backgroundColor: '#9333EA', color: 'white' }}
+                  >
                     Send Message
                   </button>
                 </form>
@@ -201,7 +209,7 @@ export const Contact = () => {
           overflow: 'hidden',
         }}
       >
-          {/* <iframe
+        {/* <iframe
             src='https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1719.818283857928!2d70.78692423866337!3d22.24368495097004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1712481581750!5m2!1sen!2sin'
             width='100%'
             height='500'
