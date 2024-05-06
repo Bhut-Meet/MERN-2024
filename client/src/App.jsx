@@ -23,7 +23,6 @@ import { UserProfileEdit } from './pages/profile/UserProfileEdit';
 import { WebDesign } from './pages/WebDesign';
 import { WebDevelopment } from './pages/WebDevelopment';
 import { SEOOptimization } from './pages/Seo';
-import { Layout } from './components/layouts/Layout';
 const App = () => {
   return (
     <>
@@ -44,7 +43,7 @@ const App = () => {
           <Route path='/Profile/user/:id/edit' element={<UserProfileEdit />} />
           <Route path='/userprofile' element={<UserProfile />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/admin/' element={<Layout/>}>
+          <Route path='/admin/' element={<AdminLayout></AdminLayout>}>
             <Route path='users' element={<AdminUsers />} />
             <Route path='AdminAddUser' element={<AdminAddUser/>} />
             <Route path='contacts' element={<AdminContacts />} />
