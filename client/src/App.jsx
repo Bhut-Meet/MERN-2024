@@ -23,11 +23,13 @@ import { UserProfileEdit } from './pages/profile/UserProfileEdit';
 import { WebDesign } from './pages/WebDesign';
 import { WebDevelopment } from './pages/WebDevelopment';
 import { SEOOptimization } from './pages/Seo';
+import { ScrollTop } from './pages/ScrollTop';
 const App = () => {
   return (
     <>
       <BrowserRouter>
         <Navbar />
+        <ScrollTop/>
         <Routes>
           <Route path='*' element={<Error></Error>} />
           <Route path='/' element={<Home />} />
