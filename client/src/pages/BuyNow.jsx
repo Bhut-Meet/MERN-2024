@@ -2,8 +2,16 @@ import { useParams } from 'react-router-dom';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 
 export const BuyNow = () => {
-    const { packageType } = useParams("basic");
+    // Get the packageType from the URL parameters
+    const { packageType } = useParams();
 
+    // Define a default packageType in case it's not provided in the URL
+    const defaultPackageType = "basic";
+
+    // Use the packageType from the URL if available, otherwise use the defaultPackageType
+    const selectedPackage = packageType ? packageDetails[packageType] : packageDetails[defaultPackageType];
+
+    // Define packageDetails object
     const packageDetails = {
         basic: {
             title: "Basic Package",
@@ -35,9 +43,6 @@ export const BuyNow = () => {
             ]
         }
     };
-
-    // Check if the packageType exists in the packageDetails object
-    const selectedPackage = packageDetails[packageType];
 
     // If the packageType does not exist, display an error message or handle it as you prefer
     if (!selectedPackage) {
