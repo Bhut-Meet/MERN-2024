@@ -75,7 +75,7 @@ export const UserProfileEdit = () => {
   const viewProfileImage = () => {
     if (data.image) {
       return (
-        <div className="mb-3">
+        <div className="col-md-6">
           <img
             src={data.image}
             alt="Profile"
