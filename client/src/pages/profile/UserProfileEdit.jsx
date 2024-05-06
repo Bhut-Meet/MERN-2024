@@ -77,7 +77,7 @@ export const UserProfileEdit = () => {
       return (
         <div className="mb-3">
           <img
-            src={URL.createObjectURL(data.image)}
+            src={data.image}
             alt="Profile"
             className="img-fluid rounded"
             style={{ maxHeight: "200px" }}
@@ -96,19 +96,6 @@ export const UserProfileEdit = () => {
       <div className="row justify-content-center">
         <div className="col-md-6">
           <form onSubmit={handleSubmit}>
-          {viewProfileImage()}
-            <div className="mb-3">
-              <label htmlFor="image" className="form-label">
-                Profile Image
-              </label>
-              <input
-                type="file"
-                className="form-control"
-                id="image"
-                name="image"
-                onChange={handleImageChange}
-              />
-            </div>
             <div className="mb-3">
               <label htmlFor="username" className="form-label">
                 Username
@@ -146,6 +133,19 @@ export const UserProfileEdit = () => {
                 name="phone"
                 value={data.phone}
                 onChange={handleInput}
+              />
+            </div>
+            {viewProfileImage()}
+            <div className="mb-3">
+              <label htmlFor="image" className="form-label">
+                Profile Image
+              </label>
+              <input
+                type="file"
+                className="form-control"
+                id="image"
+                name="image"
+                onChange={handleImageChange}
               />
             </div>
             <button type="submit" className="btn btn-success">
