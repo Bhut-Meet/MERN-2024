@@ -58,7 +58,7 @@ export const AdminAddUser = () => {
           password: '',
           isAdmin: currentUserIsAdmin ? 'user' : '',
         });
-        navigate('/admin/AdminServices');
+        navigate('/admin/users');
       } else {
         toast.error('Failed to add user');
       }
