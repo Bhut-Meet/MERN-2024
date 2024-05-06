@@ -92,7 +92,7 @@ export const UserProfileEdit = () => {
 
   return (
     <>
- <div className="container py-4">
+<div className="container py-4">
       <div className="row justify-content-center">
         {viewProfileImage()}
         <div className="col-md-6">
@@ -140,11 +140,13 @@ export const UserProfileEdit = () => {
               <label htmlFor="image" className="form-label">
                 Profile Image
               </label>
+              <label htmlFor="file-upload" className="btn btn-primary">
+                Select Image
+              </label>
               <input
+                id="file-upload"
                 type="file"
-                className="form-control"
-                id="image"
-                name="image"
+                style={{ display: "none" }}
                 onChange={handleImageChange}
               />
             </div>
