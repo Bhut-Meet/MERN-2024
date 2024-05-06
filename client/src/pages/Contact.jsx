@@ -11,6 +11,7 @@ const defaultContactFormData = {
 };
 
 export const Contact = () => {
+  const [isSending, setIssending] = useState(false); // State variable to track loading state
   const [contact, setContact] = useState(defaultContactFormData);
   const [userData, setUserData] = useState(true);
   const { user, API } = useAuth();
@@ -82,6 +83,7 @@ export const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIssending(true); // Set loading state to true when form is submitted
     try {
       const response = await fetch(`${API}/api/form/contact`, {
         method: 'POST',
@@ -102,6 +104,7 @@ export const Contact = () => {
     } catch (error) {
       console.error(error);
     }
+    setIssending(false); // Set loading state to false when form is submitted
   };
 
   return (
@@ -191,7 +194,7 @@ export const Contact = () => {
                     className='btn w-100'
                     style={{ backgroundColor: '#9333EA', color: 'white' }}
                   >
-                    Send Message
+                    {isSending ? 'Message sending...' : 'Send Message'} {/* Change button text based on loading state */}
                   </button>
                 </form>
               </div>
