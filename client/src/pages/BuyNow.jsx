@@ -9,8 +9,7 @@ export const BuyNow = () => {
     const defaultPackageType = "basic";
 
     // Use the packageType from the URL if available, otherwise use the defaultPackageType
-    const selectedPackage = packageType ? packageDetails[packageType] : packageDetails[defaultPackageType];
-
+    
     // Define packageDetails object
     const packageDetails = {
         basic: {
@@ -43,7 +42,8 @@ export const BuyNow = () => {
             ]
         }
     };
-
+    const selectedPackage = packageType ? packageDetails[packageType] : packageDetails[defaultPackageType];
+    
     // If the packageType does not exist, display an error message or handle it as you prefer
     if (!selectedPackage) {
         return (
