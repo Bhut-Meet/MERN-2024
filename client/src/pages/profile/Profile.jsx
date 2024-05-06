@@ -97,8 +97,9 @@ export const Profile = () => {
                     value={user.password}
                   />
                   <button
-                    className='btn btn-outline-secondary'
+                    className='btn btn-outline-secondary d-flex align-items-center'
                     type='button'
+                    style={{ gap: '4px' }}
                     onClick={togglePasswordVisibility}
                   >
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
