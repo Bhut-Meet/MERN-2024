@@ -71,61 +71,68 @@ export const UserProfileEdit = () => {
 
   return (
     <>
-      <div className="container" style={{ paddingTop: "56px" }}>
-        <form onSubmit={handleSubmit}>
-            <img src={data.image} alt="" />
-            <br />
-            <br />
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              className="form-control"
-              id="username"
-              name="username"
-              value={data.username}
-              onChange={handleInput}
-            />
-          </div>
-          <div className="form-group">
-            <label  htmlFor="email">Email</label>
-            <div className="input-group has-validation">
-            <span className="input-group-text" id="inputGroupPrepend" style={{borderRadius:"6px 0px 0px 6px"}}>@</span>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              name="email"
-              value={data.email}
-              onChange={handleInput}
-            />
+<div className="container py-4">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label htmlFor="image" className="form-label">
+                Profile Image
+              </label>
+              <input
+                type="file"
+                className="form-control"
+                id="image"
+                name="image"
+                onChange={handleImageChange}
+              />
             </div>
-          </div>
-          <div className="form-group">
-            <label htmlFor="phone">Phone Number</label>
-            <input
-              type="tel"
-              className="form-control"
-              id="phone"
-              name="phone"
-              value={data.phone}
-              onChange={handleInput}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="image">Profile Image:</label>
-            <br />
-            <input
-              type="file"
-              className="form-control-file"
-              id="image"
-              name="image"
-              onChange={handleImageChange}
-            />
-          </div>
-          <button className="btn btn-success mt-2 px-4 mb-4">Save Changes</button>
-        </form>
+            <div className="mb-3">
+              <label htmlFor="username" className="form-label">
+                Username
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="username"
+                name="username"
+                value={data.username}
+                onChange={handleInput}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label">
+                Email
+              </label>
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                name="email"
+                value={data.email}
+                onChange={handleInput}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="phone" className="form-label">
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                className="form-control"
+                id="phone"
+                name="phone"
+                value={data.phone}
+                onChange={handleInput}
+              />
+            </div>
+            <button type="submit" className="btn btn-success">
+              Save Changes
+            </button>
+          </form>
+        </div>
       </div>
+    </div>
     </>
   );
 };
