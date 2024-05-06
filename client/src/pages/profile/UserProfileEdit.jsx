@@ -120,8 +120,10 @@ export const UserProfileEdit = () => {
                 name="email"
                 value={data.email}
                 onChange={handleInput}
+                readOnly
               />
             </div>
+            <p>Change email</p>
             <div className="mb-3">
               <label htmlFor="phone" className="form-label">
                 Phone Number
