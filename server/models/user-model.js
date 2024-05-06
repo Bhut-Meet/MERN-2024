@@ -21,6 +21,7 @@ const userSchema = new mongoose.Schema({
     },
     hoby:{
         type:String,
+        default:false,
     },
     isAdmin:{
         type:Boolean,
