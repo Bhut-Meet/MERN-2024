@@ -75,6 +75,7 @@ export const UserProfileEdit = () => {
         <form onSubmit={handleSubmit}>
             <img src={data.image} alt="" />
             <br />
+            <br />
           <div className="form-group">
             <label htmlFor="username">Username</label>
             <input
