@@ -7,7 +7,7 @@ export const Layout = () => {
         <Container className="py-4">
             <Row>
                 <Col md={4}>
-                    <Link to="/users">
+                    <Link to="/admin/users">
                         <Card className="mb-4">
                             <Card.Body>
                                 <h3>Users</h3>
