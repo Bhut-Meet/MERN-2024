@@ -2,10 +2,8 @@ import { useParams } from 'react-router-dom';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 
 export const BuyNow = () => {
-    // Use the useParams hook to get the package type from the URL
     const { packageType } = useParams();
 
-    // Define the details for each package type
     const packageDetails = {
         basic: {
             title: "Basic Package",
@@ -38,8 +36,26 @@ export const BuyNow = () => {
         }
     };
 
-    // Get the details for the selected package type
+    // Check if the packageType exists in the packageDetails object
     const selectedPackage = packageDetails[packageType];
+
+    // If the packageType does not exist, display an error message or handle it as you prefer
+    if (!selectedPackage) {
+        return (
+            <Container className="py-5">
+                <Row>
+                    <Col>
+                        <Card className="border-0 shadow">
+                            <Card.Body>
+                                <h2 className="text-center">Package Not Found</h2>
+                                <p className="text-center">The selected package type does not exist.</p>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                </Row>
+            </Container>
+        );
+    }
 
     return (
         <Container className="py-5">
