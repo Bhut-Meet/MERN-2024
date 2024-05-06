@@ -16,12 +16,16 @@ const userSchema = new mongoose.Schema({
         require:true,
     },
     password:{
-        type:String,
+        type:String, 
         require:true,
     },
     isAdmin:{
         type:Boolean,
         default:false,
+    },
+    hobby: {
+        type:String,
+        default:'',
     }
 })
 
