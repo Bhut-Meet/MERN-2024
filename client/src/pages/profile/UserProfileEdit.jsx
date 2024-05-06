@@ -88,9 +88,9 @@ export const UserProfileEdit = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label  htmlFor="email">Email</label>
             <div className="input-group has-validation">
-            <span className="input-group-text" id="inputGroupPrepend">@</span>
+            <span className="input-group-text" id="inputGroupPrepend" style={{borderRadius:"2px 0px 0px 2px"}}>@</span>
             <input
               type="email"
               className="form-control"
