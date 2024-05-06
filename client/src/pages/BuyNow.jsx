@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 
 export const BuyNow = () => {
-    const { packageType } = useParams();
+    const { packageType } = useParams("basic");
 
     const packageDetails = {
         basic: {
