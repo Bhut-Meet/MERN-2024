@@ -62,7 +62,7 @@ export const AdminContacts = () => {
       <h2 className="my-4">Admin Contacts</h2>
       {/* Check if loading is true, then display loading indicator */}
       {loading ? (
-        <div className="text-center">Loading...</div>
+        <div className="text-center mx-3"><h1>Loading...</h1></div>
       ) : (
         <div className="row">
           {contactData.map((curContactData, index) => {
