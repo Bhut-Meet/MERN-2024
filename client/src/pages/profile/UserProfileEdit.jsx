@@ -69,12 +69,34 @@ export const UserProfileEdit = () => {
     }
   };
 
+  
+
+
+  const viewProfileImage = () => {
+    if (data.image) {
+      return (
+        <div className="mb-3">
+          <img
+            src={URL.createObjectURL(data.image)}
+            alt="Profile"
+            className="img-fluid rounded"
+            style={{ maxHeight: "200px" }}
+          />
+        </div>
+      );
+    } else {
+      return null;
+    }
+  };
+
+
   return (
     <>
 <div className="container py-4">
       <div className="row justify-content-center">
         <div className="col-md-6">
           <form onSubmit={handleSubmit}>
+          {viewProfileImage()}
             <div className="mb-3">
               <label htmlFor="image" className="form-label">
                 Profile Image
