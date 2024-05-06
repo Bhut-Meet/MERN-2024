@@ -89,6 +89,7 @@ export const UserProfileEdit = () => {
           </div>
           <div className="form-group">
             <label htmlFor="email">Email</label>
+            <span className="input-group-text" id="inputGroupPrepend">@</span>
             <input
               type="email"
               className="form-control"
