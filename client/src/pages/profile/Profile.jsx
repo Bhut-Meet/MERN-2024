@@ -69,7 +69,16 @@ export const Profile = () => {
                                     // onChange={handleInput}
                                 />
                             </div>
-                            <div>{user.hoby}</div>
+                            <div className='form-group'>
+                                <label htmlFor='username'>Hoby</label>
+                                <input
+                                    type='text'
+                                    className='form-control'
+                                    id='hoby'
+                                    value={user.hoby}
+                                />
+                            </div>
+                            <div></div>
                             <div className='form-group'>
                                 <label htmlFor='password'>Password</label>
                                 <div className="input-group">
