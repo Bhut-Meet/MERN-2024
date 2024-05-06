@@ -1,4 +1,5 @@
 import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export const SEOOptimization = () => {
     return (
@@ -42,6 +43,7 @@ export const SEOOptimization = () => {
                                     <li>On-page optimization</li>
                                     <li>Basic technical SEO audit</li>
                                 </ul>
+                                <Link to="/buynow" className="btn  w-100" style={{backgroundColor:"#9333EA", color:"white"}}>Buy Now</Link>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -56,6 +58,7 @@ export const SEOOptimization = () => {
                                     <li>Technical SEO audit and recommendations</li>
                                     <li>Monthly performance reporting</li>
                                 </ul>
+                                <Link to="/buynow" className="btn  w-100" style={{backgroundColor:"#9333EA", color:"white"}}>Buy Now</Link>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -71,6 +74,7 @@ export const SEOOptimization = () => {
                                     <li>Monthly performance tracking and optimization</li>
                                     <li>Dedicated account manager</li>
                                 </ul>
+                                <Link to="/buynow" className="btn  w-100" style={{backgroundColor:"#9333EA", color:"white"}}>Buy Now</Link>
                             </Card.Body>
                         </Card>
                     </Col>
