@@ -58,7 +58,7 @@ export const AdminLayout = () => {
                     to='/admin/users'
                     onClick={closeNav}
                   >
-                    <FaUserAlt /> <span className='icon-text'>Users</span>
+                    <FaUserAlt /> <span className='icon-text ms-2'>Users</span>
                   </NavLink>
                 </li>
                 <li className='nav-item'>
