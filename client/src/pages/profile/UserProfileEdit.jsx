@@ -110,7 +110,8 @@ export const UserProfileEdit = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="image">Profile Image</label>
+            <label htmlFor="image">Profile Image:</label>
+            <br />
             <input
               type="file"
               className="form-control-file"
