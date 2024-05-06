@@ -90,7 +90,7 @@ export const UserProfileEdit = () => {
           <div className="form-group">
             <label  htmlFor="email">Email</label>
             <div className="input-group has-validation">
-            <span className="input-group-text" id="inputGroupPrepend" style={{borderRadius:"2px 0px 0px 2px"}}>@</span>
+            <span className="input-group-text" id="inputGroupPrepend" style={{borderRadius:"6px 0px 0px 6px"}}>@</span>
             <input
               type="email"
               className="form-control"
