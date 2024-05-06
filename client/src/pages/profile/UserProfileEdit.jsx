@@ -89,6 +89,7 @@ export const UserProfileEdit = () => {
           </div>
           <div className="form-group">
             <label htmlFor="email">Email</label>
+            <div className="input-group has-validation">
             <span className="input-group-text" id="inputGroupPrepend">@</span>
             <input
               type="email"
@@ -98,6 +99,7 @@ export const UserProfileEdit = () => {
               value={data.email}
               onChange={handleInput}
             />
+            </div>
           </div>
           <div className="form-group">
             <label htmlFor="phone">Phone Number</label>
