@@ -54,7 +54,7 @@ export const AdminLayout = () => {
               <ul className='navbar-nav ms-auto'>
                 <li className='nav-item'>
                   <NavLink
-                    className='nav-link'
+                     className='nav-link d-flex align-items-center'
                     to='/admin/users'
                     onClick={closeNav}
                   >
@@ -63,7 +63,7 @@ export const AdminLayout = () => {
                 </li>
                 <li className='nav-item'>
                   <NavLink
-                    className='nav-link'
+                     className='nav-link d-flex align-items-center'
                     to='/admin/contacts'
                     onClick={closeNav}
                   >
@@ -72,7 +72,7 @@ export const AdminLayout = () => {
                 </li>
                 <li className='nav-item'>
                   <NavLink
-                    className='nav-link'
+                     className='nav-link d-flex align-items-center'
                     to='/admin/AdminServices'
                     onClick={closeNav}
                   >
@@ -81,7 +81,7 @@ export const AdminLayout = () => {
                   </NavLink>
                 </li>
                 <li className='nav-item'>
-                  <NavLink className='nav-link' to='/' onClick={closeNav}>
+                  <NavLink  className='nav-link d-flex align-items-center' to='/' onClick={closeNav}>
                     <FaHome /> <span className='icon-text'>Home</span>
                   </NavLink>
                 </li>
