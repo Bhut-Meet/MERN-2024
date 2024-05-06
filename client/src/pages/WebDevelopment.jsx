@@ -32,7 +32,7 @@ export const WebDevelopment = () => {
                     </Col>
                 </Row>
                 <Row className="mb-5">
-                    <Col md={4}>
+                    <Col md={4} className="mb-4 mb-md-0">
                         <Card className="border-0 shadow">
                             <Card.Body>
                                 <h3 className="text-center">Basic Package</h3>
@@ -45,7 +45,7 @@ export const WebDevelopment = () => {
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col md={4}>
+                    <Col md={4} className="mb-4 mb-md-0">
                         <Card className="border-0 shadow">
                             <Card.Body>
                                 <h3 className="text-center">Standard Package</h3>
@@ -59,7 +59,7 @@ export const WebDevelopment = () => {
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col md={4}>
+                    <Col md={4} className="mb-4 mb-md-0">
                         <Card className="border-0 shadow">
                             <Card.Body>
                                 <h3 className="text-center">Premium Package</h3>
