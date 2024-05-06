@@ -1,4 +1,5 @@
 import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export const WebDevelopment = () => {
     return (
@@ -42,6 +43,7 @@ export const WebDevelopment = () => {
                                     <li>Up to 5 pages</li>
                                     <li>Basic functionality</li>
                                 </ul>
+                                <Link to="/buynow" className="btn btn-primary w-100">Buy Now</Link>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -56,6 +58,7 @@ export const WebDevelopment = () => {
                                     <li>Advanced functionality</li>
                                     <li>Content management system (CMS)</li>
                                 </ul>
+                                <Link to="/buynow" className="btn btn-primary w-100">Buy Now</Link>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -71,6 +74,7 @@ export const WebDevelopment = () => {
                                     <li>Content management system (CMS)</li>
                                     <li>E-commerce integration</li>
                                 </ul>
+                                <Link to="/buynow" className="btn btn-primary w-100">Buy Now</Link>
                             </Card.Body>
                         </Card>
                     </Col>
