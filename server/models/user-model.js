@@ -19,10 +19,6 @@ const userSchema = new mongoose.Schema({
         type:String,
         require:true,
     },
-    hoby:{
-        type:String,
-        default:"",
-    },
     isAdmin:{
         type:Boolean,
         default:false,
