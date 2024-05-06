@@ -58,7 +58,7 @@ export const AdminLayout = () => {
                     to='/admin/users'
                     onClick={closeNav}
                   >
-                    <FaUserAlt /> <span className='icon-text ms-2'>Users</span>
+                    <FaUserAlt /> <span className='icon-text ms-1'>Users</span>
                   </NavLink>
                 </li>
                 <li className='nav-item'>
@@ -67,7 +67,7 @@ export const AdminLayout = () => {
                     to='/admin/contacts'
                     onClick={closeNav}
                   >
-                    <FaMessage /> <span className='icon-text'>Contacts</span>
+                    <FaMessage /> <span className='icon-text ms-1'>Contacts</span>
                   </NavLink>
                 </li>
                 <li className='nav-item'>
@@ -77,12 +77,12 @@ export const AdminLayout = () => {
                     onClick={closeNav}
                   >
                     <IoIosAddCircle />{' '}
-                    <span className='icon-text'>Add Services</span>
+                    <span className='icon-text ms-1'>Add Services</span>
                   </NavLink>
                 </li>
                 <li className='nav-item'>
                   <NavLink  className='nav-link d-flex align-items-center' to='/' onClick={closeNav}>
-                    <FaHome /> <span className='icon-text'>Home</span>
+                    <FaHome /> <span className='icon-text ms-1'>Home</span>
                   </NavLink>
                 </li>
               </ul>
