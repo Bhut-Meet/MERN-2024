@@ -6,7 +6,6 @@ import { FaHome } from 'react-icons/fa';
 import { IoIosAddCircle } from 'react-icons/io';
 import { useAuth } from '../../store/auth';
 import { useState } from 'react';
-import { Layout } from './Layout';
 
 export const AdminLayout = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -91,7 +90,7 @@ export const AdminLayout = () => {
           </div>
         </nav>
       </header>
-      <Layout/>
+      {/* <Layout/> */}
       <Outlet />
     </>
   );

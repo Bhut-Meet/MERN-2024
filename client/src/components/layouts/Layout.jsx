@@ -1,9 +1,11 @@
-import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AdminLayout } from './Admin-Layout';
 
 export const Layout = () => {
     return (
+        <>
+        <AdminLayout></AdminLayout>
         <Container className="py-4">
             <Row>
                 <Col md={4}>
@@ -65,5 +67,6 @@ export const Layout = () => {
                 </Col>
             </Row>
         </Container>
+        </>
     );
 };
