@@ -11,7 +11,7 @@ export const Profile = () => {
   useEffect(() => {
     // Fetch user data on component mount
     user();
-  }, [user]); // Empty dependency array ensures this effect runs only once on mount
+  }, []); // Empty dependency array ensures this effect runs only once on mount
  
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
