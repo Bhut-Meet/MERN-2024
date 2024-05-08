@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 export const AdminUsers = () => {
   const [users, setUsers] = useState([]);
   const { authorizationToken, API } = useAuth();
+  const [loading, setLoading] = useState(true); // Initialize loading state
 
   const getAllUsersData = async () => {
     try {
@@ -24,6 +25,9 @@ export const AdminUsers = () => {
       }
     } catch (error) {
       console.log('Error fetching user data:', error);
+    }
+    finally {
+      setLoading(false); // Set loading to false when fetch operation completes
     }
   };
 
@@ -61,7 +65,9 @@ export const AdminUsers = () => {
         Add User
       </Link>
       <div className='table-responsive'>
-        {users ? (
+      {loading ? (
+          <div className='text-center my-4'>Loading...</div>
+        ) : users.length > 0 ? (
           <table className='table table-striped table-bordered'>
             <thead className='thead-dark'>
               <tr className='text-center'>
