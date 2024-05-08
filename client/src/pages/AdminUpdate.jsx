@@ -136,7 +136,7 @@ export const AdminUpdate = () => {
                       className="form-control fw-bold"
                       id="hobby"
                       name="hobby"
-                      value={data.hobby !== null ? data.hobby : ''}
+                      value={data.hobby !== null ? data.hobby : 'null'}
                     onChange={handleInput}
                     placeholder="Enter hobby"
                     />
