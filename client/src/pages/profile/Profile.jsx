@@ -8,20 +8,15 @@ export const Profile = () => {
   const { user,authorizationToken } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
-  useEffect(() => {
-    // Fetch user data on component mount
-    authorizationToken();
-  }, []); // Empty dependency array ensures this effect runs only once on mount
+// Empty dependency array ensures this effect runs only once on mount
  
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
-  };
-
-  const handleProfileUpdate = () => {
-    // Fetch user data after profile update
+  }; 
+  useEffect(() => {
+    // Fetch user data on component mount
     authorizationToken();
-  };  
-
+  }, []); 
   return (
     <>
       <div className='container  mt-5 mb-5'>
@@ -120,7 +115,6 @@ export const Profile = () => {
                 className='btn btn-success mt-2 px-4'
                   style={{ textDecoration: 'none', color: 'white' }}
                   to={`/Profile/user/${user._id}/edit`}
-                  onClick={handleProfileUpdate} // Fetch user data after update
                 >
                   Edit Profile
                 </Link>
