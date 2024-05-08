@@ -5,17 +5,22 @@ import { Link, NavLink } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 export const Profile = () => {
-  const { user } = useAuth();
+  const { user,fetchUser } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     // Fetch user data on component mount
-    user();
+    fetchUser();
   }, []); // Empty dependency array ensures this effect runs only once on mount
  
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
   };
+
+  const handleProfileUpdate = () => {
+    // Fetch user data after profile update
+    fetchUser();
+  };  
 
   return (
     <>
@@ -115,6 +120,7 @@ export const Profile = () => {
                 className='btn btn-success mt-2 px-4'
                   style={{ textDecoration: 'none', color: 'white' }}
                   to={`/Profile/user/${user._id}/edit`}
+                  onClick={handleProfileUpdate} // Fetch user data after update
                 >
                   Edit Profile
                 </Link>
