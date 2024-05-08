@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-export const WebDevelopment = ({ packages }) => {
+export const WebDevelopment = ( packages ) => {
     return (
         <div className="bg-light">
             <Container className="py-5">
