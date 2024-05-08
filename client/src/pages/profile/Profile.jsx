@@ -5,12 +5,12 @@ import { Link, NavLink } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 export const Profile = () => {
-  const { user } = useAuth();
+  const { user,authorizationToken } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     // Fetch user data on component mount
-    user();
+    authorizationToken();
   }, []); // Empty dependency array ensures this effect runs only once on mount
  
   const togglePasswordVisibility = () => {
@@ -19,7 +19,7 @@ export const Profile = () => {
 
   const handleProfileUpdate = () => {
     // Fetch user data after profile update
-    user();
+    authorizationToken();
   };  
 
   return (
