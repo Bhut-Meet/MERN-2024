@@ -1,16 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from "../store/auth";
 import { Link } from 'react-router-dom';
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 
 export const AdminServices = () => {
     const [servicesData, setServicesData] = useState([]);
     const { authorizationToken, API } = useAuth();
-    const [deleting, setdeleting] = useState(false); // State variable to track loading state
-
-
-
-
+    const [loadingStates, setLoadingStates] = useState([]); // Initialize loading states for delete actions
 
     const getServicesData = async () => {
         try {
@@ -24,6 +20,8 @@ export const AdminServices = () => {
             console.log("Data from API:", data); // Check fetched data
             if (response.ok) {
                 setServicesData(data);
+                // Initialize loading states for delete actions
+                setLoadingStates(Array(data.length).fill(false));
             }
         } catch (error) {
             console.error(error);
@@ -31,8 +29,13 @@ export const AdminServices = () => {
     };
 
     // Delete service message
-    const deleteService = async (id) => {
-        setdeleting(true); // Set loading state to true when form is submitted
+    const deleteService = async (id, index) => {
+        // Update loading state for the specific delete action
+        setLoadingStates((prevLoadingStates) => {
+            const newLoadingStates = [...prevLoadingStates];
+            newLoadingStates[index] = true;
+            return newLoadingStates;
+        });
         try {
             const response = await fetch(`${API}/api/admin/AdminServices/delete/${id}`, {
                 method: "DELETE",
@@ -40,14 +43,21 @@ export const AdminServices = () => {
                     Authorization: authorizationToken,
                 },
             });
-            if(response.ok){
+            if (response.ok) {
                 getServicesData();
-                toast.success("Service Delete successfully");
+                toast.success("Service Deleted successfully");
             }
         } catch (error) {
-            console.log("Error deleting user:", error);
+            console.log("Error deleting service:", error);
+            toast.error("Failed to delete service");
+        } finally {
+            // Reset loading state for the specific delete action
+            setLoadingStates((prevLoadingStates) => {
+                const newLoadingStates = [...prevLoadingStates];
+                newLoadingStates[index] = false;
+                return newLoadingStates;
+            });
         }
-        setdeleting(false); // Set loading state to false when form is submitted
     };
 
     useEffect(() => {
@@ -60,7 +70,7 @@ export const AdminServices = () => {
           <Link className='btn btn-success mb-5' to="/admin/AddServices">Add Services</Link>
           <div className="row">
             {servicesData.map((curServiceData, index) => {
-              const { _id, service,image, description, price,provider } = curServiceData;
+              const { _id, service, image, description, price, provider } = curServiceData;
               return (
                 <div key={index} className="col-6 col-md-3 mb-4">
                     <div className="card h-100 shadow">
@@ -77,10 +87,12 @@ export const AdminServices = () => {
                                 <strong>Provider:</strong> {provider}
                             </p>
                             <div className='d-flex bg-dark p-2 rounded-3 justify-content-between'>
-                                <button className="btn btn-danger btn-sm" onClick={() => deleteService(_id)}>
-                                {deleting ? 'Deleting...' : 'Delete'} {/* Change button text based on loading state */}
+                                <button className="btn btn-danger btn-sm" onClick={() => deleteService(_id, index)} disabled={loadingStates[index]}>
+                                    {loadingStates[index] ? 'Deleting...' : 'Delete'}
                                 </button>
-                                <button className="btn btn-danger"><Link style={{color:"white",textDecoration:"none"}} to={`/admin/AdminServices/${curServiceData._id}/edit`}>Edit</Link></button>
+                                <button className="btn btn-danger">
+                                    <Link style={{ color: "white", textDecoration: "none" }} to={`/admin/AdminServices/${curServiceData._id}/edit`}>Edit</Link>
+                                </button>
                             </div>
                         </div>
                     </div>
