@@ -13,7 +13,6 @@ export const AuthProvider = ({ children }) => {
   // const authorizationToken = ('meet', token);
 
   // const API = import.meta.env.VITE_BASE_URL;
-
   const API = 'https://mernbackend-2cyi.onrender.com';
   
   // const API = 'http://localhost:5000';
@@ -75,6 +74,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     getSevices();
     userAuthentication();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -97,6 +97,7 @@ export const AuthProvider = ({ children }) => {
 };
 
 //custom hook
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => {
   const authContextValue = useContext(AuthContext);
   if (!authContextValue) {

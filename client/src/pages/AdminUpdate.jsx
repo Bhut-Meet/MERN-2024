@@ -49,7 +49,7 @@ export const AdminUpdate = () => {
     const { name, checked } = e.target;
     setData({ ...data, [name]: checked });
   };
-
+  
   // Update user data
   const handleSubmit = async (e) => {
     e.preventDefault();

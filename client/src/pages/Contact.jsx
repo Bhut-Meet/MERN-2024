@@ -194,7 +194,7 @@ export const Contact = () => {
                     className='btn w-100'
                     style={{ backgroundColor: '#9333EA', color: 'white' }}
                   >
-                    {isSending ? 'Message sending...' : 'Send Message'} {/* Change button text based on loading state */}
+                    {isSending ? 'sending...' : 'Send Message'} {/* Change button text based on loading state */}
                   </button>
                 </form>
               </div>
