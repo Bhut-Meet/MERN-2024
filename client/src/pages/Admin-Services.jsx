@@ -6,6 +6,9 @@ import {toast} from "react-toastify";
 export const AdminServices = () => {
     const [servicesData, setServicesData] = useState([]);
     const { authorizationToken, API } = useAuth();
+    const [deleting, setdeleting] = useState(false); // State variable to track loading state
+
+
 
 
 
@@ -29,6 +32,7 @@ export const AdminServices = () => {
 
     // Delete service message
     const deleteService = async (id) => {
+        setdeleting(true); // Set loading state to true when form is submitted
         try {
             const response = await fetch(`${API}/api/admin/AdminServices/delete/${id}`, {
                 method: "DELETE",
@@ -43,6 +47,7 @@ export const AdminServices = () => {
         } catch (error) {
             console.log("Error deleting user:", error);
         }
+        setdeleting(false); // Set loading state to false when form is submitted
     };
 
     useEffect(() => {
@@ -73,7 +78,7 @@ export const AdminServices = () => {
                             </p>
                             <div className='d-flex bg-dark p-2 rounded-3 justify-content-between'>
                                 <button className="btn btn-danger btn-sm" onClick={() => deleteService(_id)}>
-                                    Delete
+                                {deleting ? 'Deleting...' : 'Delete'} {/* Change button text based on loading state */}
                                 </button>
                                 <button className="btn btn-danger"><Link style={{color:"white",textDecoration:"none"}} to={`/admin/AdminServices/${curServiceData._id}/edit`}>Edit</Link></button>
                             </div>
