@@ -146,8 +146,8 @@ export const UserProfileEdit = () => {
               <input
                 type="text"
                 className="form-control"
-                id="hoby"
-                name="hoby"
+                id="hobby"
+                name="hobby"
                 value={data.hobby}
                 onChange={handleInput}
                 
