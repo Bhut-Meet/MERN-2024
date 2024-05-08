@@ -106,14 +106,13 @@ export const Profile = () => {
                   </button>
                 </div>
               </div>
-              <button className='btn btn-success mt-2 px-4'>
                 <Link
+                className='btn btn-success mt-2 px-4'
                   style={{ textDecoration: 'none', color: 'white' }}
                   to={`/Profile/user/${user._id}/edit`}
                 >
                   Edit Profile
                 </Link>
-              </button>
               {user.isAdmin ? (
                 <Link to='/admin' className='btn btn-primary mt-2 ms-2 px-4'>
                   Admin
