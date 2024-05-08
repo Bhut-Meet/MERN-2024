@@ -114,7 +114,7 @@ export const Contact = () => {
           <div className='col-md-6 d-flex justify-content-center align-items-center'>
             <img
               // src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIBAFR6-dn5mIqIzM3ti2HUhmH6E0ad_PTd2x_BgrYAw&s'
-              src={support}
+              src={support} 
               alt='Login Image'
               className='img-fluid mb-3'
               style={{ maxWidth: '80%', height: 'auto' }}
