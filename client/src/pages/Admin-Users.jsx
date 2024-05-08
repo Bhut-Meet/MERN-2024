@@ -66,7 +66,7 @@ export const AdminUsers = () => {
       </Link>
       <div className='table-responsive'>
       {loading ? (
-          <div className='text-center my-4'>Loading...</div>
+          <div className='text-center mx-3'><h3>Loading...</h3></div>
         ) : users.length > 0 ? (
           <table className='table table-striped table-bordered'>
             <thead className='thead-dark'>
