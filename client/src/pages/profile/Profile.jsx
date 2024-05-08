@@ -77,12 +77,12 @@ export const Profile = () => {
                 />
               </div>
               <div className='form-group'>
-                <label htmlFor='username'>Hoby</label>
+                <label htmlFor='username'>Hobby</label>
                 <input
                   type='text'
                   className='form-control'
-                  id='hoby'
-                  value={user.hoby}
+                  id='hobby'
+                  value={user.hobby}
                 />
               </div>
               <div></div>
