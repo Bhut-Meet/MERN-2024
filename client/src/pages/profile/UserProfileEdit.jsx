@@ -10,7 +10,7 @@ export const UserProfileEdit = () => {
     username: "",
     email: "",
     phone: "",
-    hoby:"",
+    hobby:"",
     image: null // New property for user image
   });
 
@@ -141,14 +141,14 @@ export const UserProfileEdit = () => {
             </div>
             <div className="mb-3">
               <label htmlFor="phone" className="form-label">
-                Hoby
+                Hobby
               </label>
               <input
                 type="text"
                 className="form-control"
                 id="hoby"
                 name="hoby"
-                value={data.hoby}
+                value={data.hobby}
                 onChange={handleInput}
                 
               />
