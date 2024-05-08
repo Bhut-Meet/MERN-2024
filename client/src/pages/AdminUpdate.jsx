@@ -14,6 +14,7 @@ export const AdminUpdate = () => {
   });
   const params = useParams();
   const { authorizationToken, API } = useAuth();
+  const [updating, setupdating] = useState(false); // State variable to track loading state
 
   // Get single user data
   const getSingleUserData = async () => {
@@ -51,6 +52,7 @@ export const AdminUpdate = () => {
   // Update user data
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setupdating(true); // Set loading state to true when form is submitted
     try {
       const response = await fetch(
         `${API}/api/admin/users/update/${params.id}`,
@@ -72,6 +74,7 @@ export const AdminUpdate = () => {
     } catch (error) {
       console.log("Error updating user:", error);
     }
+    setupdating(false); // Set loading state to false when form is submitted
   };
 
   return (
@@ -159,7 +162,7 @@ export const AdminUpdate = () => {
                     type="submit"
                     className="btn btn-primary w-100"
                   >
-                    Update
+                    {updating ? 'Updating...' : 'Update'} {/* Change button text based on loading state */}
                   </button>
                 </form>
               </div>
