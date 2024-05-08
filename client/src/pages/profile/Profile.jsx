@@ -1,22 +1,18 @@
 import '../profile/Profile.css';
 import { useAuth } from '../../store/auth';
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 export const Profile = () => {
-  const { user,authorizationToken } = useAuth();
+  const { user, } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
 // Empty dependency array ensures this effect runs only once on mount
  
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
-  }; 
-  useEffect(() => {
-    // Fetch user data on component mount
-    authorizationToken();
-  }, []); 
+  };
   return (
     <>
       <div className='container  mt-5 mb-5'>
