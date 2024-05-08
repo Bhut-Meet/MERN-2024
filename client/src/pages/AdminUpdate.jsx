@@ -127,6 +127,20 @@ export const AdminUpdate = () => {
                       placeholder="Enter phone"
                     />
                   </div>
+                  <div className="mb-3">
+                    <label htmlFor="username" className="form-label">
+                      hobby
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control fw-bold"
+                      id="hobby"
+                      name="hobby"
+                      value={data.hobby}
+                      onChange={handleInput}
+                      placeholder="Enter username"
+                    />
+                  </div>
                   <div className="mb-3 form-check">
                     <input
                       type="checkbox"
