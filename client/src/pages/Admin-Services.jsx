@@ -62,6 +62,7 @@ export const AdminServices = () => {
 
     useEffect(() => {
         getServicesData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []); // Fetch data when the component mounts
 
     return (
