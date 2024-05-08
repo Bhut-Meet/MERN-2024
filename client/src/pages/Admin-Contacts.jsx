@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../store/auth";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify";
+
 export const AdminContacts = () => {
-  const { authorizationToken,API } = useAuth();
+  const { authorizationToken, API } = useAuth();
   const [contactData, setContactData] = useState([]);
   const [loading, setLoading] = useState(true); // Initialize loading state
+  const [loadingStates, setLoadingStates] = useState([]); // Initialize loading states for delete actions
 
   const getContactsData = async () => {
     try {
-      const response = await fetch(`${API}/api/admin/contacts `, {
+      const response = await fetch(`${API}/api/admin/contacts`, {
         method: "GET",
         headers: {
           Authorization: authorizationToken,
@@ -18,40 +20,48 @@ export const AdminContacts = () => {
       console.log("data is ", data);
       if (response.ok) {
         setContactData(data);
+        setLoading(false); // Set loading to false when fetch operation completes
+        // Initialize loading states for delete actions
+        setLoadingStates(Array(data.length).fill(false));
       }
     } catch (error) {
       console.log(error);
     }
-    finally {
-      setLoading(false); // Set loading to false when fetch operation completes
-    }
   };
 
-
-
-
   // delete users message
-  const deleteContact = async (id) => {
+  const deleteContact = async (id, index) => {
+    // Update loading state for the specific delete action
+    setLoadingStates((prevLoadingStates) => {
+      const newLoadingStates = [...prevLoadingStates];
+      newLoadingStates[index] = true;
+      return newLoadingStates;
+    });
     try {
-        const response = await fetch(`${API}/api/admin/contacts/delete/${id}`, {
-            method: "DELETE",
-            headers: {
-                Authorization: authorizationToken,
-            },
-        });
-        if(response.ok){
-            getContactsData();
-            toast.success("deleted successfully")
-        }
-        else{
-            toast.error("Not deleting");
-        }
+      const response = await fetch(`${API}/api/admin/contacts/delete/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: authorizationToken,
+        },
+      });
+      if (response.ok) {
+        getContactsData();
+        toast.success("Deleted successfully");
+      } else {
+        toast.error("Failed to delete");
+      }
     } catch (error) {
-        console.log("Error deleting user:", error);
+      console.log("Error deleting user:", error);
+      toast.error("Failed to delete");
+    } finally {
+      // Reset loading state for the specific delete action
+      setLoadingStates((prevLoadingStates) => {
+        const newLoadingStates = [...prevLoadingStates];
+        newLoadingStates[index] = false;
+        return newLoadingStates;
+      });
     }
-};
-
-
+  };
 
   useEffect(() => {
     getContactsData();
@@ -62,7 +72,9 @@ export const AdminContacts = () => {
       <h2 className="my-4">Admin Contacts</h2>
       {/* Check if loading is true, then display loading indicator */}
       {loading ? (
-        <div className="text-center mx-3"><h3>Loading...</h3></div>
+        <div className="text-center mx-3">
+          <h3>Loading...</h3>
+        </div>
       ) : (
         <div className="row">
           {contactData.map((curContactData, index) => {
@@ -85,9 +97,11 @@ export const AdminContacts = () => {
                     </p>
                     <button
                       className="btn btn-danger"
-                      onClick={() => deleteContact(_id)}
+                      onClick={() => deleteContact(_id, index)}
+                      disabled={loadingStates[index]} // Disable button if delete action is in progress
                     >
-                      Delete
+                      {loadingStates[index] ? "Deleting..." : "Delete"}{" "}
+                      {/* Change button text based on loading state */}
                     </button>
                   </div>
                 </div>
@@ -97,6 +111,5 @@ export const AdminContacts = () => {
         </div>
       )}
     </div>
-
   );
 };
