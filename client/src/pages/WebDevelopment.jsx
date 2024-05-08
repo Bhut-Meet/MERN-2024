@@ -35,7 +35,7 @@ export const WebDevelopment = ({ packages }) => {
                     </Col>
                 </Row>
                 <Row className="mb-5">
-                    {packages.map((pkg, index) => (
+                {packages && packages.length > 0 && packages.map((pkg, index) => (
                         <Col key={index} md={4} className="mb-4 mb-md-0">
                             <Card className="border-0 shadow">
                                 <Card.Body>
