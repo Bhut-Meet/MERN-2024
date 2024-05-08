@@ -3,10 +3,9 @@ import { useAuth } from '../../store/auth';
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { useEffect } from 'react';
 
 export const Profile = () => {
-  const { user,authorizationToken } = useAuth();
+  const { user } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
  
@@ -14,10 +13,6 @@ export const Profile = () => {
     setShowPassword((prevState) => !prevState);
   };
 
-  useEffect(()=>{
-    authorizationToken();
-  },[])
-  
   return (
     <>
       <div className='container  mt-5 mb-5'>
