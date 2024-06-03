@@ -26,7 +26,11 @@ const userSchema = new mongoose.Schema({
     hobby: {
         type:String,
         default:'',
-    }
+    },
+    profileImageUrl: 
+    { 
+        type: String 
+    } // Store the URL of the profile image
 })
 
 // secure the password with the bcrypt

@@ -25,6 +25,8 @@ import { WebDevelopment } from './pages/WebDevelopment';
 import { SEOOptimization } from './pages/Seo';
 import { ScrollTop } from './pages/ScrollTop';
 import { BuyNow } from './pages/BuyNow';
+import { FileUpload } from './pages/FileUpload';
+import {FileDisplay} from './pages/FileDisplay';
 const App = () => {
   return (
     <>
@@ -45,6 +47,8 @@ const App = () => {
           <Route path='/Profile' element={<Profile />} />
           <Route path='/Profile/user/:id/edit' element={<UserProfileEdit />} />
           <Route path='/userprofile' element={<UserProfile />} />
+          <Route path='/fileupload' element={<FileUpload/>} />
+          <Route path='/filedisplay' element={<FileDisplay/>} />
           <Route path='/login' element={<Login />} />
           <Route path='/buynow' element={<BuyNow/>} />
           <Route path='/admin/' element={<AdminLayout></AdminLayout>}>

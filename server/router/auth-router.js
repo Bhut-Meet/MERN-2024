@@ -27,6 +27,7 @@ router.route("/login").post( validate(loginSchema), authcontrollers.login);
 
 router.route("/user").get(authMiddleware ,authcontrollers.user);
 router.route("/user/:id").get(authcontrollers.getUsersById);
+router.route("/uploadPi").post(authcontrollers.upload.single('profileImage') ,authcontrollers.uploadProfileImage)
 router.route("/user/update/:id").patch(authcontrollers.UpdateUserById);
 
 

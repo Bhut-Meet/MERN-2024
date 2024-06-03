@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Contact } from './Contact.1';
+import { Contact } from './Contact';
 import '../components/Navbar.css';
 
 export const Home = () => {

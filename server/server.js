@@ -9,6 +9,8 @@ const adminRoute = require('./router/admin-router')
 const connectDb = require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
 
+const path = require("path");
+const multer = require("multer");
 
 
 function corsMiddleware(req, res, next) {
@@ -19,6 +21,7 @@ function corsMiddleware(req, res, next) {
   }
 
 const corsOptions={
+    // origin: ["http://localhost:5173"],
     origin: ["http://localhost:5173", "https://websitedevelopmentservices.vercel.app"],
     // origin: "https://websitedevelopmentservices.vercel.app",
     // origin:"https://websitedevelopmentservices.vercel.app", // Replace with allowed origins from environment variable or default to Vercel domain
@@ -36,6 +39,7 @@ app.use(express.json()) // middleware for parsing JSON bodies
 app.use("/api/auth",corsMiddleware, authRoutes);
 app.use("/api/form",corsMiddleware, contactRoute);
 app.use("/api/data",corsMiddleware, serviceRoute);
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve static files from the uploads folder
 
 //lets define admin routes
 app.use("/api/admin", corsMiddleware, adminRoute);
@@ -48,9 +52,8 @@ app.use("/api/admin", corsMiddleware, adminRoute);
 // app.use("/api/form", contactRoute);
 // app.use("/api/data", serviceRoute);
 // app.use("/api/admin", adminRoute);
+// app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve static files from the uploads folder
 //end only for a localhost
-
-
 
 
 app.use(errorMiddleware)

@@ -4,7 +4,9 @@
 
 const User = require("../models/user-model")
 const bcrypt= require("bcryptjs")
-
+// file uploader 
+const multer = require("multer");
+const path = require("path");
 //? In an Express.js application, a "controller" refers to a part of your code that is responsible for handling the application's logic. Controllers are typically used to process incoming requests, interact with models (data sources), and send responses back to clients. They help organize your application by separating concerns and following the MVC (Model-View-Controller) design pattern.
 
 
@@ -133,5 +135,61 @@ const UpdateUserById =async(req,res)=>{
 }
 
 
+// * --------------------------------
+// *  file upload logic
+// * --------------------------------
 
-module.exports = {home, register,login,user,getUsersById,UpdateUserById}
+// Configure multer storage
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/');
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + path.extname(file.originalname));
+    }
+});
+
+// File filter to allow only images
+const fileFilter = (req, file, cb) => {
+    if (file.mimetype.startsWith('image/')) {
+        cb(null, true);
+    } else {
+        cb(new Error('Not an image! Please upload an image.', false));
+    }
+};
+
+const upload = multer({
+    storage: storage,
+    limits: { fileSize: 1024 * 1024 * 5 }, // 5MB limit
+    fileFilter: fileFilter
+});
+
+// Controller to handle profile image upload
+const uploadProfileImage = async (req, res) => {
+    const userId = req.body.userId;
+
+    if (!req.file) {
+        return res.status(400).send('No file uploaded.');
+    }
+
+    const profileImageUrl = `http://localhost:5000/uploads/${req.file.filename}`;
+
+    try {
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).send('User not found.');
+        }
+
+        user.profileImageUrl = profileImageUrl;
+        await user.save();
+
+        res.status(200).send({
+            message: 'Profile image uploaded successfully',
+            profileImageUrl: profileImageUrl
+        });
+    } catch (error) {
+        res.status(500).send('Error uploading profile image');
+    }
+};
+
+module.exports = {home, register,login,user,getUsersById,UpdateUserById, upload, uploadProfileImage }
