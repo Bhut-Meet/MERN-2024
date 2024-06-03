@@ -3,53 +3,16 @@ import { useAuth } from '../../store/auth';
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import axios from 'axios'; // Import Axios for making HTTP requests
 
 export const Profile = () => {
-  const { user, setUser  } = useAuth();
+  const { user  } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
-  const [selectedFile, setSelectedFile] = useState(null); // State to store selected file
 
 
  
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
   };
-
-
-
-    // Function to handle file selection
-    const handleFileChange = (e) => {
-      setSelectedFile(e.target.files[0]);
-    };
-  
-    // Function to handle image upload
-    const handleImageUpload = async () => {
-      if (!selectedFile) return; // If no file is selected, return
-  
-      const formData = new FormData();
-      formData.append('profileImage', selectedFile);
-  
-      try {
-        // Send a POST request to upload the image
-        const response = await axios.post('http://localhost:5000/api/auth/upload-profile-image', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
-        });
-  
-        // Update the user's profile image URL after successful upload
-        setUser(prevUser => ({
-          ...prevUser,
-          image: response.data.profileImageUrl
-        }));
-      } catch (error) {
-        console.error('Error uploading image:', error);
-        // Handle error
-      }
-    };
-
-
   return (
     <>
       <div className='container  mt-5 mb-5'>
