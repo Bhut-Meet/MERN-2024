@@ -43,7 +43,22 @@ export const UserProfileEdit = () => {
 
   // Handle image upload
   const handleImageChange = (e) => {
-    setData({ ...data, image: e.target.files[0] });
+    // Check if files were selected
+    if (e.target.files && e.target.files.length > 0) {
+      // Access the first file selected
+      const selectedFile = e.target.files[0];
+      
+      // Check if the selected file is an image
+      if (selectedFile.type.startsWith("image/")) {
+        // Update the state with the selected image file
+        setData({ ...data, image: selectedFile });
+      } else {
+        // Notify the user that only image files are allowed
+        alert("Please select an image file.");
+        // Optionally, clear the file input
+        e.target.value = null;
+      }
+    }
   };
 
   // Update user data
