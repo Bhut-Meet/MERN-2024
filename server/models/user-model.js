@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
         type:String,
         default:'',
     },
-    profileImageUrl: 
+    image: 
     { 
         type: String 
     } // Store the URL of the profile image
