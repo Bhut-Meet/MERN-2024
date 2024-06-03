@@ -9,8 +9,8 @@ const adminRoute = require('./router/admin-router')
 const connectDb = require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
 
-const path = require("path");
-const multer = require("multer");
+// const path = require("path");
+// const multer = require("multer");
 
 
 function corsMiddleware(req, res, next) {
@@ -39,7 +39,7 @@ app.use(express.json()) // middleware for parsing JSON bodies
 app.use("/api/auth",corsMiddleware, authRoutes);
 app.use("/api/form",corsMiddleware, contactRoute);
 app.use("/api/data",corsMiddleware, serviceRoute);
-app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve static files from the uploads folder
+// app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve static files from the uploads folder
 
 //lets define admin routes
 app.use("/api/admin", corsMiddleware, adminRoute);
