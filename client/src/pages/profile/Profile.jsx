@@ -3,14 +3,46 @@ import { useAuth } from '../../store/auth';
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import axios from 'axios'; // Import Axios for making HTTP requests
 
 export const Profile = () => {
-  const { user } = useAuth();
+  const { user, setUser } = useAuth(); // Assuming useAuth provides setUser method to update user data
   const [showPassword, setShowPassword] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null); // State to store selected file
 
- 
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
+  };
+
+  // Function to handle file selection
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
+
+  // Function to handle image upload
+  const handleImageUpload = async () => {
+    if (!selectedFile) return; // If no file is selected, return
+
+    const formData = new FormData();
+    formData.append('profileImage', selectedFile);
+
+    try {
+      // Send a POST request to upload the image
+      const response = await axios.post('http://localhost:5000/api/auth/upload-profile-image', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+
+      // Update the user's profile image URL after successful upload
+      setUser(prevUser => ({
+        ...prevUser,
+        image: response.data.profileImageUrl
+      }));
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      // Handle error
+    }
   };
 
   return (
@@ -21,7 +53,6 @@ export const Profile = () => {
           <div className='col-md-4 text-center mb-4 mb-md-0'>
             <div className='mb-3'>
               <img
-                // src='https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png'
                 src={user.image}
                 alt='User Image'
                 className='img-fluid rounded-circle'
@@ -30,23 +61,31 @@ export const Profile = () => {
             </div>
             <div className='d-flex justify-content-center '>
               <div className='mb-3 custom-file-input'>
+                {/* File input field for image selection */}
                 <input
                   type='file'
                   className='form-control'
                   id='imageUpload'
                   accept='image/*'
+                  onChange={handleFileChange} // Call handleFileChange when a file is selected
                 />
                 <label htmlFor='imageUpload' className='mt-1 btn-sm'>
                   Choose Image
                 </label>
               </div>
               <div className='mb-3 ms-3 '>
-                <button className='btn btn-danger mt-1'>Remove Image</button>
+                {/* Button to upload the selected image */}
+                <button className='btn btn-primary mt-1' onClick={handleImageUpload}>
+                  Upload Image
+                </button>
               </div>
             </div>
           </div>
           <div className='col-md-8'>
+            {/* Profile form */}
             <form>
+              {/* Other input fields */}
+              {/* Username */}
               <div className='form-group'>
                 <label htmlFor='username'>Username</label>
                 <input
@@ -57,6 +96,7 @@ export const Profile = () => {
                   // onChange={handleInput}
                 />
               </div>
+              {/* Email */}
               <div className='form-group'>
                 <label htmlFor='email'>Email</label>
                 <input
@@ -67,6 +107,7 @@ export const Profile = () => {
                   // onChange={handleInput}
                 />
               </div>
+              {/* Phone Number */}
               <div className='form-group'>
                 <label htmlFor='phone'>Phone Number</label>
                 <input
@@ -77,6 +118,7 @@ export const Profile = () => {
                   // onChange={handleInput}
                 />
               </div>
+              {/* Hobby */}
               <div className='form-group'>
                 <label htmlFor='username'>Hobby</label>
                 <input
@@ -86,7 +128,7 @@ export const Profile = () => {
                   value={user.hobby}
                 />
               </div>
-              <div></div>
+              {/* Password */}
               <div className='form-group'>
                 <label htmlFor='password'>Password</label>
                 <div className='input-group'>
@@ -107,13 +149,14 @@ export const Profile = () => {
                   </button>
                 </div>
               </div>
-                <Link
+              {/* Edit Profile and other buttons */}
+              <Link
                 className='btn btn-success mt-2 px-4'
-                  style={{ textDecoration: 'none', color: 'white' }}
-                  to={`/Profile/user/${user._id}/edit`}
-                >
-                  Edit Profile
-                </Link>
+                style={{ textDecoration: 'none', color: 'white' }}
+                to={`/Profile/user/${user._id}/edit`}
+              >
+                Edit Profile
+              </Link>
               {user.isAdmin ? (
                 <Link to='/admin' className='btn btn-primary mt-2 ms-2 px-4'>
                   Admin
