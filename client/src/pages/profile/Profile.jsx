@@ -115,7 +115,7 @@ export const Profile = () => {
                   Edit Profile
                 </Link>
               {user.isAdmin ? (
-                <Link to='/admin' className='btn btn-primary mt-2 ms-2 px-4'>
+                <Link to='/admin/users' className='btn btn-primary mt-2 ms-2 px-4'>
                   Admin
                 </Link>
               ) : null}
