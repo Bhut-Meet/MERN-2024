@@ -138,7 +138,7 @@ export const AdminServiceUpdate = () => {
               onChange={handleInput}
             />
           </div>
-          <button type='submit' className='btn btn-primary mt-3'>
+          <button type='submit' className='btn btn-primary mt-5'>
             Update Service
           </button>
         </form>
