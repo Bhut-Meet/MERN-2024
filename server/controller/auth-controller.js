@@ -134,48 +134,4 @@ const UpdateUserById =async(req,res)=>{
 }
 
 //user image uploader
-
-
-const UserImage = async (req, res) => {
-  try {
-    // Configure Multer for image uploads
-    const upload = multer({
-      dest: 'uploads/', // Set a temporary directory for uploads (change if needed)
-      limits: { fileSize: 1000000 }, // Set a maximum file size limit (in bytes)
-      fileFilter: (req, file, cb) => {
-        const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif']; // Allowed image extensions
-        const ext = path.extname(file.originalname).toLowerCase(); // Get file extension
-        if (allowedExtensions.includes(ext)) {
-          cb(null, true); // Accept the file
-        } else {
-          cb(new Error('Invalid image type')); // Reject unsupported file types
-        }
-      }
-    });
-
-    // Use Multer's single() method to handle image upload
-    upload.single('image')(req, res, async (err) => {
-      if (err) {
-        console.error(err);
-        return res.status(400).json({ msg: 'Error uploading image' }); // Handle upload errors
-      }
-
-      // Access uploaded image details from req.file
-      const { filename, path } = req.file;
-
-      // Create new user with image data (modify for your User model)
-      const userImage = await User.create({
-        // Replace with your user model's image field name
-        image: filename // Store the uploaded image filename
-      });
-
-      return res.status(200).json({ msg: 'New image uploaded', userImage });
-    });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ msg: 'Internal server error' }); // Handle unexpected errors
-  }
-};
-
-
-module.exports = {home, register,login,user,getUsersById,UpdateUserById,UserImage}
+module.exports = {home, register,login,user,getUsersById,UpdateUserById}
