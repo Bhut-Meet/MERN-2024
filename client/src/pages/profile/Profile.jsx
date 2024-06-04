@@ -55,6 +55,7 @@ export const Profile = () => {
                   id='username'
                   value={user.username}
                   // onChange={handleInput}
+                  disabled
                 />
               </div>
               <div className='form-group'>
@@ -65,6 +66,7 @@ export const Profile = () => {
                   id='email'
                   value={user.email}
                   // onChange={handleInput}
+                  disabled
                 />
               </div>
               <div className='form-group'>
@@ -75,6 +77,7 @@ export const Profile = () => {
                   id='phone'
                   value={user.phone}
                   // onChange={handleInput}
+                  disabled
                 />
               </div>
               <div className='form-group'>
@@ -84,6 +87,7 @@ export const Profile = () => {
                   className='form-control'
                   id='hobby'
                   value={user.hobby}
+                  disabled
                 />
               </div>
               <div></div>
@@ -96,6 +100,7 @@ export const Profile = () => {
                     id='password'
                     placeholder='Enter password'
                     value={user.password}
+                    disabled
                   />
                   <button
                     className='btn btn-outline-secondary d-flex align-items-center'

@@ -159,10 +159,10 @@ export const Contact = () => {
                       id='email'
                       name='email'
                       value={contact.email}
-                      readOnly
+                      disabled
                       // onChange={handleInput}
                       placeholder='Enter email'
-                      required
+                      
                     />
                   </div>
                   <div className='mb-3'>
@@ -175,10 +175,10 @@ export const Contact = () => {
                       id='number'
                       name='number'
                       value={contact.phone}
-                      readOnly
+                      disabled
                       // onChange={handleInput}
                       placeholder='Enter email'
-                      required
+                      
                     />
                   </div>
                   <div className='mb-3'>
