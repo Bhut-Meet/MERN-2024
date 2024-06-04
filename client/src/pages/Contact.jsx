@@ -142,10 +142,10 @@ export const Contact = () => {
                       id='username'
                       name='username'
                       value={contact.username}
-                      readOnly
                       // onChange={handleInput}
                       placeholder='Enter username'
                       // required
+                      disabled
                     />
                   </div>
                   <div className='mb-3'>
