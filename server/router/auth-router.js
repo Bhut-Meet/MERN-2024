@@ -24,10 +24,9 @@ const authMiddleware = require('../middlewares/auth-middleware')
 router.route("/").get(authcontrollers.home);
 router.route("/register").post( validate(signupSchema), authcontrollers.register);
 router.route("/login").post( validate(loginSchema), authcontrollers.login);
-
+router.route("/upload").post(authcontrollers.UserImage)
 router.route("/user").get(authMiddleware ,authcontrollers.user);
 router.route("/user/:id").get(authcontrollers.getUsersById);
-router.route("/uploadPi").post(authcontrollers.upload.single('profileImage') ,authcontrollers.uploadProfileImage)
 router.route("/user/update/:id").patch(authcontrollers.UpdateUserById);
 
 

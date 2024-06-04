@@ -3,10 +3,9 @@
 //* ----------------------------------------------------------------
 
 const User = require("../models/user-model")
-const bcrypt= require("bcryptjs")
-// file uploader 
-const multer = require("multer");
-const path = require("path");
+const bcrypt= require("bcryptjs");
+const multer = require('multer'); // Import Multer for file upload handling
+
 //? In an Express.js application, a "controller" refers to a part of your code that is responsible for handling the application's logic. Controllers are typically used to process incoming requests, interact with models (data sources), and send responses back to clients. They help organize your application by separating concerns and following the MVC (Model-View-Controller) design pattern.
 
 
@@ -134,62 +133,49 @@ const UpdateUserById =async(req,res)=>{
     }
 }
 
+//user image uploader
 
-// * --------------------------------
-// *  file upload logic
-// * --------------------------------
 
-// Configure multer storage
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'uploads/');
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + path.extname(file.originalname));
-    }
-});
-
-// File filter to allow only images
-const fileFilter = (req, file, cb) => {
-    if (file.mimetype.startsWith('image/')) {
-        cb(null, true);
-    } else {
-        cb(new Error('Not an image! Please upload an image.', false));
-    }
-};
-
-const upload = multer({
-    storage: storage,
-    limits: { fileSize: 1024 * 1024 * 5 }, // 5MB limit
-    fileFilter: fileFilter
-});
-
-// Controller to handle profile image upload
-const uploadProfileImage = async (req, res) => {
-    const userId = req.body.userId;
-
-    if (!req.file) {
-        return res.status(400).send('No file uploaded.');
-    }
-
-    const profileImageUrl = `http://localhost:5000/uploads/${req.file.filename}`;
-
-    try {
-        const user = await User.findById(userId);
-        if (!user) {
-            return res.status(404).send('User not found.');
+const UserImage = async (req, res) => {
+  try {
+    // Configure Multer for image uploads
+    const upload = multer({
+      dest: 'uploads/', // Set a temporary directory for uploads (change if needed)
+      limits: { fileSize: 1000000 }, // Set a maximum file size limit (in bytes)
+      fileFilter: (req, file, cb) => {
+        const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif']; // Allowed image extensions
+        const ext = path.extname(file.originalname).toLowerCase(); // Get file extension
+        if (allowedExtensions.includes(ext)) {
+          cb(null, true); // Accept the file
+        } else {
+          cb(new Error('Invalid image type')); // Reject unsupported file types
         }
+      }
+    });
 
-        user.profileImageUrl = profileImageUrl;
-        await user.save();
+    // Use Multer's single() method to handle image upload
+    upload.single('image')(req, res, async (err) => {
+      if (err) {
+        console.error(err);
+        return res.status(400).json({ msg: 'Error uploading image' }); // Handle upload errors
+      }
 
-        res.status(200).send({
-            message: 'Profile image uploaded successfully',
-            profileImageUrl: profileImageUrl
-        });
-    } catch (error) {
-        res.status(500).send('Error uploading profile image');
-    }
+      // Access uploaded image details from req.file
+      const { filename, path } = req.file;
+
+      // Create new user with image data (modify for your User model)
+      const userImage = await User.create({
+        // Replace with your user model's image field name
+        image: filename // Store the uploaded image filename
+      });
+
+      return res.status(200).json({ msg: 'New image uploaded', userImage });
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ msg: 'Internal server error' }); // Handle unexpected errors
+  }
 };
 
-module.exports = {home, register,login,user,getUsersById,UpdateUserById, upload, uploadProfileImage }
+
+module.exports = {home, register,login,user,getUsersById,UpdateUserById,UserImage}
