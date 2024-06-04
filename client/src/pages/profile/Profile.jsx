@@ -88,6 +88,7 @@ export const Profile = () => {
                   id='hobby'
                   value={user.hobby}
                   disabled
+                  placeholder='Enter your Hobby'
                 />
               </div>
               <div></div>
