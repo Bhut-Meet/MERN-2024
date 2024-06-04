@@ -101,7 +101,6 @@ export const Profile = () => {
                     placeholder='Enter password'
                     value={user.password}
                     disabled
-                    color='white'
                   />
                   <button
                     className='btn btn-outline-secondary d-flex align-items-center'
