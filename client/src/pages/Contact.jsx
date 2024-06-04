@@ -77,9 +77,16 @@ export const Contact = () => {
 
     setContact({
       ...contact,
-      [name]: name === 'message' ? value : value.trimEnd(), // Trim spaces only for non-message fields
+      [name]: value,
     });
   };
+
+
+  const trimmedContact = {
+    ...contact,
+    message: contact.message.trimEnd() // Trim trailing spaces and newlines from the message field
+  };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -90,7 +97,7 @@ export const Contact = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(contact),
+        body: JSON.stringify(trimmedContact),
       });
 
       if (response.ok) {
