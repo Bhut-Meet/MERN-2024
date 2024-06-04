@@ -120,7 +120,7 @@ export const Profile = () => {
                 </Link>
               ) : null}
               <NavLink
-                to='/logout'
+                to='/'
                 style={{ textDecoration: 'none' }}
                 className='btn btn-primary mt-2 ms-2 px-4'
               >

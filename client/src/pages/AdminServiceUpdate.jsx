@@ -39,6 +39,7 @@ export const AdminServiceUpdate = () => {
 
   useEffect(() => {
     getSingleServiceData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleInput = (e) => {
