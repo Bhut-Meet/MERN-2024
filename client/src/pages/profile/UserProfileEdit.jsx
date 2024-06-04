@@ -11,7 +11,7 @@ export const UserProfileEdit = () => {
     email: "",
     phone: "",
     hobby:"",
-    image: null // New property for user image
+    image: "" // New property for user image
   });
 
   const params = useParams();
