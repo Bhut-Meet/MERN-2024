@@ -139,7 +139,7 @@ export const AdminServiceUpdate = () => {
             />
           </div>
           <button type='submit' className='btn btn-primary'>
-            Add Service
+            Update Service
           </button>
         </form>
       </div>
