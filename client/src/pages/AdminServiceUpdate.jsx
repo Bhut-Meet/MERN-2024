@@ -74,7 +74,7 @@ export const AdminServiceUpdate = () => {
 
   return (
     <>
-      <div className='container p-3'>
+      <div className='container py-5'>
         <h2>Update Service</h2>
         <form onSubmit={handleSubmit}>
           <div className='form-group'>
