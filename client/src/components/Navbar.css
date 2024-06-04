@@ -51,13 +51,13 @@
     font-size: 1rem; /* Decreased font size */
     font-weight: 500;
     padding: 8px 17px; /* Decreased padding */
-    border-radius: 17px;
+    border-radius: 12px;
   }
   
   nav ul li a:hover {
     /* background-color: #ffa600db; */
     background-color: #9333EA;
-    border-radius: 17px;
+    border-radius: 12px;
     /* background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);    color: #333; */
   }
   /* a.nav-link:hover{
