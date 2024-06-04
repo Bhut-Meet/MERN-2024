@@ -44,16 +44,26 @@ export const UserProfileEdit = () => {
   // Handle image upload
   const handleImageChange = async (e) => {
     try {
+      const imageFile = e.target.files[0];
+
+      // Create a FormData object for multipart form data
+      const formData = new FormData();
+      formData.append('image', imageFile);
+
       const response = await fetch(`${API}/api/auth/upload`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        body: formData,
       });
-      const userImage = await response.json();
-      setData({ ...data, image: e.target.files[0], userImage });
+
+      if (!response.ok) {
+        console.error('Error uploading image:', await response.text());
+        return;
+      }
+
+      const uploadedImage = await response.json(); // Replace with actual response structure
+      setData({ ...data, image: uploadedImage.imageUrl || uploadedImage.path }); // Assuming backend returns saved image location
     } catch (error) {
-      console.log(error);
+      console.error('Error uploading image:', error);
     }
   };
 
