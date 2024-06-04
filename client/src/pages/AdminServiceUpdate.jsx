@@ -103,7 +103,7 @@ export const AdminServiceUpdate = () => {
           <div className='form-group'>
             <label htmlFor='price'>Price:</label>
             <input
-              type='number'
+              // type='number'
               className='form-control'
               id='price'
               name='price'
