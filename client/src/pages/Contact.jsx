@@ -77,7 +77,7 @@ export const Contact = () => {
 
     setContact({
       ...contact,
-      [name]: value,
+      [name]: name === 'message' ? value : value.trimEnd(), // Trim spaces only for non-message fields
     });
   };
 
