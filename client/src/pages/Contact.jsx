@@ -103,8 +103,7 @@ export const Contact = () => {
       if (response.ok) {
         setContact(prevContact => ({
           ...prevContact,
-          // message: '', // Clear only the message field
-          message: contact.message.trimEnd()
+          message: '', // Clear only the message field
         }));
         toast.success('Message Sent!');
         // window.location.reload();
