@@ -131,6 +131,7 @@ export const Contact = () => {
             <div className='card shadow'>
               <div className='card-body'>
                 <h2 className='text-center mb-4'>Contact Us</h2>
+                {user ? (
                 <form onSubmit={handleSubmit}>
                   <div className='mb-3'>
                     <label htmlFor='username' className='form-label'>
@@ -204,6 +205,10 @@ export const Contact = () => {
                     {isSending ? 'sending...' : 'Send Message'} {/* Change button text based on loading state */}
                   </button>
                 </form>
+              ) : (
+                  <p>Please <a href="/login">login</a> to send a message.</p>
+                )}
+
               </div>
             </div>
           </div>
