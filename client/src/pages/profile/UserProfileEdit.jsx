@@ -13,7 +13,7 @@ export const UserProfileEdit = () => {
     phone: '',
     hobby: '',
     birthDate: '', // New property for birth of date
-    image: '', // New property for user image
+    image: null, // New property for user image
   });
 
   const params = useParams();
