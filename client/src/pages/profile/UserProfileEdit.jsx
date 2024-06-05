@@ -11,7 +11,7 @@ export const UserProfileEdit = () => {
     email: '',
     phone: '',
     hobby: '',
-    image: '', // New property for user image
+    image: null, // Updated to store the file object
   });
 
   const params = useParams();
@@ -62,11 +62,9 @@ export const UserProfileEdit = () => {
 
       const response = await fetch(`${API}/api/auth/user/update/${params.id}`, {
         method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        body: formData,
       });
+
       if (response.ok) {
         toast.success('Update successful');
         navigate('/Profile');
@@ -79,7 +77,7 @@ export const UserProfileEdit = () => {
   };
 
   const viewProfileImage = () => {
-    if (data.image) {
+    if (data.image && typeof data.image === 'string') {
       return (
         <div className='col-md-6'>
           <img
@@ -144,7 +142,7 @@ export const UserProfileEdit = () => {
                 />
               </div>
               <div className='mb-3'>
-                <label htmlFor='phone' className='form-label'>
+                <label htmlFor='hobby' className='form-label'>
                   Hobby
                 </label>
                 <input
