@@ -16,12 +16,6 @@ export const Contact = () => {
   const [userData, setUserData] = useState(true);
   const { user, API } = useAuth();
 
-
-  if (!user) {
-    return (
-      <p className="text-center">Please <a href="/login" className="text-primary fw-bold">login</a> to contact and send a message.</p>
-    );
-  }
   // if (userData && user) {
   //   setContact({
   //     username: user.username,
@@ -137,7 +131,7 @@ export const Contact = () => {
             <div className='card shadow'>
               <div className='card-body'>
                 <h2 className='text-center mb-4'>Contact Us</h2>
-                {/* {user ? ( */}
+                {user ? (
                 <form onSubmit={handleSubmit}>
                   <div className='mb-3'>
                     <label htmlFor='username' className='form-label'>
@@ -211,9 +205,9 @@ export const Contact = () => {
                     {isSending ? 'sending...' : 'Send Message'} {/* Change button text based on loading state */}
                   </button>
                 </form>
-              {/* // ) : (
-              //   <p className="text-center">Please <a href="/login" className="text-primary fw-bold">login</a> to contact and send a message.</p>
-              //   )} */}
+              ) : (
+                <p className="text-center">Please <a href="/login" className="text-primary fw-bold">login</a> to contact and send a message.</p>
+                )}
 
               </div>
             </div>
