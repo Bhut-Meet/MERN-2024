@@ -62,10 +62,11 @@ export const UserProfileEdit = () => {
 
       const response = await fetch(`${API}/api/auth/user/update/${params.id}`, {
         method: 'PATCH',
+        // body:formData,
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(data),
       });
       if (response.ok) {
         toast.success('Update successful');
