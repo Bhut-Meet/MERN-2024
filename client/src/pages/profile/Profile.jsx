@@ -80,7 +80,7 @@ export const Profile = () => {
                   disabled
                 />
               </div>
-              {!user.isAdmin && (
+              {!user.isAdmin ?(
                 <div className='form-group'>
                   <label htmlFor='hobby'>Hobby</label>
                   <input
@@ -92,7 +92,7 @@ export const Profile = () => {
                     placeholder='Enter your Hobby'
                   />
                 </div>
-              )}
+              ):null}
               <div className='form-group'>
                 <label htmlFor='password'>Password</label>
                 <div className='input-group'>
