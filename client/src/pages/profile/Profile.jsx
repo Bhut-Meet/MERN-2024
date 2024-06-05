@@ -16,7 +16,7 @@ export const Profile = () => {
   return (
     <>
       <div className='container  mt-5 mb-5'>
-        <h2 className='ms-5'>User Profile</h2>
+        {/* <h2 className='ms-5'>User Profile</h2> */}
         <div className='row'>
           <div className='col-md-4 text-center mb-4 mb-md-0'>
             <div className='mb-3'>
