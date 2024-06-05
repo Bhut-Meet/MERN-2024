@@ -53,9 +53,9 @@ export const UserProfileEdit = () => {
     try {
       const formData =new FormData();
       formData.append("image",data);
-      
+
       const result = await axios.post(
-        `${API}/upload`,
+        `${API}/api/auth/user/upload`,
         formData,
         {
           headers:{"Content-Type":"multipart/form-data"}
