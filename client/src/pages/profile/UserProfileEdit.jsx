@@ -164,6 +164,7 @@ export const UserProfileEdit = () => {
                 type="file"
                 className="form-control"
                 id="image"
+                accept="image/*"
                 name="image"
                 onChange={handleImageChange}
               />
