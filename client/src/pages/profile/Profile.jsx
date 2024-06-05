@@ -80,18 +80,19 @@ export const Profile = () => {
                   disabled
                 />
               </div>
-              <div className='form-group'>
-                <label htmlFor='username'>Hobby</label>
-                <input
-                  type='text'
-                  className='form-control'
-                  id='hobby'
-                  value={user.hobby}
-                  disabled
-                  placeholder='Enter your Hobby'
-                />
-              </div>
-              <div></div>
+              {!user.isAdmin && (
+                <div className='form-group'>
+                  <label htmlFor='hobby'>Hobby</label>
+                  <input
+                    type='text'
+                    className='form-control'
+                    id='hobby'
+                    value={user.hobby}
+                    disabled
+                    placeholder='Enter your Hobby'
+                  />
+                </div>
+              )}
               <div className='form-group'>
                 <label htmlFor='password'>Password</label>
                 <div className='input-group'>
