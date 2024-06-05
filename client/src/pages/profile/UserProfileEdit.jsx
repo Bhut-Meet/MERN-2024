@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 
 export const UserProfileEdit = () => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false); // Loading state
   const [data, setData] = useState({
     username: '',
     email: '',
@@ -50,6 +51,7 @@ export const UserProfileEdit = () => {
   // Update user data
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true); // Set loading state to true
     try {
       const response = await fetch(`${API}/api/auth/user/update/${params.id}`, {
         method: 'PATCH',
@@ -66,6 +68,9 @@ export const UserProfileEdit = () => {
       }
     } catch (error) {
       console.log('Error updating user:', error);
+    }
+    finally {
+      setIsLoading(false); // Set loading state to false
     }
   };
 
@@ -161,8 +166,9 @@ export const UserProfileEdit = () => {
                   onChange={handleImageChange}
                 />
               </div>
-              <button type='submit' className='btn btn-success'>
+              <button type='submit' className='btn btn-success' >
                 Save Changes
+                {isLoading ? 'Please wait...' : 'Save Changes'}
               </button>
             </form>
           </div>
