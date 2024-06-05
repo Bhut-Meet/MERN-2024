@@ -15,7 +15,17 @@ const authMiddleware = require('../middlewares/auth-middleware')
 
 // Configure Multer
 const multer = require('multer'); // Import Multer for file upload handling
-const upload = multer({ dest: 'uploads/' });
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'uploads/')
+    },
+    filename: function (req, file, cb) {
+      const uniqueSuffix = Date.now()
+      cb(null, uniqueSuffix + file.originalname)
+    }
+  })
+  
+  const upload = multer({ storage: storage })
 
 // router.get('/', (req, res) =>{
 //     res.status(200).send('Hello World using router!')
