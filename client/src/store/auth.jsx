@@ -71,11 +71,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const updateUser = (userData) => {
-    setUser(userData);
-    // Here you can make an API call to update user data on the server
-    // For simplicity, we're just updating the local state
-  };
 
   useEffect(() => {
     getSevices();
@@ -95,7 +90,6 @@ export const AuthProvider = ({ children }) => {
         isLoading,
         API,
         userAuthentication,
-        updateUser
       }}
     >
       {children}
