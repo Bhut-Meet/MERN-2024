@@ -16,7 +16,7 @@ export const UserProfileEdit = () => {
   });
 
   const params = useParams();
-  const { API } = useAuth();
+  const {user, API } = useAuth();
 
   // Get single user data
   const getSingleUserData = async () => {
@@ -139,6 +139,7 @@ export const UserProfileEdit = () => {
                   disabled
                 />
               </div>
+              {!user.isAdmin && (
               <div className='mb-3'>
                 <label htmlFor='phone' className='form-label'>
                   Hobby
@@ -152,6 +153,7 @@ export const UserProfileEdit = () => {
                   onChange={handleInput}
                 />
               </div>
+              )}
               {viewProfileImage()}
               <div className='mb-3'>
                 <label htmlFor='image' className='form-label'>
