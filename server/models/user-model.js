@@ -23,12 +23,14 @@ const userSchema = new mongoose.Schema({
         type:Boolean,
         default:false,
     },
+    birthDate: {
+        type: Date
+    },
     hobby: {
         type:String,
         default:'',
     },
-    image: 
-    { 
+    image: { 
         type: String,
         default:'',
     } // Store the URL of the profile image

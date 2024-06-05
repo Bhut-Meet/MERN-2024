@@ -12,6 +12,7 @@ export const UserProfileEdit = () => {
     email: '',
     phone: '',
     hobby: '',
+    birthDate: '', // New property for birth of date
     image: '', // New property for user image
   });
 
@@ -154,6 +155,19 @@ export const UserProfileEdit = () => {
                 />
               </div>
               )}
+              <div className='mb-3'>
+                <label htmlFor='birthDate' className='form-label'>
+                  Birth Date
+                </label>
+                <input
+                  type='date'
+                  className='form-control'
+                  id='birthDate'
+                  name='birthDate'
+                  value={data.birthDate}
+                  onChange={handleInput}
+                />
+              </div>
               {viewProfileImage()}
               <div className='mb-3'>
                 <label htmlFor='image' className='form-label'>

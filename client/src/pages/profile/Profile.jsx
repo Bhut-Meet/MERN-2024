@@ -94,6 +94,17 @@ export const Profile = () => {
                 </div>
               )}
               <div className='form-group'>
+                <label htmlFor='phone'>Birth Date</label>
+                <input
+                  type='date'
+                  className='form-control'
+                  id='birthDate'
+                  value={user.birthDate}
+                  // onChange={handleInput}
+                  disabled
+                />
+              </div>
+              <div className='form-group'>
                 <label htmlFor='password'>Password</label>
                 <div className='input-group'>
                   <input
