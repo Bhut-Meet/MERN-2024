@@ -4,7 +4,9 @@
 
 const User = require("../models/user-model")
 const bcrypt= require("bcryptjs");
-const multer = require('multer'); // Import Multer for file upload handling
+const { application } = require("express");
+
+
 
 //? In an Express.js application, a "controller" refers to a part of your code that is responsible for handling the application's logic. Controllers are typically used to process incoming requests, interact with models (data sources), and send responses back to clients. They help organize your application by separating concerns and following the MVC (Model-View-Controller) design pattern.
 
@@ -134,4 +136,15 @@ const UpdateUserById =async(req,res)=>{
 }
 
 //user image uploader
-module.exports = {home, register,login,user,getUsersById,UpdateUserById}
+
+const UserImage = async (req, res) => {
+    try {
+        console.log(req.body);
+        res.status(200).send("uploaded!");
+    } catch (error) {
+        console.log(error);
+        res.status(500).send("An error occurred");
+    }
+};
+
+module.exports = {home, register,login,user,getUsersById,UpdateUserById,UserImage}
