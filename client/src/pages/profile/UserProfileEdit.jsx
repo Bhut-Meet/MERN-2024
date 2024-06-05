@@ -61,8 +61,8 @@ export const UserProfileEdit = () => {
         {
           headers:{"Content-Type":"multipart/form-data"},
         },
-      console.log(result)
-    );
+      );
+      // console.log(result)
 
       const response = await fetch(
         `${API}/api/auth/update/${params.id}`,
