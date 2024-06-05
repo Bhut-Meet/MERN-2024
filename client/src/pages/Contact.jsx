@@ -206,7 +206,7 @@ export const Contact = () => {
                   </button>
                 </form>
               ) : (
-                  <p>Please <a href="/login">login</a> to send a message.</p>
+                <p className="text-center">Please <a href="/login" className="text-primary fw-bold">login</a> to contact and send a message.</p>
                 )}
 
               </div>
