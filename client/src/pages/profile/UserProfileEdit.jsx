@@ -122,9 +122,10 @@ export const UserProfileEdit = () => {
                   name='email'
                   value={data.email}
                   onChange={handleInput}
-                  disabled
+                  disabled={!user.isAdmin} // Disable input if user is not admin
                 />
-              <p style={{color:"red"}}>Changing email is update soon</p>
+              {user.isAdmin && <p style={{ color: "red" }}>Changing email is allowed for admin only</p>}
+
               </div>
               <div className='mb-3'>
                 <label htmlFor='phone' className='form-label'>
