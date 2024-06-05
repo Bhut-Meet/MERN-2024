@@ -167,7 +167,6 @@ export const UserProfileEdit = () => {
                 />
               </div>
               <button type='submit' className='btn btn-success' >
-                Save Changes
                 {isLoading ? 'Please wait...' : 'Save Changes'}
               </button>
             </form>
