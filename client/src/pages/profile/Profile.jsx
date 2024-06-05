@@ -28,7 +28,7 @@ export const Profile = () => {
                 style={{ width: '150px', height: '150px' }} // Adjust image size as needed
               />
             </div>
-            <div className='d-flex justify-content-center '>
+            {/* <div className='d-flex justify-content-center '>
               <div className='mb-3 custom-file-input'>
                 <input
                   type='file'
@@ -43,7 +43,7 @@ export const Profile = () => {
               <div className='mb-3 ms-3 '>
                 <button className='btn btn-danger mt-1'>Remove Image</button>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className='col-md-8'>
             <form>
