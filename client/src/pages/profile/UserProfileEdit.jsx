@@ -121,10 +121,10 @@ export const UserProfileEdit = () => {
                   name='email'
                   value={data.email}
                   onChange={handleInput}
-                  readOnly
+                  disabled
                 />
               </div>
-              <p>Change email</p>
+              <p>Change email update soon</p>
               <div className='mb-3'>
                 <label htmlFor='phone' className='form-label'>
                   Phone Number
@@ -136,7 +136,7 @@ export const UserProfileEdit = () => {
                   name='phone'
                   value={data.phone}
                   onChange={handleInput}
-                  readOnly
+                  disabled
                 />
               </div>
               <div className='mb-3'>
