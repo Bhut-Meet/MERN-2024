@@ -56,16 +56,16 @@ export const UserProfileEdit = () => {
       formData.append("image",data);
 
       const result = await axios.post(
-        `${API}/api/auth/user/upload`,
+        `${API}/api/auth/upload`,
         formData,
         {
           headers:{"Content-Type":"multipart/form-data"},
         },
-      );
-      // console.log(result)
+      console.log(result)
+    );
 
       const response = await fetch(
-        `${API}/api/auth/update/${params.id}`,
+        `${API}/api/auth/user/update/${params.id}`,
         {
           method: "PATCH",
           headers: {
