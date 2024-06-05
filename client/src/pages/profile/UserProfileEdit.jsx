@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../store/auth';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import axios from 'axios';
 
 export const UserProfileEdit = () => {
   const navigate = useNavigate();
@@ -55,14 +54,14 @@ export const UserProfileEdit = () => {
       const formData = new FormData();
       formData.append('image', data);
 
-      const result = await axios.post(
-        `${API}/api/auth/upload`,
-        formData,
-        {
-          headers: { 'Content-Type': 'multipart/form-data' },
-        },
-        // console.log(result)
-      );
+
+      // const result = await post(`${API}/api/auth/upload`, {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(result),
+      // });
 
       const response = await fetch(`${API}/api/auth/user/update/${params.id}`, {
         method: 'PATCH',
