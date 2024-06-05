@@ -65,7 +65,7 @@ export const UserProfileEdit = () => {
     );
 
       const response = await fetch(
-        `${API}/api/auth/user/update/${params.id}`,
+        `${API}/api/auth/update/${params.id}`,
         {
           method: "PATCH",
           headers: {
