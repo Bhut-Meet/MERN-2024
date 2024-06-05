@@ -123,8 +123,8 @@ export const UserProfileEdit = () => {
                   onChange={handleInput}
                   disabled
                 />
+              <p style={{color:"red"}}>Change email update soon</p>
               </div>
-              <p>Change email update soon</p>
               <div className='mb-3'>
                 <label htmlFor='phone' className='form-label'>
                   Phone Number
