@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
         default:false,
     },
     birthDate: {
-        type: Date
+        type: String
     },
     hobby: {
         type:String,
