@@ -138,8 +138,9 @@ export const UserProfileEdit = () => {
                   name='phone'
                   value={data.phone}
                   onChange={handleInput}
-                  disabled
+                  disabled={!user.isAdmin} // Disable input if user is not admin
                 />
+                {user.isAdmin && <p style={{ color: "red" }}>Changing Phone Number is allowed for admin only</p>}
               </div>
               {!user.isAdmin && (
               <div className='mb-3'>
