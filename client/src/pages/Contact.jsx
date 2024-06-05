@@ -208,7 +208,7 @@ export const Contact = () => {
               ) : (
                 <>
                 <p className="text-center">Please <a href="/login" className="text-primary fw-bold">login</a> to contact and send a message.</p>
-                <p>login after the refrash the page.</p>
+                <p className="text-center">After Login the refresh the page.</p>
                 </>
                 )}
 
