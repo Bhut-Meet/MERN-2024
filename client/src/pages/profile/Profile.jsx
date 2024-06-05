@@ -11,7 +11,7 @@ export const Profile = () => {
   useEffect(() => {
     // Update local state with user data whenever user changes
     setUser(user);
-  }, [user]);
+  }, []);
  
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
