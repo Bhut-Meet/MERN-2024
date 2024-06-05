@@ -118,7 +118,7 @@ export const Profile = () => {
                   style={{ textDecoration: 'none', color: 'white' }}
                   to={`/Profile/user/${user._id}/edit`}
                 >
-                  Edit Profile
+                Edit Profile
                 </Link>
               {user.isAdmin ? (
                 <Link to='/admin/users' className='btn btn-primary mt-2 ms-2 px-4'>

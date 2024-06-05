@@ -43,6 +43,7 @@ export const UserProfileEdit = () => {
 
   // Handle image upload
   const handleImageChange = (e) => {
+    console.log(e.target.files[0]);
     setData({ ...data, image: e.target.files[0] });
   };
 
