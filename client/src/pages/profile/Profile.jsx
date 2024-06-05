@@ -1,14 +1,17 @@
 import '../profile/Profile.css';
 import { useAuth } from '../../store/auth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 export const Profile = () => {
-  const { user  } = useAuth();
+  const { user,setUser } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
-
+  useEffect(() => {
+    // Update local state with user data whenever user changes
+    setUser(user);
+  }, [user]);
  
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
