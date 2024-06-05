@@ -52,23 +52,20 @@ export const UserProfileEdit = () => {
     e.preventDefault();
     try {
       const formData = new FormData();
-      formData.append('image', data);
-
-
-      // const result = await post(`${API}/api/auth/upload`, {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify(result),
-      // });
+      formData.append('username', data.username);
+      formData.append('email', data.email);
+      formData.append('phone', data.phone);
+      formData.append('hobby', data.hobby);
+      if (data.image) {
+        formData.append('image', data.image);
+      }
 
       const response = await fetch(`${API}/api/auth/user/update/${params.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(formData),
       });
       if (response.ok) {
         toast.success('Update successful');
