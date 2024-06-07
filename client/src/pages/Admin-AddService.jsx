@@ -28,13 +28,13 @@ export const AdminAddService = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Set loading state to true
     // Check if any of the input fields are empty
     // if (!service || !description || !price || !image || !provider) {
     if (!data) {
       toast.error('Please fill in all fields');
       return;
     }
-    setLoading(true); // Set loading state to true
     try {
       const response = await fetch(`${API}/api/admin/AddServices`, {
         method: 'POST',
