@@ -98,9 +98,9 @@ export const AdminServices = () => {
                                 <button className="btn btn-danger btn-sm" onClick={() => deleteService(_id, index)} disabled={loadingStates[index]}>
                                     {loadingStates[index] ? 'Deleting...' : 'Delete'}
                                 </button>
-                                <button className="btn btn-danger">
-                                    <Link style={{ color: "white", textDecoration: "none" }} to={`/admin/AdminServices/${curServiceData._id}/edit`}>Edit</Link>
-                                </button>
+                                {/* <button className="btn btn-danger"> */}
+                                    <Link className="btn btn-danger" style={{ color: "white", textDecoration: "none" }} to={`/admin/AdminServices/${curServiceData._id}/edit`}>Edit</Link>
+                                {/* </button> */}
                             </div>
                         </div>
                     </div>
