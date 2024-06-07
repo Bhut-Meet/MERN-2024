@@ -132,11 +132,6 @@ export const Profile = () => {
                 >
                 Edit Profile
                 </Link>
-              {user.isAdmin ? (
-                <Link to='/admin/users' className='btn btn-primary mt-2 ms-2 px-4'>
-                  Admin
-                </Link>
-              ) : null}
               <NavLink className='btn btn-dark mt-2 ms-2 px-4'
                   style={{ textDecoration: 'none', color: 'white' }}
                  to="/Chat"> Chat</NavLink>
@@ -147,6 +142,11 @@ export const Profile = () => {
               >
                 Logout
               </NavLink>
+              {user.isAdmin ? (
+                <Link to='/admin/users' className='btn btn-primary mt-2 ms-2 px-4'>
+                  Admin
+                </Link>
+              ) : null}
             </form>
           </div>
         </div>
