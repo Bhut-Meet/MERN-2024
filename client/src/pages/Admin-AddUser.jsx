@@ -7,6 +7,7 @@ export const AdminAddUser = () => {
 
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(false);
   const { authorizationToken, API ,currentUser } = useAuth();
 
     // Define currentUserIsAdmin based on the isAdmin status of the current user
@@ -39,6 +40,8 @@ export const AdminAddUser = () => {
       return;
     }
 
+    setLoading(true); // Set loading state to true
+
     try {
       const response = await fetch(`${API}/api/auth/register`, {
         method: 'POST',
@@ -66,6 +69,9 @@ export const AdminAddUser = () => {
     } catch (error) {
       console.log(error);
       toast.error('Failed too add user');
+    }
+    finally {
+      setLoading(false); // Set loading state to false
     }
   };
 
@@ -118,7 +124,7 @@ export const AdminAddUser = () => {
           />
         </div>
         <button type='submit' className='btn btn-primary my-4'>
-          Add User
+          {loading ? 'Adding User...' : 'Add User'}
         </button>
       </form>
     </div>
