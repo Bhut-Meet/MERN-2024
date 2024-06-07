@@ -13,6 +13,7 @@ export const AdminServiceUpdate = () => {
     image: '',
     provider: '',
   });
+  const [loading, setLoading] = useState(false); // Loading state
   const params = useParams();
   const { authorizationToken, API } = useAuth();
 
@@ -50,6 +51,7 @@ export const AdminServiceUpdate = () => {
   // Update service data
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Start loading
     try {
       const response = await fetch(
         `${API}/api/admin/AdminServices/update/${params.id}`,
@@ -70,7 +72,11 @@ export const AdminServiceUpdate = () => {
       }
     } catch (error) {
       console.log('Error updating user:', error);
+      toast.error('Error updating service');
     }
+  finally {
+    setLoading(false); // End loading
+  }
   };
 
   return (
@@ -140,7 +146,7 @@ export const AdminServiceUpdate = () => {
             />
           </div>
           <button type='submit' className='btn btn-primary mt-5'>
-            Update Service
+          {loading ? 'Updating...' : 'Update Service'}
           </button>
         </form>
       </div>

@@ -20,7 +20,7 @@ export const Service = () => {
               <div className="card h-100 custom-card">
                 <img
                   src={image}
-                  alt=""
+                  alt="service image"
                   className="card-img-top custom-card-img"
                 />
                 <div className="card-body">
