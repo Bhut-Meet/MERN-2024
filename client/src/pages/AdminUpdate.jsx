@@ -134,20 +134,6 @@ export const AdminUpdate = () => {
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="username" className="form-label">
-                      hobby
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control fw-bold"
-                      id="hobby"
-                      name="hobby"
-                      value={data.hobby !== null ? data.hobby : ''}
-                    onChange={handleInput}
-                    placeholder="Enter hobby"
-                    />
-                  </div>
-                  <div className="mb-3">
                     <label htmlFor="birthDate" className="form-label">
                     Birth Date
                     </label>
@@ -159,6 +145,20 @@ export const AdminUpdate = () => {
                       value={data.birthDate}
                       onChange={handleInput}
                       placeholder="Enter your Brith Date"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="username" className="form-label">
+                      hobby
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control fw-bold"
+                      id="hobby"
+                      name="hobby"
+                      value={data.hobby !== null ? data.hobby : ''}
+                    onChange={handleInput}
+                    placeholder="Enter hobby"
                     />
                   </div>
                   <div className="mb-3 form-check">
