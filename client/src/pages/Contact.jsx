@@ -210,7 +210,7 @@ export const Contact = () => {
                     </button>
                     {/* Add chat button */}
                     <Link className='btn btn-primary mt-3'
-                  onClick={handleChatButtonClick} to="#">Start Chat with Admin</Link>
+                  onClick={handleChatButtonClick} to="/Chat">Start Chat with Admin</Link>
                   </form>
                 ) : (
                   <>

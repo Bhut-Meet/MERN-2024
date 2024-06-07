@@ -25,6 +25,7 @@ import { WebDevelopment } from './pages/WebDevelopment';
 import { SEOOptimization } from './pages/Seo';
 import { ScrollTop } from './pages/ScrollTop';
 import { BuyNow } from './pages/BuyNow';
+import { ChatPage } from './pages/chats/Chat';
 const App = () => {
   return (
     <>
@@ -45,6 +46,7 @@ const App = () => {
           <Route path='/Profile' element={<Profile />} />
           <Route path='/Profile/user/:id/edit' element={<UserProfileEdit />} />
           <Route path='/userprofile' element={<UserProfile />} />
+          <Route path='/Chat' element={<ChatPage/>} />
           <Route path='/login' element={<Login />} />
           <Route path='/buynow' element={<BuyNow/>} />
           <Route path='/admin/' element={<AdminLayout></AdminLayout>}>
