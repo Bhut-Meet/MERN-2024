@@ -137,6 +137,9 @@ export const Profile = () => {
                   Admin
                 </Link>
               ) : null}
+              <NavLink className='btn btn-dark mt-2 px-4'
+                  style={{ textDecoration: 'none', color: 'white' }}
+                 to="/Chat"> Chat</NavLink>
               <NavLink
                 to='/logout'
                 style={{ textDecoration: 'none' }}
