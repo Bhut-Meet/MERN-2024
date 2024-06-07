@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 export const AdminServices = () => {
     const [servicesData, setServicesData] = useState([]);
     const [isLoading, setIsLoading] = useState(true); // Initialize loading state for data fetching
+    const [editLoading, setEditLoading] = useState(null); // Initialize loading state for edit action
     const { authorizationToken, API } = useAuth();
     const [loadingStates, setLoadingStates] = useState([]); // Initialize loading states for delete actions
     const getServicesData = async () => {
@@ -99,7 +100,15 @@ export const AdminServices = () => {
                                     {loadingStates[index] ? 'Deleting...' : 'Delete'}
                                 </button>
                                 {/* <button className="btn btn-danger"> */}
-                                    <Link className="btn btn-danger" style={{ color: "white", textDecoration: "none" }} to={`/admin/AdminServices/${curServiceData._id}/edit`}>Edit</Link>
+                                    {/* <Link className="btn btn-danger" style={{ color: "white", textDecoration: "none" }} to={`/admin/AdminServices/${curServiceData._id}/edit`}>Edit</Link> */}
+                                    <Link
+                                                className="btn btn-danger"
+                                                style={{ color: "white", textDecoration: "none" }}
+                                                to={`/admin/AdminServices/${curServiceData._id}/edit`}
+                                                onClick={() => setEditLoading(index)}
+                                            >
+                                                {editLoading === index ? 'Loading...' : 'Edit'}
+                                            </Link>
                                 {/* </button> */}
                             </div>
                         </div>
