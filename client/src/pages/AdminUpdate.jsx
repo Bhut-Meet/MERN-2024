@@ -10,8 +10,8 @@ export const AdminUpdate = () => {
     username: "",
     email: "",
     phone: "",
-    hobby: "",
     birthDate: "",
+    hobby: "",
     isAdmin: false, // Initialize isAdmin as false
   });
   const params = useParams();

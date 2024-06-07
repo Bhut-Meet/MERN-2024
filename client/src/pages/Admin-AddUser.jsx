@@ -17,6 +17,8 @@ export const AdminAddUser = () => {
     email: '',
     phone: '',
     password: '',
+    birthDate: "",
+    hobby: "",
   });
 
   const handleInput = (e) => {
@@ -32,7 +34,9 @@ export const AdminAddUser = () => {
       !userData.username ||
       !userData.email ||
       !userData.phone ||
-      !userData.password 
+      !userData.password ||
+      !userData.birthDate ||
+      !userData.hobby
     ) {
       toast.error('Please fill in all fields');
       return;
@@ -56,6 +60,8 @@ export const AdminAddUser = () => {
           username: '',
           email: '',
           password: '',
+          birthDate:'',
+          hobby:'',
           isAdmin: currentUserIsAdmin ? 'user' : '',
         });
         navigate('/admin/users');
@@ -102,6 +108,28 @@ export const AdminAddUser = () => {
             id='phone'
             name='phone'
             value={userData.phone}
+            onChange={handleInput}
+          />
+        </div>
+        <div className='form-group'>
+          <label htmlFor='birthDate'>Birth Date:</label>
+          <input
+            type='date'
+            className='form-control'
+            id='birthDate'
+            name='birthDate'
+            value={userData.birthDate}
+            onChange={handleInput}
+          />
+        </div>
+        <div className='form-group'>
+          <label htmlFor='text'>Hobby:</label>
+          <input
+            type='text'
+            className='form-control'
+            id='hobby'
+            name='hobby'
+            value={userData.hobby}
             onChange={handleInput}
           />
         </div>
