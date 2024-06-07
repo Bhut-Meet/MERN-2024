@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '../store/auth';
 import support from '../assets/usupport.png';
-import {  toast } from "react-toastify";
+import { toast } from 'react-toastify';
 
 const defaultContactFormData = {
   username: '',
@@ -81,10 +81,9 @@ export const Contact = () => {
     });
   };
 
-
   const trimmedContact = {
     ...contact,
-    message: contact.message.trimEnd() // Trim trailing spaces and newlines from the message field
+    message: contact.message.trimEnd(), // Trim trailing spaces and newlines from the message field
   };
 
   const handleChatButtonClick = () => {
@@ -106,7 +105,7 @@ export const Contact = () => {
       });
 
       if (response.ok) {
-        setContact(prevContact => ({
+        setContact((prevContact) => ({
           ...prevContact,
           message: '', // Clear only the message field
         }));
@@ -126,7 +125,7 @@ export const Contact = () => {
           <div className='col-md-6 d-flex justify-content-center align-items-center'>
             <img
               // src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIBAFR6-dn5mIqIzM3ti2HUhmH6E0ad_PTd2x_BgrYAw&s'
-              src={support} 
+              src={support}
               alt='Login Image'
               className='img-fluid mb-3'
               style={{ maxWidth: '80%', height: 'auto' }}
@@ -137,93 +136,99 @@ export const Contact = () => {
               <div className='card-body'>
                 <h2 className='text-center mb-4'>Contact Us</h2>
                 {user ? (
-                <form onSubmit={handleSubmit}>
-                  <div className='mb-3'>
-                    <label htmlFor='username' className='form-label'>
-                      Username
-                    </label>
-                    <input
-                      type='text'
-                      className='form-control fw-bold'
-                      id='username'
-                      name='username'
-                      value={contact.username}
-                      // onChange={handleInput}
-                      placeholder='Enter username'
-                      // required
-                      disabled
-                    />
-                  </div>
-                  <div className='mb-3'>
-                    <label htmlFor='email' className='form-label '>
-                      Email
-                    </label>
-                    <input
-                      type='email'
-                      className='form-control fw-bold focus-ring-none'
-                      style={{ outline: 'none' }}
-                      id='email'
-                      name='email'
-                      value={contact.email}
-                      disabled
-                      // onChange={handleInput}
-                      placeholder='Enter email'
-                      
-                    />
-                  </div>
-                  <div className='mb-3'>
-                    <label htmlFor='email' className='form-label'>
-                      Phone
-                    </label>
-                    <input
-                      type='email'
-                      className='form-control fw-bold'
-                      id='number'
-                      name='number'
-                      value={contact.phone}
-                      disabled
-                      // onChange={handleInput}
-                      placeholder='Enter email'
-                      
-                    />
-                  </div>
-                  <div className='mb-3'>
-                    <label htmlFor='message' className='form-label'>
-                      Message
-                    </label>
-                    <textarea
-                      className='form-control'
-                      id='message'
-                      name='message'
-                      value={contact.message}
-                      onChange={handleInput}
-                      placeholder='Enter your message'
-                      rows='5'
-                      required
-                    ></textarea>
-                  </div>
-                  <button
-                    type='submit'
-                    className='btn w-100'
-                    style={{ backgroundColor: '#9333EA', color: 'white' }}
-                  >
-                    {isSending ? 'sending...' : 'Send Message'} {/* Change button text based on loading state */}
-                  </button>
-                  {/* Add chat button */}
-        <button
-          className="btn btn-primary mt-3"
-          onClick={handleChatButtonClick}
-        >
-          Start Chat with Admin
-        </button>
-                </form>
-              ) : (
-                <>
-                <p className="text-center">Please <a href="/login" className="text-primary fw-bold">login</a> to contact and send a message.</p>
-                <p className="text-center">After Login the refresh the page.</p>
-                </>
+                  <form onSubmit={handleSubmit}>
+                    <div className='mb-3'>
+                      <label htmlFor='username' className='form-label'>
+                        Username
+                      </label>
+                      <input
+                        type='text'
+                        className='form-control fw-bold'
+                        id='username'
+                        name='username'
+                        value={contact.username}
+                        // onChange={handleInput}
+                        placeholder='Enter username'
+                        // required
+                        disabled
+                      />
+                    </div>
+                    <div className='mb-3'>
+                      <label htmlFor='email' className='form-label '>
+                        Email
+                      </label>
+                      <input
+                        type='email'
+                        className='form-control fw-bold focus-ring-none'
+                        style={{ outline: 'none' }}
+                        id='email'
+                        name='email'
+                        value={contact.email}
+                        disabled
+                        // onChange={handleInput}
+                        placeholder='Enter email'
+                      />
+                    </div>
+                    <div className='mb-3'>
+                      <label htmlFor='email' className='form-label'>
+                        Phone
+                      </label>
+                      <input
+                        type='email'
+                        className='form-control fw-bold'
+                        id='number'
+                        name='number'
+                        value={contact.phone}
+                        disabled
+                        // onChange={handleInput}
+                        placeholder='Enter email'
+                      />
+                    </div>
+                    <div className='mb-3'>
+                      <label htmlFor='message' className='form-label'>
+                        Message
+                      </label>
+                      <textarea
+                        className='form-control'
+                        id='message'
+                        name='message'
+                        value={contact.message}
+                        onChange={handleInput}
+                        placeholder='Enter your message'
+                        rows='5'
+                        required
+                      ></textarea>
+                    </div>
+                    <button
+                      type='submit'
+                      className='btn w-100'
+                      style={{ backgroundColor: '#9333EA', color: 'white' }}
+                    >
+                      {isSending ? 'sending...' : 'Send Message'}{' '}
+                      {/* Change button text based on loading state */}
+                    </button>
+                  </form>
+                ) : (
+                  <>
+                    <p className='text-center'>
+                      Please{' '}
+                      <a href='/login' className='text-primary fw-bold'>
+                        login
+                      </a>{' '}
+                      to contact and send a message.
+                    </p>
+                    <p className='text-center'>
+                      After Login the refresh the page.
+                    </p>
+                  </>
                 )}
-
+                {/* Add chat button */}
+                <button
+                  className='btn btn-primary mt-3'
+                  onClick={handleChatButtonClick}
+                >
+                  Start Chat with Admin
+                </button>
               </div>
             </div>
           </div>
