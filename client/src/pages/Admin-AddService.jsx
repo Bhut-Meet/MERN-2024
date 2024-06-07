@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const AdminAddService = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const { authorizationToken, API } = useAuth();
   // const [service, setService] = useState('');
   // const [description, setDescription] = useState('');
@@ -33,6 +34,7 @@ export const AdminAddService = () => {
       toast.error('Please fill in all fields');
       return;
     }
+    setLoading(true); // Set loading state to true
     try {
       const response = await fetch(`${API}/api/admin/AddServices`, {
         method: 'POST',
@@ -66,6 +68,9 @@ export const AdminAddService = () => {
       }
     } catch (error) {
       console.log(error);
+    }
+    finally {
+      setLoading(false); // Set loading state to false
     }
   };
 
@@ -135,6 +140,7 @@ export const AdminAddService = () => {
         </div>
         <button type='submit' className='btn btn-primary my-4'>
           Add Service
+          {loading ? 'Adding Service...' : 'Add Service'}
         </button>
       </form>
     </div>
