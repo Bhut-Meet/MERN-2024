@@ -9,7 +9,7 @@ export const ChatPage = () => {
 
   const fetchChatMessages = async () => {
     try {
-      const response = await fetch(`${API}/api/chat/messages`, {
+      const response = await fetch(`${API}/api/auth/contacts`, {
         method: 'GET',
         headers: {
           Authorization: authorizationToken,
