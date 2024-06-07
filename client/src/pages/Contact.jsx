@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useAuth } from '../store/auth';
 import support from '../assets/usupport.png';
 import { toast } from 'react-toastify';
-import Link from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const defaultContactFormData = {
   username: '',
