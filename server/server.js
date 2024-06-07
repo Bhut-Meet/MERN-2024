@@ -36,6 +36,7 @@ app.use(cors(corsOptions));
 
 
 app.use(express.json()) // middleware for parsing JSON bodies
+
 app.use("/api/auth",corsMiddleware, authRoutes);
 app.use("/api/form",corsMiddleware, contactRoute);
 app.use("/api/data",corsMiddleware, serviceRoute);
@@ -48,17 +49,19 @@ app.use("/api/admin", corsMiddleware, adminRoute);
 
 
 // start only for a localhost
+
 // app.use("/api/auth" ,authRoutes);
 // app.use("/api/form", contactRoute);
 // app.use("/api/data", serviceRoute);
 // app.use("/api/admin", adminRoute);
 // app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve static files from the uploads folder
+
 //end only for a localhost
 
 
 app.use(errorMiddleware)
 
-const PORT =process.env.PORT || 5000;
+const PORT =process.env.PORT || 7777;
 connectDb().then(()=>{
     app.listen(PORT, () => {
         console.log('server is running on port ' + PORT);
