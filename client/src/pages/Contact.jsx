@@ -64,7 +64,7 @@ export const Contact = () => {
   // Populate contact data from user if available
   if (userData && user) {
     setContact({
-      id:user.id,
+      id:user._id,
       username: user.username,
       email: user.email,
       phone: user.phone,
