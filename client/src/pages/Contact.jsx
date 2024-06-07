@@ -64,7 +64,6 @@ export const Contact = () => {
   // Populate contact data from user if available
   if (userData && user) {
     setContact({
-      
       username: user.username,
       email: user.email,
       phone: user.phone,
@@ -135,7 +134,6 @@ export const Contact = () => {
                 {user ? (
                 <form onSubmit={handleSubmit}>
                   <div className='mb-3'>
-                    <h5><input type="text" value={contact.id} /></h5>
                     <label htmlFor='username' className='form-label'>
                       Username
                     </label>
