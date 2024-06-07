@@ -86,6 +86,9 @@ export const AdminContacts = () => {
               <div key={index} className="col-md-3 mb-4">
                 <div className="card h-100 shadow">
                   <div className="card-body">
+                  <p className="card-text">
+                      <strong>id:</strong> {_id}
+                    </p>
                     <h5 className="card-title">{capitalizedUsername}</h5>
                     <p className="card-text">
                       <strong>Email:</strong> {email}
