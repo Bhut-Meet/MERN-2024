@@ -74,7 +74,7 @@ export const AdminServices = () => {
           <h2 className="my-4">Admin Services </h2>
           <Link className='btn btn-success mb-5' to="/admin/AddServices">Add Services</Link>
           {isLoading ? ( // Show loading message if data is being fetched
-                <div>Loading...</div>
+                <div className='text-center my-4'>Loading...</div>
             ) : (
           <div className="row">
             {servicesData.map((curServiceData, index) => {
