@@ -19,6 +19,7 @@ export const AdminAddUser = () => {
     password: '',
     birthDate: '',
     hobby: '',
+    isAdmin: currentUserIsAdmin ? 'user' : '',
   });
 
   const handleInput = (e) => {
