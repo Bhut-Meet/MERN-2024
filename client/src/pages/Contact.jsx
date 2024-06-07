@@ -87,7 +87,12 @@ export const Contact = () => {
     message: contact.message.trimEnd() // Trim trailing spaces and newlines from the message field
   };
 
-
+  const handleChatButtonClick = () => {
+    // Implement logic to initiate chat with admin
+    // Example: ChatService.initiateChatWithAdmin();
+    // You may need to pass user information for identification
+    toast.info('Chat functionality coming soon!');
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIssending(true); // Set loading state to true when form is submitted
@@ -204,6 +209,13 @@ export const Contact = () => {
                   >
                     {isSending ? 'sending...' : 'Send Message'} {/* Change button text based on loading state */}
                   </button>
+                  {/* Add chat button */}
+        <button
+          className="btn btn-primary mt-3"
+          onClick={handleChatButtonClick}
+        >
+          Start Chat with Admin
+        </button>
                 </form>
               ) : (
                 <>
