@@ -1,7 +1,10 @@
 .nav-link {
     color: white;
-    text-align: center;
   }
+  .navbar-nav {
+    display: flex;
+    justify-content: center;
+}
   
   .nav-link:hover {
     background-color: #343a40; /* Change to your desired hover background color */
