@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useAuth } from '../store/auth';
 import support from '../assets/usupport.png';
 import { toast } from 'react-toastify';
+import Link from 'react-router-dom'
 
 const defaultContactFormData = {
   username: '',
@@ -207,6 +208,9 @@ export const Contact = () => {
                       {isSending ? 'sending...' : 'Send Message'}{' '}
                       {/* Change button text based on loading state */}
                     </button>
+                    {/* Add chat button */}
+                    <Link className='btn btn-primary mt-3'
+                  onClick={handleChatButtonClick} to={""}>Start Chat with Admin</Link>
                   </form>
                 ) : (
                   <>
@@ -222,13 +226,7 @@ export const Contact = () => {
                     </p>
                   </>
                 )}
-                {/* Add chat button */}
-                <button
-                  className='btn btn-primary mt-3'
-                  onClick={handleChatButtonClick}
-                >
-                  Start Chat with Admin
-                </button>
+                
               </div>
             </div>
           </div>
