@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from "../store/auth";
-import { Link } from 'react-router-dom';
+import { Link,useNavigate  } from 'react-router-dom';
 import { toast } from "react-toastify";
 
 export const AdminServices = () => {
     const [servicesData, setServicesData] = useState([]);
     const { authorizationToken, API } = useAuth();
     const [loadingStates, setLoadingStates] = useState([]); // Initialize loading states for delete actions
-
+    const [editLoadingState, setEditLoadingState] = useState(null); // Initialize loading state for edit action
+    const navigate = useNavigate();
     const getServicesData = async () => {
         try {
             const response = await fetch(`${API}/api/admin/AdminServices`, {
@@ -60,6 +61,13 @@ export const AdminServices = () => {
         }
     };
 
+        // Handle edit action
+        const handleEdit = (id, index) => {
+            // Update loading state for the edit action
+            setEditLoadingState(index);
+            navigate(`/admin/AdminServices/${id}/edit`);
+        };
+
     useEffect(() => {
         getServicesData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -91,9 +99,16 @@ export const AdminServices = () => {
                                 <button className="btn btn-danger btn-sm" onClick={() => deleteService(_id, index)} disabled={loadingStates[index]}>
                                     {loadingStates[index] ? 'Deleting...' : 'Delete'}
                                 </button>
-                                <button className="btn btn-danger">
+                                {/* <button className="btn btn-danger">
                                     <Link style={{ color: "white", textDecoration: "none" }} to={`/admin/AdminServices/${curServiceData._id}/edit`}>Edit</Link>
-                                </button>
+                                </button> */}
+                                <button className="btn btn-primary btn-sm" onClick={() => handleEdit(_id, index)} disabled={editLoadingState === index}>
+                                            {editLoadingState === index ? 'Please wait...' : (
+                                                <Link style={{ color: "white", textDecoration: "none" }} to="#">
+                                                    Edit
+                                                </Link>
+                                            )}
+                                        </button>
                             </div>
                         </div>
                     </div>
