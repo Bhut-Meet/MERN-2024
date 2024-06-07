@@ -10,44 +10,39 @@ export const Service = () => {
         <h2 className="main-heading">Services</h2>
       </div>
       <div className="container">
-  <div className="row row-cols-1 row-cols-md-3 g-4">
-    {services ? (
-      services.map((curElem, index) => {
-        const { image, service, price, provider, description } = curElem;
-        return (
-          <div className="col" key={index}>
-            <Link to="/" style={{ color: "white", textDecoration: "none" }}>
-              <div className="card h-100 custom-card">
-                <img
-                  src={image}
-                  alt=""
-                  className="card-img-top custom-card-img"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{service}</h5>
-                  <p className="card-text">{description}</p>
-                </div>
-                <div className="card-footer custom-card-footer">
-                  <div className="row">
-                    <div className="col">
-                      <p className="card-text">{provider}</p>
+        <div className="row row-cols-1 row-cols-md-3  g-4">
+          {services ? (
+            services.map((curElem, index) => {
+              const {image, service, price, provider, description } = curElem;
+              return (
+                <div className="col" key={index}>
+                  <Link to="/" style={{color:"white",textDecoration:"none"}}>
+                  <div className="card h-100 box" >
+                    <img src={image} alt="" style={{ height: "200px", width: "100%", objectFit: "cover",borderRadius:"5px"}}/>
+                    <div className="card-body">
+                      <h5 className="card-title">{service}</h5>
+                      <p className="card-text">{description}</p>
                     </div>
-                    <div className="col m-auto text-end">
-                      <p className="card-text">Price: ₹ {price}</p>
+                    <div className="card-footer ">
+                      <div className="row">
+                        <div className="col">
+                          <p className="card-text">{provider}</p>
+                        </div>
+                        <div className="col m-auto text-end">
+                          <p className="card-text">Price:- ₹ {price}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                  </Link>
                 </div>
-              </div>
-            </Link>
-          </div>
-        );
-      })
-    ) : (
-      <div>Loading...</div>
-    )}
-  </div>
-</div>
-
+              );
+            })
+          ) : (
+            <div>Loading...</div>
+          )}
+        </div>
+      </div>
     </section>
   );
 };
