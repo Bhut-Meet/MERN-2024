@@ -10,6 +10,8 @@ export const AdminUpdate = () => {
     username: "",
     email: "",
     phone: "",
+    hobby: "",
+    birthDate: "",
     isAdmin: false, // Initialize isAdmin as false
   });
   const params = useParams();
@@ -143,6 +145,20 @@ export const AdminUpdate = () => {
                       value={data.hobby !== null ? data.hobby : ''}
                     onChange={handleInput}
                     placeholder="Enter hobby"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="birthDate" className="form-label">
+                    Birth Date
+                    </label>
+                    <input
+                      type="date"
+                      className="form-control fw-bold"
+                      id="birthDate"
+                      name="birthDate"
+                      value={data.birthDate}
+                      onChange={handleInput}
+                      placeholder="Enter your Brith Date"
                     />
                   </div>
                   <div className="mb-3 form-check">
