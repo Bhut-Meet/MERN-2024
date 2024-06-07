@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from "../store/auth";
-import { Link,useNavigate  } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { toast } from "react-toastify";
 
 export const AdminServices = () => {
     const [servicesData, setServicesData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true); // Initialize loading state for data fetching
     const { authorizationToken, API } = useAuth();
     const [loadingStates, setLoadingStates] = useState([]); // Initialize loading states for delete actions
-    const [editLoadingState, setEditLoadingState] = useState(null); // Initialize loading state for edit action
-    const navigate = useNavigate();
     const getServicesData = async () => {
+        setIsLoading(true); // Set loading state to true before fetching data
         try {
             const response = await fetch(`${API}/api/admin/AdminServices`, {
                 method: "GET",
@@ -26,6 +26,9 @@ export const AdminServices = () => {
             }
         } catch (error) {
             console.error(error);
+        }
+        finally {
+            setIsLoading(false); // Set loading state to false after fetching data
         }
     };
 
@@ -61,13 +64,6 @@ export const AdminServices = () => {
         }
     };
 
-        // Handle edit action
-        const handleEdit = (id, index) => {
-            // Update loading state for the edit action
-            setEditLoadingState(index);
-            navigate(`/admin/AdminServices/${id}/edit`);
-        };
-
     useEffect(() => {
         getServicesData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -77,6 +73,9 @@ export const AdminServices = () => {
         <div className="container">
           <h2 className="my-4">Admin Services </h2>
           <Link className='btn btn-success mb-5' to="/admin/AddServices">Add Services</Link>
+          {isLoading ? ( // Show loading message if data is being fetched
+                <div>Loading...</div>
+            ) : (
           <div className="row">
             {servicesData.map((curServiceData, index) => {
               const { _id, service, image, description, price, provider } = curServiceData;
@@ -99,16 +98,9 @@ export const AdminServices = () => {
                                 <button className="btn btn-danger btn-sm" onClick={() => deleteService(_id, index)} disabled={loadingStates[index]}>
                                     {loadingStates[index] ? 'Deleting...' : 'Delete'}
                                 </button>
-                                {/* <button className="btn btn-danger">
+                                <button className="btn btn-danger">
                                     <Link style={{ color: "white", textDecoration: "none" }} to={`/admin/AdminServices/${curServiceData._id}/edit`}>Edit</Link>
-                                </button> */}
-                                <button className="btn btn-primary btn-sm" onClick={() => handleEdit(_id, index)} disabled={editLoadingState === index}>
-                                            {editLoadingState === index ? 'Please wait...' : (
-                                                <Link style={{ color: "white", textDecoration: "none" }} to="#">
-                                                    Edit
-                                                </Link>
-                                            )}
-                                        </button>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -116,6 +108,7 @@ export const AdminServices = () => {
               );
             })}
           </div>
+          )}
         </div>
     );
 };
