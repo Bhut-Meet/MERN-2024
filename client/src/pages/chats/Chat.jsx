@@ -12,7 +12,7 @@ export const ChatPage = () => {
   return (
     <Container className="mt-5">
       <Row>
-        <Col md={8}>
+        <Col md={{ span: 8, offset: 2 }}>
           <div className="chat-window">
             {chatMessages.map((chat, index) => (
               <div key={index} className={`message ${chat.user === 'You' ? 'sent' : 'received'}`}>
