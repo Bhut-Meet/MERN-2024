@@ -139,7 +139,6 @@ export const AdminAddService = () => {
           />
         </div>
         <button type='submit' className='btn btn-primary my-4'>
-          Add Service
           {loading ? 'Adding Service...' : 'Add Service'}
         </button>
       </form>
