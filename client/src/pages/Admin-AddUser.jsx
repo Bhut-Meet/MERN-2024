@@ -17,8 +17,8 @@ export const AdminAddUser = () => {
     email: '',
     phone: '',
     password: '',
-    birthDate: "",
-    hobby: "",
+    birthDate: '',
+    hobby: '',
   });
 
   const handleInput = (e) => {
@@ -112,6 +112,17 @@ export const AdminAddUser = () => {
           />
         </div>
         <div className='form-group'>
+          <label htmlFor='password'>Password:</label>
+          <input
+            type='password'
+            className='form-control'
+            id='password'
+            name='password'
+            value={userData.password}
+            onChange={handleInput}
+          />
+        </div>
+        <div className='form-group'>
           <label htmlFor='birthDate'>Birth Date:</label>
           <input
             type='date'
@@ -130,17 +141,6 @@ export const AdminAddUser = () => {
             id='hobby'
             name='hobby'
             value={userData.hobby}
-            onChange={handleInput}
-          />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='password'>Password:</label>
-          <input
-            type='password'
-            className='form-control'
-            id='password'
-            name='password'
-            value={userData.password}
             onChange={handleInput}
           />
         </div>
