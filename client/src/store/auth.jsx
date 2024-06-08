@@ -78,14 +78,6 @@ export const AuthProvider = ({ children }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-    // Function to get current logged-in user's ID
-    const getCurrentUserId = () => {
-      if (user && typeof user === 'object' && '_id' in user) {
-        return user._id;
-      } else {
-        return null;
-      }
-    };
 
   return (
     <AuthContext.Provider
@@ -99,7 +91,6 @@ export const AuthProvider = ({ children }) => {
         isLoading,
         API,
         userAuthentication,
-        getCurrentUserId
       }}
     >
       {children}
