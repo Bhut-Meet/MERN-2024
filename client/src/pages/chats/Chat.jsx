@@ -55,7 +55,7 @@ export const ChatPage = () => {
   }, []);
 
   // Log current user ID and contact data for debugging
-  console.log("Current User ID:", user);
+  console.log("Current User ID:", user._id);
   console.log("Contact Data:", contactData);
 
   // Filter messages to include only those sent by the current user
