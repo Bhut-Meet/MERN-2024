@@ -31,16 +31,13 @@ import { useAuth } from "../../store/auth";
 
 
 export const ChatPage = () => {
-  const { authorizationToken, API } = useAuth();
+  const {  API,isLoggedIn  } = useAuth();
 const [contactData, setContactData] = useState([]);
 
   const getContactsData = async () => {
     try {
       const response = await fetch(`${API}/api/admin/contacts`, {
-        method: "GET",
-        headers: {
-          Authorization: authorizationToken,
-        },
+        method: "GET"
       });
       const data = await response.json();
       console.log("data is ", data);
@@ -55,14 +52,16 @@ const [contactData, setContactData] = useState([]);
   useEffect(() => {
     getContactsData();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [API]);
 
+// Filter messages to include only those sent by the current user
+const userMessages = contactData.filter(contact => contact.userId === isLoggedIn);
 
     return (
       <>
       <h1>message</h1>
       <div>
-        {contactData.map((curContactData,index)=> {
+        {userMessages.map((curContactData,index)=> {
           const {message} = curContactData
 
           return(
