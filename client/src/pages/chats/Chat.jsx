@@ -17,7 +17,9 @@ export const ChatPage = () => {
           <div className="chat-window">
             {chatMessages.map((chat, index) => (
               <div key={index} className={`message ${chat.user === 'You' ? 'sent' : 'received'}`}>
-                <p style={{backgroundColor:"black"}}>{chat.user} <span style={{marginLeft:"22px"}}>{chat.message}</span></p>
+                <div style={{background:"black"}}>
+                <p style={{backgroundColor:"black"}}>{chat.user}</p> <span style={{marginLeft:"22px"}}>{chat.message}</span>
+                </div>
               </div>
             ))}
           </div>
