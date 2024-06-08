@@ -31,13 +31,16 @@ import { useAuth } from "../../store/auth";
 
 
 export const ChatPage = () => {
-  const {  API } = useAuth();
+  const { authorizationToken, API } = useAuth();
 const [contactData, setContactData] = useState([]);
 
   const getContactsData = async () => {
     try {
       const response = await fetch(`${API}/api/admin/contacts`, {
         method: "GET",
+        headers: {
+          Authorization: authorizationToken,
+        },
       });
       const data = await response.json();
       console.log("data is ", data);
