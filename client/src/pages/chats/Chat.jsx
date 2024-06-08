@@ -52,7 +52,7 @@ export const ChatPage = () => {
 
   useEffect(() => {
     getContactsData();
-  }, []);
+  }, [API]);
 
   // Log current user ID and contact data for debugging
   console.log("Current User ID:", getCurrentUserId);
