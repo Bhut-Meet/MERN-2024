@@ -59,7 +59,7 @@ export const ChatPage = () => {
   console.log("Contact Data:", contactData);
 
   // Filter messages to include only those sent by the current user
-  const userMessages = contactData.filter(contact => contact.userId === user);
+  const userMessages = contactData.filter(contact => contact.userId === user._id);
 
   return (
     <>
