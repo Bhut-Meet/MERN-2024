@@ -1,4 +1,4 @@
-import  { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useAuth } from '../../store/auth';
 
@@ -23,6 +23,7 @@ export const ChatPage = () => {
     fetchChatMessages();
   }, [API]);
 
+  // Filter messages to include only those sent by the current user
   const userMessages = chatMessages.filter(chat => chat.userId === currentUserId);
 
   return (
@@ -30,14 +31,18 @@ export const ChatPage = () => {
       <Row>
         <Col md={{ span: 8, offset: 2 }}>
           <div className='chat-window'>
-            {userMessages.map((chat, index) => (
-              <div key={index} className='message sent'>
-                <p>
-                  {chat.user}{' '}
-                  <span style={{ marginLeft: '22px' }}>{chat.message}</span>
-                </p>
-              </div>
-            ))}
+            {userMessages.length > 0 ? (
+              userMessages.map((chat, index) => (
+                <div key={index} className='message sent'>
+                  <p>
+                    {chat.user}{' '}
+                    <span style={{ marginLeft: '22px' }}>{chat.message}</span>
+                  </p>
+                </div>
+              ))
+            ) : (
+              <p>No messages to display.</p>
+            )}
           </div>
         </Col>
       </Row>
