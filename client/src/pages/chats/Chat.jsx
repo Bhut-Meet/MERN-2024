@@ -4,9 +4,8 @@ import { useAuth } from '../../store/auth';
 
 export const ChatPage = () => {
   const [chatMessages, setChatMessages] = useState([]);
-  // const currentUser = 'You'; // Replace this with the actual current user identifier
+  const { API, currentUserId } = useAuth(); // Assuming useAuth provides the current user's ID
 
-  const {  API } = useAuth();
   useEffect(() => {
     const fetchChatMessages = async () => {
       try {
@@ -22,19 +21,17 @@ export const ChatPage = () => {
     };
 
     fetchChatMessages();
-  }, []);
-  // const userMessages = chatMessages.filter(chat => chat.userId === currentUser);
+  }, [API]);
+
+  const userMessages = chatMessages.filter(chat => chat.userId === currentUserId);
 
   return (
     <Container className='mt-5'>
       <Row>
         <Col md={{ span: 8, offset: 2 }}>
           <div className='chat-window'>
-            {chatMessages .map((chat, index) => (
-              <div
-                key={index}
-                className={`message ${chat.user === 'You' ? 'sent' : 'received'}`}
-              >
+            {userMessages.map((chat, index) => (
+              <div key={index} className='message sent'>
                 <p>
                   {chat.user}{' '}
                   <span style={{ marginLeft: '22px' }}>{chat.message}</span>
