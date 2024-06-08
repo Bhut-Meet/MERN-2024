@@ -29,7 +29,8 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../store/auth";
 
 export const ChatPage = () => {
-  const { authorizationToken, API, isLoggedIn } = useAuth();
+  const { authorizationToken, API, getCurrentUserId  } = useAuth();
+  const currentUserId = getCurrentUserId();
   const [contactData, setContactData] = useState([]);
 
   const getContactsData = async () => {
@@ -55,11 +56,11 @@ export const ChatPage = () => {
   }, []);
 
   // Log current user ID and contact data for debugging
-  console.log("Current User ID:", isLoggedIn);
+  console.log("Current User ID:", currentUserId);
   console.log("Contact Data:", contactData);
 
   // Filter messages to include only those sent by the current user
-  const userMessages = contactData.filter(contact => contact.userId === isLoggedIn);
+  const userMessages = contactData.filter(contact => contact.userId === currentUserId);
 
   return (
     <>
