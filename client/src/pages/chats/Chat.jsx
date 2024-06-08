@@ -28,53 +28,57 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../../store/auth";
 
-
-
 export const ChatPage = () => {
-  const { authorizationToken, API,user  } = useAuth();
-const [contactData, setContactData] = useState([]);
+  const { authorizationToken, API, user: currentUserId } = useAuth();
+  const [contactData, setContactData] = useState([]);
 
   const getContactsData = async () => {
     try {
       const response = await fetch(`${API}/api/admin/contacts`, {
         method: "GET",
-        
         headers: {
           Authorization: authorizationToken,
         },
       });
       const data = await response.json();
-      console.log("data is ", data);
+      console.log("Fetched data:", data);
       if (response.ok) {
         setContactData(data);
       }
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching data:", error);
     }
   };
 
   useEffect(() => {
     getContactsData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [API]);
+  }, []);
 
-// Filter messages to include only those sent by the current user
-const userMessages = contactData.filter(contact => contact.userId === user);
+  // Log current user ID and contact data for debugging
+  console.log("Current User ID:", currentUserId);
+  console.log("Contact Data:", contactData);
 
-    return (
-      <>
-      <h1>message</h1>
+  // Filter messages to include only those sent by the current user
+  const userMessages = contactData.filter(contact => contact.userId === currentUserId);
+
+  return (
+    <>
+      <h1>Messages</h1>
       <div>
-        {userMessages.map((curContactData,index)=> {
-          const {message} = curContactData
+        {userMessages.length > 0 ? (
+          userMessages.map((curContactData, index) => {
+            const { message } = curContactData;
 
-          return(
-            <div key={index}>
-              <p>{message}</p>
-            </div>
-          )
-        })}
+            return (
+              <div key={index}>
+                <p>{message}</p>
+              </div>
+            );
+          })
+        ) : (
+          <p>No messages to display.</p>
+        )}
       </div>
-      </>
-    );
+    </>
+  );
 };
