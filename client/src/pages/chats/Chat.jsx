@@ -31,7 +31,7 @@ import { useAuth } from "../../store/auth";
 
 
 export const ChatPage = () => {
-  const { authorizationToken, API,isLoggedIn  } = useAuth();
+  const { authorizationToken, API,user  } = useAuth();
 const [contactData, setContactData] = useState([]);
 
   const getContactsData = async () => {
@@ -59,7 +59,7 @@ const [contactData, setContactData] = useState([]);
   }, [API]);
 
 // Filter messages to include only those sent by the current user
-const userMessages = contactData.filter(contact => contact.userId === isLoggedIn);
+const userMessages = contactData.filter(contact => contact.userId === user);
 
     return (
       <>
