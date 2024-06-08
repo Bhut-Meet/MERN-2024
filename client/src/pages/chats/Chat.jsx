@@ -1,6 +1,7 @@
 import { Container, Row, Col } from 'react-bootstrap';
 
 export const ChatPage = () => {
+
   const chatMessages = [
     { user: 'You', message: 'Hello!' },
     { user: 'Friend', message: 'Hi there!' },
