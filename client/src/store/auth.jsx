@@ -80,7 +80,11 @@ export const AuthProvider = ({ children }) => {
 
     // Function to get current logged-in user's ID
     const getCurrentUserId = () => {
-      return user == user._id // Assuming user object has an _id field
+      if (user && typeof user === 'object' && '_id' in user) {
+        return user._id;
+      } else {
+        return null;
+      }
     };
 
   return (
