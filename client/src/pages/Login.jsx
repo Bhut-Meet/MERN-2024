@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../store/auth';
 import { toast } from 'react-toastify';
 import login from '../assets/ulogin.png'
@@ -116,6 +116,9 @@ export const Login = () => {
                     {isLoading ? 'Loading...' : 'Login Now'} {/* Change button text based on loading state */}
                   </button>
                 </form>
+                <p className="mt-3 text-center">
+                  હજી ખાતા નથી? <NavLink to="/register" style={{color: "#9333EA", textDecoration: 'none'}}>રજીસ્ટર કરો</NavLink>
+                </p>
               </div>
             </div>
           </div>
