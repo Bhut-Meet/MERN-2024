@@ -54,20 +54,13 @@ export const UserProfileEdit = () => {
 
     setIsLoading(true); // Set loading state to true
     try {
-      const formData = new FormData();
-      formData.append('username', data.username);
-      formData.append('email', data.email);
-      formData.append('phone', data.phone);
-      formData.append('hobby', data.hobby);
-      formData.append('birthDate', data.birthDate);
-      formData.append('photo', data.photo);
 
       const response = await fetch(`${API}/api/auth/user/update/${params.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(data)
       });
       if (response.ok) {
         toast.success('Update successful');
