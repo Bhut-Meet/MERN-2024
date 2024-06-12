@@ -17,7 +17,7 @@ export const UserProfileEdit = () => {
   });
 
   const params = useParams();
-  const {user, API } = useAuth();
+  const { user, API } = useAuth();
 
   // Get single user data
   const getSingleUserData = async () => {
@@ -55,19 +55,20 @@ export const UserProfileEdit = () => {
     setIsLoading(true); // Set loading state to true
     try {
       const formData = new FormData();
-      formData.append('photo', setData.username);
-      formData.append('photo', setData.email);
-      formData.append('photo', setData.phone);
-      formData.append('photo', setData.hobby);
-      formData.append('photo', setData.birthDate);
-      formData.append('photo', setData.photo);
+      formData.append('username', data.username);
+      formData.append('email', data.email);
+      formData.append('phone', data.phone);
+      formData.append('hobby', data.hobby);
+      formData.append('birthDate', data.birthDate);
+      formData.append('photo', data.photo);
+
       const response = await fetch(`${API}/api/auth/user/update/${params.id}`, {
         method: 'PATCH',
-        headers: {
-          // 'Content-Type': 'application/json',
-          'Content-Type': 'multipart/form-data',
-        },
-        body: JSON.stringify(formData),
+        // headers: {
+        //   'Content-Type': 'application/json',
+        //   // 'Content-Type': 'multipart/form-data',
+        // },
+        body: formData,
       });
       if (response.ok) {
         toast.success('Update successful');
@@ -77,8 +78,7 @@ export const UserProfileEdit = () => {
       }
     } catch (error) {
       console.log('Error updating user:', error);
-    }
-    finally {
+    } finally {
       setIsLoading(false); // Set loading state to false
     }
   };
@@ -88,7 +88,7 @@ export const UserProfileEdit = () => {
       return (
         <div className='col-md-6'>
           <img
-            src={data.image}
+            src={URL.createObjectURL(data.photo)}
             alt='Profile'
             className='img-fluid rounded'
             style={{ maxHeight: '200px' }}
@@ -132,8 +132,11 @@ export const UserProfileEdit = () => {
                   onChange={handleInput}
                   disabled={!user.isAdmin} // Disable input if user is not admin
                 />
-              {user.isAdmin && <p style={{ color: "red" }}>Changing email is allowed for admin only</p>}
-
+                {user.isAdmin && (
+                  <p style={{ color: 'red' }}>
+                    Changing email is allowed for admin only
+                  </p>
+                )}
               </div>
               <div className='mb-3'>
                 <label htmlFor='phone' className='form-label'>
@@ -148,22 +151,26 @@ export const UserProfileEdit = () => {
                   onChange={handleInput}
                   disabled={!user.isAdmin} // Disable input if user is not admin
                 />
-                {user.isAdmin && <p style={{ color: "red" }}>Changing Phone Number is allowed for admin only</p>}
+                {user.isAdmin && (
+                  <p style={{ color: 'red' }}>
+                    Changing Phone Number is allowed for admin only
+                  </p>
+                )}
               </div>
               {!user.isAdmin && (
-              <div className='mb-3'>
-                <label htmlFor='phone' className='form-label'>
-                  Hobby
-                </label>
-                <input
-                  type='text'
-                  className='form-control'
-                  id='hobby'
-                  name='hobby'
-                  value={data.hobby}
-                  onChange={handleInput}
-                />
-              </div>
+                <div className='mb-3'>
+                  <label htmlFor='phone' className='form-label'>
+                    Hobby
+                  </label>
+                  <input
+                    type='text'
+                    className='form-control'
+                    id='hobby'
+                    name='hobby'
+                    value={data.hobby}
+                    onChange={handleInput}
+                  />
+                </div>
               )}
               <div className='mb-3'>
                 <label htmlFor='birthDate' className='form-label'>
@@ -192,7 +199,7 @@ export const UserProfileEdit = () => {
                   onChange={handlePhoto}
                 />
               </div>
-              <button type='submit' className='btn btn-success' >
+              <button type='submit' className='btn btn-success'>
                 {isLoading ? 'Please wait...' : 'Save Changes'}
               </button>
             </form>
