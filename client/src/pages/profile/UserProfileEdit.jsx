@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../store/auth';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { axios } from 'react-router-dom';
 export const UserProfileEdit = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false); // Loading state
@@ -54,13 +53,12 @@ export const UserProfileEdit = () => {
 
     setIsLoading(true); // Set loading state to true
     try {
-
       const response = await fetch(`${API}/api/auth/user/update/${params.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       });
       if (response.ok) {
         toast.success('Update successful');
@@ -70,12 +68,10 @@ export const UserProfileEdit = () => {
       }
     } catch (error) {
       console.log('Error updating user:', error);
-    }
-    finally {
+    } finally {
       setIsLoading(false); // Set loading state to false
     }
   };
-
 
   const viewProfileImage = () => {
     if (data.image) {
