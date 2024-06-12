@@ -49,44 +49,10 @@ export const UserProfileEdit = () => {
   };
 
   // Update user data
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   setIsLoading(true); // Set loading state to true
-  //   try {
-  //     const formData = new FormData();
-  //     formData.append('username', data.username);
-  //     formData.append('email', data.email);
-  //     formData.append('phone', data.phone);
-  //     formData.append('hobby', data.hobby);
-  //     formData.append('birthDate', data.birthDate);
-  //     formData.append('photo', data.photo);
-
-  //     const response = await fetch(`${API}/api/auth/user/update/${params.id}`, {
-  //       method: 'PATCH',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify(formData)
-  //     });
-  //     if (response.ok) {
-  //       toast.success('Update successful');
-  //       navigate('/Profile');
-  //     } else {
-  //       toast.error('Update failed');
-  //     }
-  //   } catch (error) {
-  //     console.log('Error updating user:', error);
-  //   }
-  //   finally {
-  //     setIsLoading(false); // Set loading state to false
-  //   }
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setIsLoading(true); 
+    setIsLoading(true); // Set loading state to true
     try {
       const formData = new FormData();
       formData.append('username', data.username);
@@ -96,29 +62,27 @@ export const UserProfileEdit = () => {
       formData.append('birthDate', data.birthDate);
       formData.append('photo', data.photo);
 
-      const config = {
+      const response = await fetch(`${API}/api/auth/user/update/${params.id}`, {
+        method: 'PATCH',
         headers: {
-          'Content-Type': 'multipart/form-data',
+          'Content-Type': 'application/json',
         },
-      };
-
-      const response = await axios.patch(
-       `${API}/api/auth/user/update/${params.id}`,
-        formData,
-        config
-      );
-      if (response.status === 200) {
-        toast.success('done');
+        body: JSON.stringify(formData)
+      });
+      if (response.ok) {
+        toast.success('Update successful');
         navigate('/Profile');
       } else {
-        toast.error('error');
+        toast.error('Update failed');
       }
     } catch (error) {
-      console.log('error:', error);
-    } finally {
-      setIsLoading(false);
+      console.log('Error updating user:', error);
+    }
+    finally {
+      setIsLoading(false); // Set loading state to false
     }
   };
+
 
   const viewProfileImage = () => {
     if (data.image) {
