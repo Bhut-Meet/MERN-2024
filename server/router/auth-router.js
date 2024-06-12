@@ -12,20 +12,31 @@ const authcontrollers = require('../controller/auth-controller')
 const {signupSchema,loginSchema} = require('../validators/auth-validator')
 const validate = require('../middlewares/validate-middleware')
 const authMiddleware = require('../middlewares/auth-middleware')
-
+const multer = require('multer');
 // Configure Multer
-const multer = require('multer'); // Import Multer for file upload handling
+let User = require('../models/user-model')
+
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, 'uploads/')
-    },
-    filename: function (req, file, cb) {
-      const uniqueSuffix = Date.now()
-      cb(null, uniqueSuffix + file.originalname)
-    }
-  })
-  
-  const upload = multer({ storage: storage })
+  destination: function(req, file, cb) {
+      cb(null, 'uploads/');
+  },
+  filename: function(req, file, cb) {   
+      cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+
+const fileFilter = (req, file, cb) => {
+  const allowedFileTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+  if(allowedFileTypes.includes(file.mimetype)) {
+      cb(null, true);
+  } else {
+      cb(null, false);
+  }
+}
+
+let upload = multer({ storage, fileFilter });
+
+
 
 // router.get('/', (req, res) =>{
 //     res.status(200).send('Hello World using router!')
@@ -39,7 +50,7 @@ const storage = multer.diskStorage({
 router.route("/").get(authcontrollers.home);
 router.route("/register").post( validate(signupSchema), authcontrollers.register);
 router.route("/login").post( validate(loginSchema), authcontrollers.login);
-router.route('/upload').post(upload.single("image"), authcontrollers.UserImage);
+router.route('/add').post(upload.single('photo'), addUser);
 router.route("/user").get(authMiddleware ,authcontrollers.user);
 router.route("/user/:id").get(authcontrollers.getUsersById);
 router.route("/user/update/:id").patch(authcontrollers.UpdateUserById);

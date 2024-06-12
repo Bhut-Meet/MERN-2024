@@ -30,10 +30,9 @@ const userSchema = new mongoose.Schema({
         type:String,
         default:'',
     },
-    image: { 
-        type: String,
-        default:'',
-    } // Store the URL of the profile image
+    photo: {
+        type: String
+    }, // Store the URL of the profile image
 })
 
 // secure the password with the bcrypt
