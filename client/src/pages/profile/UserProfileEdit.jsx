@@ -13,7 +13,7 @@ export const UserProfileEdit = () => {
     phone: '',
     hobby: '',
     birthDate: '', // New property for birth of date
-    image: '', // New property for user image
+    photo: '', // New property for user image
   });
 
   const params = useParams();
@@ -44,9 +44,8 @@ export const UserProfileEdit = () => {
   };
 
   // Handle image upload
-  const handleImageChange = (e) => {
-    console.log(e.target.files[0]);
-    setData({ ...data, image: e.target.files[0] });
+  const handlePhoto = (e) => {
+    setData({ ...data, photo: e.target.files[0] });
   };
 
   // Update user data
@@ -172,16 +171,16 @@ export const UserProfileEdit = () => {
               </div>
               {viewProfileImage()}
               <div className='mb-3'>
-                <label htmlFor='image' className='form-label'>
+                <label htmlFor='photo' className='form-label'>
                   Profile Image
                 </label>
                 <input
                   type='file'
                   className='form-control'
-                  id='image'
-                  accept='image/*'
-                  name='image'
-                  onChange={handleImageChange}
+                  id='photo'
+                  accept='.png, .jpg, .jpeg'
+                  name='photo'
+                  onChange={handlePhoto}
                 />
               </div>
               <button type='submit' className='btn btn-success' >
