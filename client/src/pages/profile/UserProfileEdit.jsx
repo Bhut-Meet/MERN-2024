@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../store/auth';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import {axios} from 'react-router-dom'
+import { axios } from 'react-router-dom';
 export const UserProfileEdit = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false); // Loading state
@@ -17,7 +17,7 @@ export const UserProfileEdit = () => {
   });
 
   const params = useParams();
-  const {user, API } = useAuth();
+  const { user, API } = useAuth();
 
   // Get single user data
   const getSingleUserData = async () => {
@@ -49,10 +49,44 @@ export const UserProfileEdit = () => {
   };
 
   // Update user data
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   setIsLoading(true); // Set loading state to true
+  //   try {
+  //     const formData = new FormData();
+  //     formData.append('username', data.username);
+  //     formData.append('email', data.email);
+  //     formData.append('phone', data.phone);
+  //     formData.append('hobby', data.hobby);
+  //     formData.append('birthDate', data.birthDate);
+  //     formData.append('photo', data.photo);
+
+  //     const response = await fetch(`${API}/api/auth/user/update/${params.id}`, {
+  //       method: 'PATCH',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify(formData)
+  //     });
+  //     if (response.ok) {
+  //       toast.success('Update successful');
+  //       navigate('/Profile');
+  //     } else {
+  //       toast.error('Update failed');
+  //     }
+  //   } catch (error) {
+  //     console.log('Error updating user:', error);
+  //   }
+  //   finally {
+  //     setIsLoading(false); // Set loading state to false
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setIsLoading(true); // Set loading state to true
+    setIsLoading(true); // લોડિંગ અવસ્થા સેટ કરો
     try {
       const formData = new FormData();
       formData.append('username', data.username);
@@ -62,34 +96,27 @@ export const UserProfileEdit = () => {
       formData.append('birthDate', data.birthDate);
       formData.append('photo', data.photo);
 
-      // const response = await fetch(`${API}/api/auth/user/update/${params.id}`, {
-      //   method: 'PATCH',
-      //   // headers: {
-      //   //   'Content-Type': 'application/json',
-      //   //   // 'Content-Type': 'multipart/form-data',
-      //   // },
-      //   body: JSON.stringify(formData)
-      // });
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      };
 
-     const response =  axios
-      .post(`${API}/api/auth/user/update/${params.id}` , formData)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-      if (response.ok) {
-        toast.success('Update successful');
+      const response = await axios.patch(
+        `${API}/api/auth/user/update/${params.id}`,
+        formData,
+        config
+      );
+      if (response.status === 200) {
+        toast.success('સફળતાપૂર્વક અપડેટ કર્યું');
         navigate('/Profile');
       } else {
-        toast.error('Update failed');
+        toast.error('અપડેટ ફેલ્યું');
       }
     } catch (error) {
-      console.log('Error updating user:', error);
-    }
-    finally {
-      setIsLoading(false); // Set loading state to false
+      console.log('યુઝર અપડેટ કરવામાં ભૂલ:', error);
+    } finally {
+      setIsLoading(false); // લોડિંગ અવસ્થા નકલી કરો
     }
   };
 
@@ -142,8 +169,11 @@ export const UserProfileEdit = () => {
                   onChange={handleInput}
                   disabled={!user.isAdmin} // Disable input if user is not admin
                 />
-              {user.isAdmin && <p style={{ color: "red" }}>Changing email is allowed for admin only</p>}
-
+                {user.isAdmin && (
+                  <p style={{ color: 'red' }}>
+                    Changing email is allowed for admin only
+                  </p>
+                )}
               </div>
               <div className='mb-3'>
                 <label htmlFor='phone' className='form-label'>
@@ -158,22 +188,26 @@ export const UserProfileEdit = () => {
                   onChange={handleInput}
                   disabled={!user.isAdmin} // Disable input if user is not admin
                 />
-                {user.isAdmin && <p style={{ color: "red" }}>Changing Phone Number is allowed for admin only</p>}
+                {user.isAdmin && (
+                  <p style={{ color: 'red' }}>
+                    Changing Phone Number is allowed for admin only
+                  </p>
+                )}
               </div>
               {!user.isAdmin && (
-              <div className='mb-3'>
-                <label htmlFor='phone' className='form-label'>
-                  Hobby
-                </label>
-                <input
-                  type='text'
-                  className='form-control'
-                  id='hobby'
-                  name='hobby'
-                  value={data.hobby}
-                  onChange={handleInput}
-                />
-              </div>
+                <div className='mb-3'>
+                  <label htmlFor='phone' className='form-label'>
+                    Hobby
+                  </label>
+                  <input
+                    type='text'
+                    className='form-control'
+                    id='hobby'
+                    name='hobby'
+                    value={data.hobby}
+                    onChange={handleInput}
+                  />
+                </div>
               )}
               <div className='mb-3'>
                 <label htmlFor='birthDate' className='form-label'>
@@ -202,7 +236,7 @@ export const UserProfileEdit = () => {
                   onChange={handlePhoto}
                 />
               </div>
-              <button type='submit' className='btn btn-success' >
+              <button type='submit' className='btn btn-success'>
                 {isLoading ? 'Please wait...' : 'Save Changes'}
               </button>
             </form>
