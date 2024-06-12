@@ -50,7 +50,6 @@ export const UserProfileEdit = () => {
   // Update user data
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     setIsLoading(true); // Set loading state to true
     try {
       const response = await fetch(`${API}/api/auth/user/update/${params.id}`, {
@@ -122,7 +121,7 @@ export const UserProfileEdit = () => {
                   onChange={handleInput}
                   disabled={!user.isAdmin} // Disable input if user is not admin
                 />
-                {user.isAdmin && (
+                {!user.isAdmin && (
                   <p style={{ color: 'red' }}>
                     Changing email is allowed for admin only
                   </p>
@@ -141,7 +140,7 @@ export const UserProfileEdit = () => {
                   onChange={handleInput}
                   disabled={!user.isAdmin} // Disable input if user is not admin
                 />
-                {user.isAdmin && (
+                {!user.isAdmin && (
                   <p style={{ color: 'red' }}>
                     Changing Phone Number is allowed for admin only
                   </p>
