@@ -50,7 +50,7 @@ let upload = multer({ storage, fileFilter });
 router.route("/").get(authcontrollers.home);
 router.route("/register").post( validate(signupSchema), authcontrollers.register);
 router.route("/login").post( validate(loginSchema), authcontrollers.login);
-router.route('/add').post(upload.single('photo'), addUser);
+router.route('/add').post(upload.single('photo'), authcontrollers.addUser);
 router.route("/user").get(authMiddleware ,authcontrollers.user);
 router.route("/user/:id").get(authcontrollers.getUsersById);
 router.route("/user/update/:id").patch(authcontrollers.UpdateUserById);
