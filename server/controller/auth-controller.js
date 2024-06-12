@@ -137,37 +137,24 @@ const UpdateUserById =async(req,res)=>{
 
 //user image uploader
 
-const addUser = async (req, res) => {
-    try {
-        const name = req.body.name;
-        const birthdate = req.body.birthdate;
-        const photo = req.file.filename;
+// const addUser = async (req, res) => {
+//     try {
+//         const photo = req.file.filename;
 
-        const newUserData = {
-            name,
-            birthdate,
-            photo
-        };
+//         const newUserData = {
+//             photo
+//         };
 
-        const newUser = new User(newUserData);
+//         const newUser = new User(newUserData);
 
-        await newUser.save();
-        res.status(200).json('User Added');
-    } catch (error) {
-        console.log(error);
-        res.status(500).json('An error occurred');
-    }
-};
-
-const getUsers = async (req, res) => {
-    try {
-        const users = await User.find();
-        res.status(200).json(users);
-    } catch (error) {
-        console.log(error);
-        res.status(400).json('Error: ' + error);
-    }
-};
+//         await newUser.save();
+//         res.status(200).json('User Added');
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).json('An error occurred');
+//     }
+// };
 
 
-module.exports = {home, register,login,user,getUsersById,UpdateUserById,addUser,getUsers}
+
+module.exports = {home, register,login,user,getUsersById,UpdateUserById}
