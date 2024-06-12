@@ -5,6 +5,7 @@ import {  toast } from "react-toastify";
 import register from '../assets/uregister.png'
 
 export const Register = () => {
+  const [isLoading, setIsLoading] = useState(false); // State variable to track loading state
   const navigate = useNavigate();
   const [user, setUser] = useState({
     username: '',
@@ -28,6 +29,7 @@ export const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true); // Set loading state to true when form is submitted
     if (!user.email.includes('@gmail.com')) {
       // If the entered email doesn't contain '@gmail.com', show an error message or prevent further action
       // For example, you can show an error message using toastify
@@ -65,6 +67,7 @@ export const Register = () => {
     } catch (error) {
       console.log('register', error);
     }
+    setIsLoading(false); // Set loading state to true when form is submitted
   };
 
   return (
@@ -146,7 +149,7 @@ export const Register = () => {
                     />
                   </div>
                   <button type='submit' className='btn w-100' style={{backgroundColor:"#9333EA", color:"white"}}>
-                    Register Now
+                    {isLoading ? 'Loading...' : 'Register Now'} {/* Change button text based on loading state */}
                   </button>
                 </form>
                 <p className="mt-3 text-center">
