@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../store/auth';
 import {  toast } from "react-toastify";
 import register from '../assets/uregister.png'
@@ -149,6 +149,9 @@ export const Register = () => {
                     Register Now
                   </button>
                 </form>
+                <p className="mt-3 text-center">
+                 Already have an account? <NavLink to="/register" style={{color: "#9333EA", textDecoration: 'none'}}>Login  here</NavLink>
+                </p>
               </div>
             </div>
           </div>

@@ -117,7 +117,7 @@ export const Login = () => {
                   </button>
                 </form>
                 <p className="mt-3 text-center">
-                  હજી ખાતા નથી? <NavLink to="/register" style={{color: "#9333EA", textDecoration: 'none'}}>રજીસ્ટર કરો</NavLink>
+                {`Don't`} have an account? <NavLink to="/register" style={{color: "#9333EA", textDecoration: 'none'}}>Register here</NavLink>
                 </p>
               </div>
             </div>
