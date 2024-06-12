@@ -150,7 +150,7 @@ export const Register = () => {
                   </button>
                 </form>
                 <p className="mt-3 text-center">
-                 Already have an account? <NavLink to="/register" style={{color: "#9333EA", textDecoration: 'none'}}>Login  here</NavLink>
+                 Already have an account? <NavLink to="/login" style={{color: "#9333EA", textDecoration: 'none'}}>Login  here</NavLink>
                 </p>
               </div>
             </div>
