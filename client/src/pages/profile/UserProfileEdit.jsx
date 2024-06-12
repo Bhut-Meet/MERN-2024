@@ -86,7 +86,7 @@ export const UserProfileEdit = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setIsLoading(true); // લોડિંગ અવસ્થા સેટ કરો
+    setIsLoading(true); 
     try {
       const formData = new FormData();
       formData.append('username', data.username);
@@ -103,20 +103,20 @@ export const UserProfileEdit = () => {
       };
 
       const response = await axios.patch(
-        `${API}/api/auth/user/update/${params.id}`,
+       `${API}/api/auth/user/update/${params.id}`,
         formData,
         config
       );
       if (response.status === 200) {
-        toast.success('સફળતાપૂર્વક અપડેટ કર્યું');
+        toast.success('done');
         navigate('/Profile');
       } else {
-        toast.error('અપડેટ ફેલ્યું');
+        toast.error('error');
       }
     } catch (error) {
-      console.log('યુઝર અપડેટ કરવામાં ભૂલ:', error);
+      console.log('error:', error);
     } finally {
-      setIsLoading(false); // લોડિંગ અવસ્થા નકલી કરો
+      setIsLoading(false);
     }
   };
 
