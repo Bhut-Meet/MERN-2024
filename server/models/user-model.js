@@ -31,7 +31,8 @@ const userSchema = new mongoose.Schema({
         default:'',
     },
     photo: {
-        type: String
+        type: String,
+        default:''
     }, // Store the URL of the profile image
 })
 

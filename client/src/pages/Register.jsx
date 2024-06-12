@@ -11,6 +11,7 @@ export const Register = () => {
     email: '',
     phone: '',
     password: '',
+    photo:''
   });
 
   const { storeTokenInLocalStorage, API } = useAuth();
