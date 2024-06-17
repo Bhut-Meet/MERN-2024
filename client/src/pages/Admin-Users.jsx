@@ -72,7 +72,7 @@ export const AdminUsers = () => {
           <table className='table table-striped table-bordered'>
             <thead className='thead-dark'>
               <tr className='text-center'>
-                <th scope='col' className='bg-dark text-white'>Username</th>
+                <th scope='col' className='bg-dark'>Username</th>
                 <th scope='col'>Email</th>
                 <th scope='col'>Phone</th>
                 {/* <th scope='col'>password</th> */}
