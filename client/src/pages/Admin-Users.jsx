@@ -25,7 +25,8 @@ export const AdminUsers = () => {
       }
     } catch (error) {
       console.log('Error fetching user data:', error);
-    } finally {
+    }
+    finally {
       setLoading(false); // Set loading to false when fetch operation completes
     }
   };
@@ -55,7 +56,7 @@ export const AdminUsers = () => {
 
   useEffect(() => {
     getAllUsersData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -65,15 +66,13 @@ export const AdminUsers = () => {
         Add User
       </Link>
       <div className='table-responsive'>
-        {loading ? (
-          <div className='text-center mx-3'>
-            <h3>Loading...</h3>
-          </div>
+      {loading ? (
+          <div className='text-center mx-3'><h3>Loading...</h3></div>
         ) : users.length > 0 ? (
           <table className='table table-striped table-bordered'>
-            <thead className='bg-dark'>
+            <thead className='thead-dark'>
               <tr className='text-center'>
-                <th scope='col'>Username</th>
+                <th scope='col' className='bg-dark text-white'>Username</th>
                 <th scope='col'>Email</th>
                 <th scope='col'>Phone</th>
                 {/* <th scope='col'>password</th> */}
