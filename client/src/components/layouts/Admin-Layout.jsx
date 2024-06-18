@@ -6,10 +6,17 @@ import { FaHome } from 'react-icons/fa';
 import { IoIosAddCircle } from 'react-icons/io';
 import { useAuth } from '../../store/auth';
 import { useState } from 'react';
-import '../layouts/AdminLayout.css';
+// import '../layouts/AdminLayout.css'; 
 
 export const AdminLayout = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // State to detect mobile view
+  
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 768); // Adjust breakpoint for mobile as needed
+  };
+  window.addEventListener('resize', handleResize);
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
@@ -52,7 +59,7 @@ export const AdminLayout = () => {
               className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`}
               id='navbarNav'
             >
-              <ul className='navbar-nav ms-auto'>
+              <ul className={`navbar-nav ms-auto align-items-center justify-content-center ${isMobile ? 'd-flex flex-wrap' : ''}`}>
                 <li className='nav-item'>
                   <NavLink
                     className='nav-link d-flex align-items-center'
