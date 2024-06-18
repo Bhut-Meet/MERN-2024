@@ -6,7 +6,7 @@ import { FaHome } from 'react-icons/fa';
 import { IoIosAddCircle } from 'react-icons/io';
 import { useAuth } from '../../store/auth';
 import { useState } from 'react';
-import "../layouts/AdminLayout.css"
+import '../layouts/AdminLayout.css';
 
 export const AdminLayout = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -52,7 +52,7 @@ export const AdminLayout = () => {
               className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`}
               id='navbarNav'
             >
-              <ul className='navbar-nav mx-auto'>
+              <ul className='navbar-nav ms-auto'>
                 <li className='nav-item'>
                   <NavLink
                     className='nav-link d-flex align-items-center'
