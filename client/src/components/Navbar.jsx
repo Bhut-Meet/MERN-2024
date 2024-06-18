@@ -58,7 +58,7 @@ export const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className={`collapse navbar-collapse mt-3 mt-sm-0 ${isNavOpen ? 'show' : ''}`} id='navbarSupportedContent'>
-        <ul className="navbar-nav ms-auto">
+        <ul className={`navbar-nav ms-auto align-items-center justify-content-center ${isMobile ? 'd-flex flex-wrap' : ''}`}>
             <li className="nav-item">
               <NavLink className="nav-link" to='/' onClick={closeNav}>Home</NavLink>
             </li>

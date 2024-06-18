@@ -52,7 +52,7 @@ export const AdminLayout = () => {
               className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`}
               id='navbarNav'
             >
-              <ul className='navbar-nav ms-auto'>
+              <ul className='navbar-nav mx-auto'>
                 <li className='nav-item'>
                   <NavLink
                     className='nav-link d-flex align-items-center'
