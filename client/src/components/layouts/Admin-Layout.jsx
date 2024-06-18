@@ -6,7 +6,7 @@ import { FaHome } from 'react-icons/fa';
 import { IoIosAddCircle } from 'react-icons/io';
 import { useAuth } from '../../store/auth';
 import { useState } from 'react';
-// import "../layouts/AdminLayout.css"
+import "../layouts/AdminLayout.css"
 
 export const AdminLayout = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
