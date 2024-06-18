@@ -1,7 +1,7 @@
 import { NavLink, Navigate, Outlet } from 'react-router-dom';
 // import { FaUserAlt, FaMessage } from "react-icons/fa";
 import { FaMessage } from 'react-icons/fa6';
-import { FaUserAlt } from 'react-icons/fa';
+import { FaUserAlt, FaCode } from 'react-icons/fa';
 import { FaHome } from 'react-icons/fa';
 import { IoIosAddCircle } from 'react-icons/io';
 import { useAuth } from '../../store/auth';
@@ -55,7 +55,7 @@ export const AdminLayout = () => {
               <ul className='navbar-nav ms-auto'>
                 <li className='nav-item'>
                   <NavLink
-                     className='nav-link d-flex align-items-center'
+                    className='nav-link d-flex align-items-center'
                     to='/admin/users'
                     onClick={closeNav}
                   >
@@ -64,16 +64,17 @@ export const AdminLayout = () => {
                 </li>
                 <li className='nav-item'>
                   <NavLink
-                     className='nav-link d-flex align-items-center'
+                    className='nav-link d-flex align-items-center'
                     to='/admin/contacts'
                     onClick={closeNav}
                   >
-                    <FaMessage /> <span className='icon-text ms-1'>Contacts</span>
+                    <FaMessage />{' '}
+                    <span className='icon-text ms-1'>Contacts</span>
                   </NavLink>
                 </li>
                 <li className='nav-item'>
                   <NavLink
-                     className='nav-link d-flex align-items-center'
+                    className='nav-link d-flex align-items-center'
                     to='/admin/AdminServices'
                     onClick={closeNav}
                   >
@@ -82,12 +83,21 @@ export const AdminLayout = () => {
                   </NavLink>
                 </li>
                 <li className='nav-item'>
-                  <NavLink  className='nav-link d-flex align-items-center' to='https://github.com/Bhut-Meet/MERN-2024' onClick={closeNav}>
-                    <FaHome /> <span className='icon-text ms-1'>Project Code</span>
+                  <NavLink
+                    className='nav-link d-flex align-items-center'
+                    to='https://github.com/Bhut-Meet/MERN-2024'
+                    onClick={closeNav}
+                  >
+                    <FaCode />{' '}
+                    <span className='icon-text ms-1'>Project Code</span>
                   </NavLink>
                 </li>
                 <li className='nav-item'>
-                  <NavLink  className='nav-link d-flex align-items-center' to='/' onClick={closeNav}>
+                  <NavLink
+                    className='nav-link d-flex align-items-center'
+                    to='/'
+                    onClick={closeNav}
+                  >
                     <FaHome /> <span className='icon-text ms-1'>Home</span>
                   </NavLink>
                 </li>
