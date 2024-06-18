@@ -82,6 +82,11 @@ export const AdminLayout = () => {
                   </NavLink>
                 </li>
                 <li className='nav-item'>
+                  <NavLink  className='nav-link d-flex align-items-center' to='https://github.com/Bhut-Meet/MERN-2024' onClick={closeNav}>
+                    <FaHome /> <span className='icon-text ms-1'>Project Code</span>
+                  </NavLink>
+                </li>
+                <li className='nav-item'>
                   <NavLink  className='nav-link d-flex align-items-center' to='/' onClick={closeNav}>
                     <FaHome /> <span className='icon-text ms-1'>Home</span>
                   </NavLink>
