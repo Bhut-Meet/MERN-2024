@@ -88,10 +88,13 @@ import { Alert } from 'react-bootstrap';
 
 export const ChatPage = () => {
   return (
+    <>
+    <h1>hbhjbhjbhyjvghv</h1>
     <div className='container d-flex justify-content-center align-items-center vh-100'>
       <Alert variant='primary' className='text-center'>
         Chat functionality coming soon!
       </Alert>
     </div>
+    </>
   );
 };
