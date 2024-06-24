@@ -66,7 +66,7 @@ export const AdminUsers = () => {
       <Link className='btn btn-primary shadow-sm mb-4' to='/admin/AdminAddUser'>
         Add User
       </Link>
-        {user.email == 'admin1@gmail.com' ? (<marquee scrollamount="15"><h3 className='text-danger '>{user.email} this{`You'r`} not a main admin</h3></marquee>):(null)}
+        {user.email == 'admin1@gmail.com' ? (<marquee scrollamount="10"><h3 className='text-danger'>{user.email} This Email are not a main Admin</h3></marquee>):(null)}
       <div className='table-responsive'>
       {loading ? (
           <div className='text-center mx-3'><h3>Loading...</h3></div>
