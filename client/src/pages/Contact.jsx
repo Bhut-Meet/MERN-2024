@@ -136,7 +136,7 @@ export const Contact = () => {
             <div className='card shadow'>
               <div className='card-body'>
                 <h2 className='text-center mb-4'>Contact Us</h2>
-                <h6>The <span className='text-danger'>Username</span>{" "}<span className='text-danger'>Email</span>{" "}Or{" "}<span className='text-danger'>number</span>are dynamic show </h6>
+                <h6>The <span className='text-danger'>Username</span>{" "}<span className='text-danger'>Email</span>{" "}or{" "}<span className='text-danger'>number</span>{" "}are dynamic show </h6>
                 {user ? (
                   <form onSubmit={handleSubmit}>
                     <div className='mb-3'>
