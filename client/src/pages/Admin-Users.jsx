@@ -66,8 +66,8 @@ export const AdminUsers = () => {
       <Link className='btn btn-primary shadow-sm mb-4' to='/admin/AdminAddUser'>
         Add User
       </Link>
-      <div className='table-responsive'>
         {user.email == 'admin1@gmail.com' ? (<marquee scrollamount="15"><h3 className='text-danger text-center'>{`You'r`} not a main admin</h3></marquee>):(null)}
+      <div className='table-responsive'>
       {loading ? (
           <div className='text-center mx-3'><h3>Loading...</h3></div>
         ) : users.length > 0 ? (
