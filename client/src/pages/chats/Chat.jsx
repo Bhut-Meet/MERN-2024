@@ -1,37 +1,31 @@
-import { Container, Row, Col } from 'react-bootstrap';
+// import { Container, Row, Col } from 'react-bootstrap';
 
-export const ChatPage = () => {
+// export const ChatPage = () => {
 
-  const chatMessages = [
-    { user: 'You', message: 'Hello!' },
-    { user: 'Friend', message: 'Hi there!' },
-    { user: 'You', message: 'How are you?' },
-    { user: 'Friend', message: 'I\'m good, thanks for asking!' },
-    // Add more messages as needed
-  ];
+//   const chatMessages = [
+//     { user: 'You', message: 'Hello!' },
+//     { user: 'Friend', message: 'Hi there!' },
+//     { user: 'You', message: 'How are you?' },
+//     { user: 'Friend', message: 'I\'m good, thanks for asking!' },
+//     // Add more messages as needed
+//   ];
 
-  return (
-    <Container className="mt-5">
-      <Row>
-        <Col md={{ span: 8, offset: 2 }}>
-          <div className="chat-window">
-            {chatMessages.map((chat, index) => (
-              <div key={index} className={`message ${chat.user === 'You' ? 'sent' : 'received'}`}>
-                <p>{chat.user} <span style={{marginLeft:"22px"}}>{chat.message}</span></p>
-              </div>
-            ))}
-          </div>
-        </Col>
-      </Row>
-    </Container>
-  );
-};
-
-
-
-
-
-
+//   return (
+//     <Container className="mt-5">
+//       <Row>
+//         <Col md={{ span: 8, offset: 2 }}>
+//           <div className="chat-window">
+//             {chatMessages.map((chat, index) => (
+//               <div key={index} className={`message ${chat.user === 'You' ? 'sent' : 'received'}`}>
+//                 <p>{chat.user} <span style={{marginLeft:"22px"}}>{chat.message}</span></p>
+//               </div>
+//             ))}
+//           </div>
+//         </Col>
+//       </Row>
+//     </Container>
+//   );
+// };
 
 // import { useEffect, useState } from "react";
 // import { useAuth } from "../../store/auth";
@@ -89,3 +83,15 @@ export const ChatPage = () => {
 //     </>
 //   );
 // };
+
+import { Alert } from 'react-bootstrap';
+
+export const ChatPage = () => {
+  return (
+    <div className='container d-flex justify-content-center align-items-center vh-100'>
+      <Alert variant='primary' className='text-center'>
+        Chat functionality coming soon!
+      </Alert>
+    </div>
+  );
+};
