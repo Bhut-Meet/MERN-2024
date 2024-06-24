@@ -136,8 +136,9 @@ export const Contact = () => {
             <div className='card shadow'>
               <div className='card-body'>
                 <h2 className='text-center mb-4'>Contact Us</h2>
-                <h6>The <span className='text-danger'>Username</span>{" "}<span className='text-danger'>Email</span>{" "}or{" "}<span className='text-danger'>number</span>{" "}are dynamic show </h6>
                 {user ? (
+                  <>
+                  <h6>The <span className='text-danger'>Username</span>{" "}<span className='text-danger'>Email</span>{" "}or{" "}<span className='text-danger'>number</span>{" "}are dynamic show </h6>
                   <form onSubmit={handleSubmit}>
                     <div className='mb-3'>
                       <label htmlFor='username' className='form-label'>
@@ -213,6 +214,7 @@ export const Contact = () => {
                     <Link className='btn btn-primary mt-3'
                   onClick={handleChatButtonClick} to="/Chat">Start Chat with Admin</Link>
                   </form>
+                  </>
                 ) : (
                   <>
                     <p className='text-center'>
