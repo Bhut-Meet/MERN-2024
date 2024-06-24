@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 export const AdminUsers = () => {
   const [users, setUsers] = useState([]);
-  const { authorizationToken, API } = useAuth();
+  const { authorizationToken, API,user } = useAuth();
   const [loading, setLoading] = useState(true); // Initialize loading state
 
   const getAllUsersData = async () => {
@@ -89,20 +89,22 @@ export const AdminUsers = () => {
                   {/* <td>{curUser.password}</td> */}
                   <td>{curUser.isAdmin ? 'Yes' : 'No'}</td>
                   <td className='d-flex justify-content-evenly'>
-                    <button className='btn btn-success btn-sm mr-2 px-3 rounded-5'>
-                      <Link
-                        style={{ color: 'white', textDecoration: 'none' }}
-                        to={`/admin/users/${curUser._id}/edit`}
-                      >
+                    {user.email !== 'admin1@gmail.com' || curUser.email !== 'admin@gmail.com' ? (
+                      <Link className='btn btn-success btn-sm mr-2 px-3 rounded-5' to={`/admin/users/${curUser._id}/edit`}>
                         Edit
-                      </Link>{' '}
-                    </button>
+                      </Link>
+                    ) : (
+                      <button className='btn btn-secondary btn-sm mr-2 px-3 rounded-5' disabled>
+                        Edit
+                      </button>
+                    )}
                     <button
                       onClick={() => deleteUser(curUser._id)}
                       className='btn btn-danger btn-sm px-4 rounded-3'
                     >
                       Delete
                     </button>
+
                   </td>
                 </tr>
               ))}
