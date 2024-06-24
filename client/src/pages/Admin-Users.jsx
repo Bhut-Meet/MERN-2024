@@ -66,7 +66,7 @@ export const AdminUsers = () => {
         Add User
       </Link>
       <div className='table-responsive'>
-        {user.email == 'admin1@gmail.com' ? (<h3>{`you'r`} not a main admin</h3>):(null)}
+        {user.email == 'admin1@gmail.com' ? (<h3 className='bg-red text-center'>{`You'r`} not a main admin</h3>):(null)}
       {loading ? (
           <div className='text-center mx-3'><h3>Loading...</h3></div>
         ) : users.length > 0 ? (
@@ -105,7 +105,7 @@ export const AdminUsers = () => {
                       Delete
                     </button> */}
 
-                      {user.email !== 'admin1@gmail.com' || curUser.email !== 'admin@gmail.com' || curUser.email =="admin1@gmail.com"  ? (
+                      {user.email !== 'admin1@gmail.com' && curUser.email !== 'admin@gmail.com' && curUser.email !== 'admin@gmail.com' ? (
                       <button
                         onClick={() => deleteUser(curUser._id)}
                         className='btn btn-danger btn-sm px-4 rounded-3'
