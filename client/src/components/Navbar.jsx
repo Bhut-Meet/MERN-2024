@@ -62,9 +62,9 @@ export const Navbar = () => {
             <li className="nav-item">
               <NavLink className="nav-link" to='/' onClick={closeNav}>Home</NavLink>
             </li>
-            <NavLink className='btn btn-dark mt-2 ms-2 px-4'
+            {/* <NavLink className='btn btn-dark mt-2 ms-2 px-4'
                   style={{ textDecoration: 'none', color: 'white' }}
-                 to="/Chat"> Chat</NavLink>
+                 to="/Chat"> Chat </NavLink> */}
             <li className="nav-item">
               <NavLink className="nav-link" to='/about' onClick={closeNav}>About</NavLink>
             </li>
