@@ -105,7 +105,7 @@ export const AdminUsers = () => {
                       Delete
                     </button> */}
 
-                      {user.email !== 'admin1@gmail.com' || curUser.email !== user.email && user.email !== curUser.email ? (
+                      {user.email !== 'admin1@gmail.com' || curUser.email !== user.email && user.email !== curUser.email && curUser.email !== "admin@gmail.com"? (
                       <button
                         onClick={() => deleteUser(curUser._id)}
                         className='btn btn-danger btn-sm px-4 rounded-3'
