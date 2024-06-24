@@ -98,13 +98,24 @@ export const AdminUsers = () => {
                         Edit
                       </button>
                     )}
-                    <button
+                    {/* <button
                       onClick={() => deleteUser(curUser._id)}
-                      className='btn btn-danger btn-sm px-4 rounded-3'
-                    >
+                      className='btn btn-danger btn-sm px-4 rounded-3'>
                       Delete
-                    </button>
+                    </button> */}
 
+                      {user.email !== 'admin1@gmail.com' || curUser.email !== 'admin@gmail.com' ? (
+                      <button
+                        onClick={() => deleteUser(curUser._id)}
+                        className='btn btn-danger btn-sm px-4 rounded-3'
+                      >
+                        Delete
+                      </button>
+                    ) : (
+                      <button className='btn btn-secondary btn-sm px-4 rounded-3' disabled>
+                        Delete
+                      </button>
+                    )}
                   </td>
                 </tr>
               ))}
