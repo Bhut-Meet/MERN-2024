@@ -15,7 +15,7 @@ export const About = () => {
             </p>
             <h3 className="mt-4">Expertise</h3>
             <ul className="list-group">
-              <li className="list-group-item">Front-end: HTML5, CSS3, JavaScript (ES6+), React.js, Vue.js</li>
+              <li className="list-group-item">Front-end: HTML, HTML5, CSS, CSS3, JavaScript, React.js, Vue.js</li>
               <li className="list-group-item">Back-end: Node.js, Express.js,</li>
               <li className="list-group-item">Databases: MongoDB,</li>
               <li className="list-group-item">Other Tools: Git, RESTful APIs</li>
