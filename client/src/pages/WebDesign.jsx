@@ -43,7 +43,7 @@ export const WebDesign = () => {
                                     <li>Basic design customization</li>
                                     <li>Limited content integration</li>
                                 </ul>
-                                <Link to="/buynow" className="btn  w-100" style={{backgroundColor:"#9333EA", color:"white"}}>Buy Now</Link>
+                                <Link to="/buynoww" className="btn  w-100" style={{backgroundColor:"#9333EA", color:"white"}}>Buy Now</Link>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -58,7 +58,7 @@ export const WebDesign = () => {
                                     <li>Enhanced content integration</li>
                                     <li>Basic SEO optimization</li>
                                 </ul>
-                                <Link to="/buynow" className="btn  w-100" style={{backgroundColor:"#9333EA", color:"white"}}>Buy Now</Link>
+                                <Link to="/buynoww" className="btn  w-100" style={{backgroundColor:"#9333EA", color:"white"}}>Buy Now</Link>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -74,7 +74,7 @@ export const WebDesign = () => {
                                     <li>Advanced SEO optimization</li>
                                     <li>Priority support</li>
                                 </ul>
-                                <Link to="/buynow" className="btn  w-100" style={{backgroundColor:"#9333EA", color:"white"}}>Buy Now</Link>
+                                <Link to="/buynoww" className="btn  w-100" style={{backgroundColor:"#9333EA", color:"white"}}>Buy Now</Link>
                             </Card.Body>
                         </Card>
                     </Col>
